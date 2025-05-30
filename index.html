@@ -3,6 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="description" content="Visual calculator for areas, volumes and perimeters. Perfect for students. Available in English, Spanish and French.">
+  <meta name="keywords" content="trigonometry, area, perimeter, volume, geometry, formulas, triangle, circle, square, calculator, free">
+  <meta name="language" content="es, en, fr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://123trig.com/" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TLKLNJ9HN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7TLKLNJ9HN');
+  </script>
+
+
   <title>123Trig</title>
   <style>
     body {
@@ -125,6 +142,10 @@
     </select>  
 
   <h1>123Trig</h1>
+  <p data-i18n="subtitle" style="text-align: center; max-width: 720px; margin: 0 auto 2rem; font-size: 1.1rem; color: #345;">
+  Learn and calculate areas, volumes, and perimeters of geometric figures in seconds. 123Trig is a free, multilingual visual tool — ideal for middle and high school students.
+  </p>
+
   <div class="layout-row">
 
     <!-- Square Card -->
@@ -156,7 +177,7 @@
 
     <!-- Cube Card -->
     <div class="card">
-      <div class="card-title">Cube</div>
+      <div class="card-title" data-i18n="cube">Cube</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 100 100">
@@ -182,13 +203,13 @@
         </div>
          <div class="inputs-col">
           <div class="input-row">
-            <label for="square-a">Side:</label>
+            <label for="cube-a" data-i18n="side">Side:</label>
             <input type="number" id="cube-a" value="5" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Area = 6a²</span>
-          <span>Volume = a³</span>
+          <span data-i18n="cube-area">Area = 6a²</span>
+          <span data-i18n="cube-volume">Volume = a³</span>
         </div>
         <div class="results-col">
           <span id="area-cube"></span>
@@ -201,7 +222,7 @@
   <div class="layout-row">
     <!-- Rectangle Card -->
     <div class="card">
-      <div class="card-title">Rectangle</div>
+      <div class="card-title" data-i18n="rect">Rectangle</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 130 100">
@@ -212,17 +233,17 @@
         </div>
         <div class="inputs-col">
           <div class="input-row">
-            <label for="rect-l">Length (l):</label>
+            <label for="rect-l" data-i18n="length">Length (l):</label>
             <input type="number" id="rect-l" value="4" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="rect-w">Width (w) :</label>
+            <label for="rect-w" data-i18n="width">Width (w):</label>
             <input type="number" id="rect-w" value="2" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Perimeter = 2(l + w)</span>
-          <span>Area = l × w</span>
+          <span data-i18n="rect-perimeter">Perimeter = 2(l + w)</span>>
+          <span data-i18n="rect-area">Area = l × w</span>
         </div>
         <div class="results-col">
           <span id="rect-perim"></span>
@@ -233,7 +254,7 @@
 
     <!-- Rectangular Prism Card -->
     <div class="card">
-      <div class="card-title">Rectangular Prism</div>
+      <div class="card-title" data-i18n="rect-prism">Rectangular Prism</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 130 100">
@@ -259,21 +280,21 @@
         </div>
         <div class="inputs-col">
           <div class="input-row">
-            <label for="prism-l">Length (l):</label>
+            <label for="prism-l" data-i18n="length">Length (l):</label>
             <input type="number" id="prism-l" value="4" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="prism-w">Width (w):</label>
+            <label for="prism-w" data-i18n="width">Width (w):</label>
             <input type="number" id="prism-w" value="2" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="prism-h">Height (H):</label>
+            <label for="prism-h" data-i18n="height">Height (h):</label>
             <input type="number" id="prism-h" value="3" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Surface Area = 2(lw + lh + wh)</span>
-          <span>Volume = l × w × h</span>
+          <span data-i18n="prism-area">Surface Area = 2(lw + lh + wh)</span>
+          <span data-i18n="prism-volume">Volume = l × w × h</span>
         </div>
         <div class="results-col">
           <span id="prism-area"></span>
@@ -286,7 +307,7 @@
   <div class="layout-row">
     <!-- Triangle Card -->
     <div class="card">
-      <div class="card-title">Triangle</div>
+      <div class="card-title" data-i18n="triangle">Triangle</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 130 100">
@@ -307,8 +328,8 @@
           </div>
         </div>
         <div class="formulas-col">
-          <span>Perimeter ≈ 2b</span>
-          <span>Area = (b × h) / 2</span>
+          <span data-i18n="triangle-perimeter">Perimeter ≈ 2b</span>
+          <span data-i18n="triangle-area">Area = (b × h) / 2</span>
         </div>
         <div class="results-col">
           <span id="tri-perim"></span>
@@ -319,7 +340,7 @@
  
     <!-- Pyramid Card -->
     <div class="card">
-      <div class="card-title">Triangular Pyramid</div>
+      <div class="card-title" data-i18n="triangle-pyramid">Triangular Pyramid</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 130 100">
@@ -351,11 +372,11 @@
         </div>
          <div class="inputs-col">
           <div class="input-row">
-            <label for="tripir-b">Base (b):</label>
+            <label for="pyr-b">Base (b):</label>
             <input type="number" id="pyr-b" value="6" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="tripir-h">height (h):</label>
+            <label for="pyr-H" data-i18n="pyr-height">Pyr Height (H):</label>
             <input type="number" id="pyr-h" value="4" min="0" step="any" />
           </div>
           <div class="input-row">
@@ -364,8 +385,8 @@
           </div>
         </div>
         <div class="formulas-col">
-          <span>Surface Area ≈ b × h + b²</span>
-          <span>Volume = (b² × H) / 3</span>
+          <span data-i18n="pyramid-area">Surface Area ≈ b × h + b²</span>
+          <span data-i18n="pyramid-volume">Volume = (b² × H) / 3</span>
         </div>
         <div class="results-col">
           <span id="pyr-area"></span>
@@ -378,7 +399,7 @@
   <div class="layout-row">
     <!-- Circle Card -->
     <div class="card">
-      <div class="card-title">Circle</div>
+      <div class="card-title" data-i18n="circle">Circle</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 100 100">
@@ -389,13 +410,13 @@
         </div>
         <div class="inputs-col">
           <div class="input-row">
-            <label for="circ-r">Radius:</label>
+            <label for="circ-r" data-i18n="radius">Radius:</label>
             <input type="number" id="circ-r" value="5" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Perimeter = 2πr</span>
-          <span>Area = πr²</span>
+          <span data-i18n="circle-perimeter">Perimeter = 2πr</span>
+          <span data-i18n="circle-area">Area = πr²</span>
         </div>
         <div class="results-col">
           <span id="circ-perim"></span>
@@ -406,7 +427,7 @@
 
     <!-- Sphere Card -->
     <div class="card">
-      <div class="card-title">Sphere</div>
+      <div class="card-title" data-i18n="sphere">Sphere</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 100 100">
@@ -416,22 +437,28 @@
             <text x="65" y="48" font-size="12">r</text>
           </svg>
         </div>
-        <div class="formulas-col">
-          <span>Surface Area = 4πr²</span>
-          <span>Volume = (4/3)πr³</span>
+        <div class="inputs-col">
+              <div class="input-row">
+                <label for="sphe-r" data-i18n="radius">Radius:</label>
+                <input type="number" id="sphe-r" value="5" min="0" step="any" />
+              </div>
+            </div>
+            <div class="formulas-col">
+              <span data-i18n="sphere-area">Surface Area = 4πr²</span>
+              <span data-i18n="sphere-volume">Volume = (4/3)πr³</span>
+            </div>
+            <div class="results-col">
+              <span id="sph-area"></span>
+              <span id="sph-vol"></span>
+            </div>
+          </div>
         </div>
-        <div class="results-col">
-          <span id="sph-area"></span>
-          <span id="sph-vol"></span>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="layout-row">
     <!-- Cylinder Card -->
     <div class="card">
-      <div class="card-title">Cylinder</div>
+      <div class="card-title" data-i18n="cylinder">Cylinder</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 100 100">
@@ -447,17 +474,17 @@
         </div>
         <div class="inputs-col">
           <div class="input-row">
-            <label for="cyl-r">Radius (r):</label>
+            <label for="cyl-r" data-i18n="radius">Radius (r):</label>
             <input type="number" id="cyl-r" value="5" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="cyl-h">Height (h):</label>
+            <label for="cyl-h" data-i18n="height">Height (h):</label>
             <input type="number" id="cyl-h" value="10" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Surface Area = 2πr² + 2πrh</span>
-          <span>Volume = πr²h</span>
+          <span data-i18n="cylinder-area">Surface Area = 2πr² + 2πrh</span>
+         <span data-i18n="cylinder-volume">Volume = πr²h</span>
         </div>
         <div class="results-col">
           <span id="cyl-area"></span>
@@ -468,7 +495,7 @@
 
     <!-- Cone Card -->
     <div class="card">
-      <div class="card-title">Cone</div>
+      <div class="card-title" data-i18n="cone">Cone</div>
       <div class="layout">
         <div class="diagram">
           <svg width="130" height="100" viewBox="0 0 100 100">
@@ -481,17 +508,17 @@
         </div>
         <div class="inputs-col">
           <div class="input-row">
-            <label for="cone-r">Radius (r):</label>
+            <label for="cone-r" data-i18n="radius">Radius (r):</label>
             <input type="number" id="cone-r" value="5" min="0" step="any" />
           </div>
           <div class="input-row">
-            <label for="cone-h">Height (h):</label>
+            <label for="cone-h" data-i18n="height">Height (h):</label>
             <input type="number" id="cone-h" value="10" min="0" step="any" />
           </div>
         </div>
         <div class="formulas-col">
-          <span>Surface Area ≈ πr(r + √(r² + h²))</span>
-          <span>Volume = (1/3)πr²h</span>
+          <span data-i18n="cone-area">Surface Area ≈ πr(r + √(r² + h²))</span>
+          <span data-i18n="cone-volume">Volume = (1/3)πr²h</span>
         </div>
         <div class="results-col">
           <span id="cone-area"></span>
@@ -502,146 +529,13 @@
   </div>
 
 <!-- (content stays the same until script block) -->
-<script>
-function round(n) {
-  return isNaN(n) ? '' : Number(n).toFixed(2);
-}
 
-function updateSquareAndCube() {
-  const a = parseFloat(document.getElementById('square-a').value);
-  const aa = parseFloat(document.getElementById('cube-a').value);
-  if (!isNaN(a)) {
-    document.getElementById('square-perim').textContent = `Perimeter = ${round(4 * a)} units`;
-    document.getElementById('square-area').textContent = `Area = ${round(a * a)} units²`;
-    document.getElementById('area-cube').textContent = `Cube Area = ${round(6 * aa * aa)} units²`;
-    document.getElementById('vol-cube').textContent = `Cube Volume = ${round(aa * aa * aa)} units³`;
-  } else {
-    document.getElementById('square-perim').textContent = '';
-    document.getElementById('square-area').textContent = '';
-    document.getElementById('area-cube').textContent = '';
-    document.getElementById('vol-cube').textContent = '';
-  }
-}
+<script src="calcs_w_i18n.js"></script>
 
-function updateRectangleAndPrism() {
-  const l = parseFloat(document.getElementById('rect-l').value);
-  const w = parseFloat(document.getElementById('rect-w').value);
-  const pl = parseFloat(document.getElementById('prism-l').value);
-  const pw = parseFloat(document.getElementById('prism-w').value);
-  const ph = parseFloat(document.getElementById('prism-h').value);
-
-  if (!isNaN(l) && !isNaN(w)) {
-    document.getElementById('rect-perim').textContent = `Perimeter = ${round(2 * (l + w))} units`;
-    document.getElementById('rect-area').textContent = `Area = ${round(l * w)} units²`;
-  } else {
-    document.getElementById('rect-perim').textContent = '';
-    document.getElementById('rect-area').textContent = '';
-  }
-
-  if (!isNaN(pl) && !isNaN(pw) && !isNaN(ph)) {
-    document.getElementById('prism-area').textContent = `Surface Area = ${round(2 * (pl * pw + pl * ph + pw * ph))} units²`;
-    document.getElementById('prism-vol').textContent = `Volume = ${round(pl * pw * ph)} units³`;
-  } else {
-    document.getElementById('prism-area').textContent = '';
-    document.getElementById('prism-vol').textContent = '';
-  }
-}
-
-function updateTriangleAndPyramid() {
-  const b = parseFloat(document.getElementById('tri-b').value);
-  const h = parseFloat(document.getElementById('tri-h').value);
-  const pb = parseFloat(document.getElementById('pyr-b').value);
-  const ph = parseFloat(document.getElementById('pyr-h').value);
-  const pH = parseFloat(document.getElementById('pyr-H').value);
-
-  if (!isNaN(b) && !isNaN(h)) {
-    document.getElementById('tri-perim').textContent = `Perimeter ≈ ${round(2 * b)} units`;
-    document.getElementById('tri-area').textContent = `Area = ${round((b * h) / 2)} units²`;
-  } else {
-    document.getElementById('tri-perim').textContent = '';
-    document.getElementById('tri-area').textContent = '';
-  }
-
-  if (!isNaN(pb) && !isNaN(ph) && !isNaN(pH)) {
-    document.getElementById('pyr-area').textContent = `Surface Area ≈ ${round(pb * ph + pb * pb)} units²`;
-    document.getElementById('pyr-vol').textContent = `Volume = ${round((pb * pb * pH) / 3)} units³`;
-  } else {
-    document.getElementById('pyr-area').textContent = '';
-    document.getElementById('pyr-vol').textContent = '';
-  }
-}
-
-function updateCircleAndSphere() {
-    const r = parseFloat(document.getElementById('circ-r').value);
-    if (!isNaN(r)) {
-    const pi = Math.PI;
-    document.getElementById('circ-perim').textContent = `Perimeter = ${round(2 * pi * r)} units`;
-    document.getElementById('circ-area').textContent = `Area = ${round(pi * r * r)} units²`;
-    document.getElementById('sph-area').textContent = `Sphere Area = ${round(4 * pi * r * r)} units²`;
-    document.getElementById('sph-vol').textContent = `Sphere Volume = ${round((4 / 3) * pi * r * r * r)} units³`;
-    } else {
-    document.getElementById('circ-perim').textContent = '';
-    document.getElementById('circ-area').textContent = '';
-    document.getElementById('sph-area').textContent = '';
-    document.getElementById('sph-vol').textContent = '';
-    }
-}
-    function updateCylinderAndCone() {
-      const rCyl = parseFloat(document.getElementById('cyl-r').value);
-      const hCyl = parseFloat(document.getElementById('cyl-h').value);
-      const rCone = parseFloat(document.getElementById('cone-r').value);
-      const hCone = parseFloat(document.getElementById('cone-h').value);
-      const pi = Math.PI;
-
-      if (!isNaN(rCyl) && !isNaN(hCyl)) {
-        document.getElementById('cyl-area').textContent = `Surface Area = ${round(2 * pi * rCyl * rCyl + 2 * pi * rCyl * hCyl)} units²`;
-        document.getElementById('cyl-vol').textContent = `Volume = ${round(pi * rCyl * rCyl * hCyl)} units³`;
-      } else {
-        document.getElementById('cyl-area').textContent = '';
-        document.getElementById('cyl-vol').textContent = '';
-      }
-
-      if (!isNaN(rCone) && !isNaN(hCone)) {
-        const slant = Math.sqrt(rCone * rCone + hCone * hCone);
-        document.getElementById('cone-area').textContent = `Surface Area ≈ ${round(pi * rCone * (rCone + slant))} units²`;
-        document.getElementById('cone-vol').textContent = `Volume = ${round((1 / 3) * pi * rCone * rCone * hCone)} units³`;
-      } else {
-        document.getElementById('cone-area').textContent = '';
-        document.getElementById('cone-vol').textContent = '';
-      }
-    }
-
-document.querySelectorAll('input[type="number"]').forEach(e => {
-    e.addEventListener('input', () => {
-    updateSquareAndCube?.();
-    updateRectangleAndPrism?.();
-    updateTriangleAndPyramid?.();
-    updateCircleAndSphere?.();
-    updateCylinderAndCone?.();
-    });
-});
-
-updateSquareAndCube?.();
-updateRectangleAndPrism?.();
-updateTriangleAndPyramid?.();
-updateCircleAndSphere?.();
-updateCylinderAndCone();
-     </script>
-
-<script>
-function loadLang(lang) {
-  fetch('lang.json')
-    .then(res => res.json())
-    .then(dict => {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[lang] && dict[lang][key]) {
-          el.textContent = dict[lang][key];
-        }
-      });
-    });
-}
-</script>
-
+<div class="bmc-button" style="text-align: center; margin-top: 2rem;">
+  <a href="https://www.buymeacoffee.com/123studioapps" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" style="height: 50px; width: 180px;">
+  </a>
+</div>
 </body>
 </html>
