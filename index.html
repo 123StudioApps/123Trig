@@ -24,12 +24,11 @@
       background: #fff;
       border-radius: 22px;
       box-shadow: 0 2px 12px 0 rgba(32,56,85,.10), 0 0.5px 1.5px rgba(0,0,0,0.04);
-      margin: 0 auto 2.5rem auto;
-      max-width: 1100px;
-      padding: 2.1rem 2.2rem 2.1rem 2.2rem;
+      padding: 2.1rem 2.2rem;
       display: flex;
       flex-direction: column;
       transition: box-shadow .2s;
+      min-height: 100px;
     }
     .card:hover {
       box-shadow: 0 8px 36px 0 rgba(32,56,85,.16), 0 1.5px 3.5px rgba(0,0,0,0.04);
@@ -39,23 +38,18 @@
       font-weight: 700;
       color: #264278;
       margin-bottom: 1.2rem;
-      text-align: left;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.7em;
     }
     .layout {
       display: flex;
       flex-direction: row;
       gap: 1.7rem;
-      justify-content: flex-start;
-      align-items: flex-start;
-      width: 100%;
+      flex-wrap: wrap;
+    }
+    .diagram, .inputs-col, .formulas-col, .results-col {
+      flex: 1 1 220px;
+      min-width: 160px;
     }
     .diagram {
-      flex-shrink: 0;
-      min-width: 145px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -64,13 +58,11 @@
       display: flex;
       flex-direction: column;
       gap: 0.15em;
-      min-width: 130px;
     }
     .input-row {
       display: flex;
       align-items: center;
       gap: 0.3em;
-      margin-bottom: 0.08em;
     }
     .inputs-col label {
       min-width: 66px;
@@ -95,283 +87,561 @@
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
-      min-width: 144px;
-      justify-content: flex-start;
     }
     .formulas-col {
-      font-family: 'Fira Mono', 'Menlo', monospace;
+      font-family: 'Fira Mono', monospace;
       color: #697a98;
       font-size: 1.02em;
       font-weight: 500;
       background: #f7f7fb;
       border-radius: 9px;
       padding: 0.55em 0.8em;
-      margin-left: 0.15em;
     }
     .results-col {
       font-weight: bold;
-      min-width: 135px;
       color: #234;
       font-size: 1.16em;
       background: #e9f7f0;
       border-radius: 9px;
       padding: 0.55em 0.9em;
-      margin-left: 0.15em;
-      align-items: flex-start;
     }
-    @media (max-width: 950px) {
-      .card { padding: 1.2rem 0.6rem; }
-      .layout { flex-direction: column; gap: 1.3rem; }
-      .diagram, .inputs-col, .formulas-col, .results-col { min-width: unset; }
+    .layout-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
     }
   </style>
+  
 </head>
 <body>
+  
+    <!-- seleccion de idiomas--> 
+    <select onchange="loadLang(this.value)" style="margin: 0 auto 1rem; display: block;">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+    </select>  
+
   <h1>123Trig</h1>
-  <div style="text-align: center; margin: 1rem 0 2rem 0;">
-    <label for="lang-select">🌍 Language:</label>
-    <select id="lang-select">
-      <option value="en">English</option>
-    </select>
-  </div>
+  <div class="layout-row">
 
-  <!-- Square -->
-  <div class="card">
-    <div class="card-title">Square Calculator</div>
-    <div class="layout">
-      <div class="diagram">
-        <svg width="130" height="130" viewBox="0 0 100 100">
-          <rect x="20" y="20" width="60" height="60" fill="white" stroke="#333" stroke-width="2"/>
-          <text x="50" y="14" text-anchor="middle" font-size="12">a</text>
-          <text x="50" y="95" text-anchor="middle" font-size="12">a</text>
-          <text x="10" y="55" text-anchor="middle" font-size="12">a</text>
-          <text x="90" y="55" text-anchor="middle" font-size="12">a</text>
-        </svg>
-      </div>
-      <div class="inputs-col">
-        <div class="input-row">
-          <label for="side">Side (a):</label>
-          <input type="number" id="side" value="5" min="0" step="any" />
+    <!-- Square Card -->
+    <div class="card">
+      <div class="card-title" data-i18n="square">Square</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <rect x="20" y="20" width="60" height="60" fill="white" stroke="#333" stroke-width="2" />
+            <text x="50" y="95" font-size="12" text-anchor="middle">a</text>
+          </svg>
+        </div>
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="square-a" data-i18n="side">Side:</label>
+            <input type="number" id="square-a" value="5" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+            <span data-i18n="square-perimeter">Perimeter = 4a</span>
+            <span data-i18n="square-area">Area = a²</span>
+        </div>
+        <div class="results-col">
+            <span id="square-perim"></span>
+            <span id="square-area"></span>
         </div>
       </div>
-      <div class="formulas-col">
-        <span>P = 4a</span>
-        <span>A = a²</span>
-      </div>
-      <div class="results-col">
-        <span id="perimeter"></span>
-        <span id="area"></span>
+    </div>
+
+    <!-- Cube Card -->
+    <div class="card">
+      <div class="card-title">Cube</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <!-- Cara frontal -->
+            <polygon points="25,30 65,30 65,70 25,70" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Cara superior -->
+            <polygon points="25,30 45,10 85,10 65,30" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Cara lateral derecha -->
+            <polygon points="65,30 85,10 85,50 65,70" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Aristas ocultas punteadas -->
+            <line x1="25" y1="70" x2="45" y2="50" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+            <line x1="45" y1="10" x2="45" y2="50" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+            <line x1="45" y1="50" x2="85" y2="50" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+
+            <!-- Etiquetas de longitud centradas -->
+            <text x="20" y="52" font-size="12" text-anchor="middle">a</text>
+            <text x="45" y="80" font-size="12" text-anchor="middle">a</text>
+            <text x="83" y="65" font-size="12" text-anchor="middle">a</text>            
+          </svg>
+        </div>
+         <div class="inputs-col">
+          <div class="input-row">
+            <label for="square-a">Side:</label>
+            <input type="number" id="cube-a" value="5" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Area = 6a²</span>
+          <span>Volume = a³</span>
+        </div>
+        <div class="results-col">
+          <span id="area-cube"></span>
+          <span id="vol-cube"></span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Rectangle -->
-  <div class="card">
-    <div class="card-title">Rectangle Calculator</div>
-    <div class="layout">
-      <div class="diagram">
-        <svg width="180" height="100" viewBox="0 0 140 80">
-          <rect x="20" y="20" width="100" height="40" fill="white" stroke="#333" stroke-width="2"/>
-          <text x="70" y="15" text-anchor="middle" font-size="12">a</text>
-          <text x="70" y="72" text-anchor="middle" font-size="12">a</text>
-          <text x="10" y="42" text-anchor="middle" font-size="12">b</text>
-          <text x="130" y="42" text-anchor="middle" font-size="12">b</text>
-        </svg>
-      </div>
-      <div class="inputs-col">
-        <div class="input-row">
-          <label for="rect-a">Length (a):</label>
-          <input type="number" id="rect-a" value="5" min="0" step="any" />
+  <div class="layout-row">
+    <!-- Rectangle Card -->
+    <div class="card">
+      <div class="card-title">Rectangle</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 130 100">
+            <rect x="20" y="30" width="90" height="40" fill="white" stroke="#333" stroke-width="2" />
+            <text x="65" y="85" font-size="12" text-anchor="middle">l</text>
+            <text x="7" y="53" font-size="12">w</text>
+          </svg>
         </div>
-        <div class="input-row">
-          <label for="rect-b">Width (b):</label>
-          <input type="number" id="rect-b" value="3" min="0" step="any" />
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="rect-l">Length (l):</label>
+            <input type="number" id="rect-l" value="4" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="rect-w">Width (w) :</label>
+            <input type="number" id="rect-w" value="2" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Perimeter = 2(l + w)</span>
+          <span>Area = l × w</span>
+        </div>
+        <div class="results-col">
+          <span id="rect-perim"></span>
+          <span id="rect-area"></span>
         </div>
       </div>
-      <div class="formulas-col">
-        <span>P = 2(a + b)</span>
-        <span>A = ab</span>
-      </div>
-      <div class="results-col">
-        <span id="perimeter-rect"></span>
-        <span id="area-rect"></span>
+    </div>
+
+    <!-- Rectangular Prism Card -->
+    <div class="card">
+      <div class="card-title">Rectangular Prism</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 130 100">
+            <!-- Cara frontal (40x60) -->
+            <polygon points="20,30 80,30 80,70 20,70" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Cara superior -->
+            <polygon points="20,30 30,20 90,20 80,30" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Cara lateral derecha (profundidad 20) -->
+            <polygon points="80,30 90,20 90,60 80,70" fill="none" stroke="#333" stroke-width="2" />
+
+            <!-- Aristas ocultas punteadas -->
+            <line x1="20" y1="70" x2="30" y2="60" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+            <line x1="30" y1="20" x2="30" y2="60" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+            <line x1="30" y1="60" x2="90" y2="60" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+
+            <!-- Etiquetas de longitud centradas -->
+            <text x="50" y="85" font-size="12" text-anchor="middle">l</text>
+            <text x="10" y="50" font-size="12" text-anchor="middle">w</text>
+            <text x="93" y="80" font-size="12" text-anchor="middle">H</text>
+          </svg>
+        </div>
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="prism-l">Length (l):</label>
+            <input type="number" id="prism-l" value="4" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="prism-w">Width (w):</label>
+            <input type="number" id="prism-w" value="2" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="prism-h">Height (H):</label>
+            <input type="number" id="prism-h" value="3" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Surface Area = 2(lw + lh + wh)</span>
+          <span>Volume = l × w × h</span>
+        </div>
+        <div class="results-col">
+          <span id="prism-area"></span>
+          <span id="prism-vol"></span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Triangle -->
-  <div class="card">
-    <div class="card-title">Triangle Calculator</div>
-    <div class="layout">
-      <div class="diagram">
-        <svg width="170" height="140" viewBox="0 0 130 120">
-          <polygon points="20,100 110,100 85,30" fill="white" stroke="#333" stroke-width="2"/>
-          <text x="65" y="115" text-anchor="middle" font-size="13">b</text>
-          <line x1="85" y1="30" x2="85" y2="100" stroke="#2a8" stroke-dasharray="4,3" stroke-width="2"/>
-          <text x="75" y="75" font-size="13" fill="#2a8" text-anchor="start">h</text> <!-- h -->
-          <text x="40" y="65" text-anchor="middle" font-size="13">a</text> <!-- a -->
-          <text x="103" y="65" text-anchor="middle" font-size="13">c</text> <!-- c -->
-        </svg>
-      </div>
-      <div class="inputs-col">
-        <div class="input-row">
-          <label for="tri-a">Side a:</label>
-          <input type="number" id="tri-a" value="7" min="0" step="any" />
+  <div class="layout-row">
+    <!-- Triangle Card -->
+    <div class="card">
+      <div class="card-title">Triangle</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 130 100">
+            <polygon points="20,80 110,80 65,20" fill="white" stroke="#333" stroke-width="2" />
+            <line x1="65" y1="20" x2="65" y2="80" stroke="#0000FF" stroke-dasharray="4" />
+            <text x="50" y="95" font-size="12" text-anchor="middle">b</text>
+            <text x="70" y="55" font-size="12">h</text>
+          </svg>
         </div>
-        <div class="input-row">
-          <label for="tri-b">Base (b):</label>
-          <input type="number" id="tri-b" value="8" min="0" step="any" />
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="tri-b">Base (b):</label>
+            <input type="number" id="tri-b" value="6" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="tri-h">Height (h):</label>
+            <input type="number" id="tri-h" value="4" min="0" step="any" />
+          </div>
         </div>
-        <div class="input-row">
-          <label for="tri-c">Side c:</label>
-          <input type="number" id="tri-c" value="6" min="0" step="any" />
+        <div class="formulas-col">
+          <span>Perimeter ≈ 2b</span>
+          <span>Area = (b × h) / 2</span>
         </div>
-        <div class="input-row">
-          <label for="tri-h">Height (h):</label>
-          <input type="number" id="tri-h" value="5" min="0" step="any" />
-        </div>
-      </div>
-      <div class="formulas-col">
-        <span>P = a + b + c</span>
-        <span>A = (b × h) / 2</span>
-      </div>
-      <div class="results-col">
-        <span id="perimeter-tri"></span>
-        <span id="area-tri"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Pentagon -->
-<div class="card">
-  <div class="card-title">Pentagon Calculator (Smart Labels Demo)</div>
-  <div class="layout">
-    <div class="diagram">
-  <svg width="130" height="130" viewBox="0 0 100 100">
-    <polygon points="50,10 95,38 77,90 23,90 5,38" fill="white" stroke="#333" stroke-width="2"/>
-    <!-- Letras en el centro de cada lado -->
-    <text x="80" y="20" font-size="12" text-anchor="middle" fill="#266">a</text>
-    <text x="95" y="70" font-size="12" text-anchor="middle" fill="#266">a</text>
-    <text x="50" y="100" font-size="12" text-anchor="middle" fill="#266">a</text>
-    <text x="5" y="70" font-size="12" text-anchor="middle" fill="#266">a</text>
-    <text x="20" y="20" font-size="12" text-anchor="middle" fill="#266">a</text>
-  </svg>
-</div>  
-    <div class="inputs-col">
-      <div class="input-row">
-        <label for="pent-a">Side (a):</label>
-        <input type="number" id="pent-a" value="5" min="0" step="any" />
-      </div>
-    </div>
-    <div class="formulas-col">
-      <span>P = 5a</span>
-      <span>A = [√(25 + 10√5)/4] a²</span>
-    </div>
-    <div class="results-col">
-      <span id="perimeter-pent"></span>
-      <span id="area-pent"></span>
-    </div>
-  </div>
-</div>
-
-  <!-- Hexagon -->
-  <div class="card">
-    <div class="card-title">Hexagon Calculator</div>
-    <div class="layout">
-      <div class="diagram">
-        <svg width="150" height="140" viewBox="0 0 100 95">
-          <polygon points="25,15 75,15 96,48 75,80 25,80 4,48" fill="white" stroke="#333" stroke-width="2"/>
-          <text x="50" y="11" text-anchor="middle" font-size="12">a</text>
-          <text x="90" y="31" text-anchor="middle" font-size="12">a</text>
-          <text x="90" y="70" text-anchor="middle" font-size="12">a</text>
-          <text x="50" y="88" text-anchor="middle" font-size="12">a</text>
-          <text x="10" y="70" text-anchor="middle" font-size="12">a</text>
-          <text x="10" y="31" text-anchor="middle" font-size="12">a</text>
-        </svg>
-      </div>
-      <div class="inputs-col">
-        <div class="input-row">
-          <label for="hex-a">Side (a):</label>
-          <input type="number" id="hex-a" value="5" min="0" step="any" />
+        <div class="results-col">
+          <span id="tri-perim"></span>
+          <span id="tri-area"></span>
         </div>
       </div>
-      <div class="formulas-col">
-        <span>P = 6a</span>
-        <span>A = (3√3/2) a²</span>
-      </div>
-      <div class="results-col">
-        <span id="perimeter-hex"></span>
-        <span id="area-hex"></span>
-      </div>
     </div>
-  </div>
-
-  <!-- Circle -->
-  <div class="card">
-    <div class="card-title">Circle Calculator</div>
-    <div class="layout">
-      <div class="diagram">
-        <svg width="140" height="140" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" fill="white" stroke="#333" stroke-width="2"/>
-          <line x1="50" y1="50" x2="90" y2="50" stroke="#1d88e6" stroke-width="2"/>
-          <text x="70" y="46" text-anchor="middle" font-size="12" fill="#1d88e6">r</text>
-        </svg>
-      </div>
-      <div class="inputs-col">
-        <div class="input-row">
-          <label for="circ-r">Radius (r):</label>
-          <input type="number" id="circ-r" value="5" min="0" step="any" />
-        </div>
-      </div>
-      <div class="formulas-col">
-        <span>C = 2πr</span>
-        <span>A = πr²</span>
-      </div>
-      <div class="results-col">
-        <span id="circ-perim"></span>
-        <span id="area-circ"></span>
-      </div>
-    </div>
-  </div>
-  <script>
-    function round(n) {
-      return isNaN(n) ? '' : Number(n).toFixed(2);
-    }
-    function update() {
-      // Square
-      const a = parseFloat(document.getElementById('side').value);
-      document.getElementById('perimeter').textContent = !isNaN(a)? `Perimeter = ${round(4*a)} units` : '';
-      document.getElementById('area').textContent = !isNaN(a)? `Area = ${round(a*a)} units²` : '';
-      // Rectangle
-      const ra = parseFloat(document.getElementById('rect-a').value);
-      const rb = parseFloat(document.getElementById('rect-b').value);
-      document.getElementById('perimeter-rect').textContent = !isNaN(ra)&&!isNaN(rb)? `Perimeter = ${round(2*(ra+rb))} units` : '';
-      document.getElementById('area-rect').textContent = !isNaN(ra)&&!isNaN(rb)? `Area = ${round(ra*rb)} units²` : '';
-      // Triangle (general)
-      const ta = parseFloat(document.getElementById('tri-a').value);
-      const tb = parseFloat(document.getElementById('tri-b').value);
-      const tc = parseFloat(document.getElementById('tri-c').value);
-      const th = parseFloat(document.getElementById('tri-h').value);
-      document.getElementById('perimeter-tri').textContent = (!isNaN(ta)&&!isNaN(tb)&&!isNaN(tc)) ? `Perimeter = ${round(ta+tb+tc)} units` : '';
-      document.getElementById('area-tri').textContent = (!isNaN(tb)&&!isNaN(th)) ? `Area = ${round(tb*th/2)} units²` : '';
-      // Pentagon
-      const pa = parseFloat(document.getElementById('pent-a').value);
-      document.getElementById('perimeter-pent').textContent = !isNaN(pa)? `Perimeter = ${round(5*pa)} units` : '';
-      document.getElementById('area-pent').textContent = !isNaN(pa)? `Area ≈ ${round((Math.sqrt(5*(5+2*Math.sqrt(5)))/4)*pa*pa)} units²` : '';
-      // Hexagon
-      const ha = parseFloat(document.getElementById('hex-a').value);
-      document.getElementById('perimeter-hex').textContent = !isNaN(ha)? `Perimeter = ${round(6*ha)} units` : '';
-      document.getElementById('area-hex').textContent = !isNaN(ha)? `Area ≈ ${round((3*Math.sqrt(3)/2)*ha*ha)} units²` : '';
-      // Circle
-      const cr = parseFloat(document.getElementById('circ-r').value);
-      document.getElementById('circ-perim').textContent = !isNaN(cr)? `Circumference = ${round(2*Math.PI*cr)} units` : '';
-      document.getElementById('area-circ').textContent = !isNaN(cr)? `Area = ${round(Math.PI*cr*cr)} units²` : '';
-    }
-    document.querySelectorAll('input[type=\"number\"]').forEach(e=>e.addEventListener('input',update));
-    update();
-
-  </script>
-
  
+    <!-- Pyramid Card -->
+    <div class="card">
+      <div class="card-title">Triangular Pyramid</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 130 100">
+            <!-- Base triangular inclinada (50x50) -->
+            <polygon points="20,80 90,90 60,60" fill="#fde5c3" stroke="#333" stroke-width="2" stroke-dasharray="3" />
+
+            <!-- Aristas VISIBLE del triángulo base -->
+            <line x1="20" y1="80" x2="90" y2="90" stroke="#333" stroke-width="2"/>
+
+            <!-- Aristas visibles -->
+            <line x1="50" y1="15" x2="20" y2="80" stroke="#333" stroke-width="2" />
+            <line x1="50" y1="15" x2="90" y2="90" stroke="#333" stroke-width="2" />
+            
+            <!-- Aristas de atras -->
+            <line x1="60" y1="60" x2="50" y2="15" stroke="#333" stroke-width="2" stroke-dasharray="3"/>
+            
+            <!-- Altura total desde vértice a base ALTURA DE LA PIRAMIDE-->
+            <line x1="50" y1="15" x2="50" y2="73" stroke="#ff0000" stroke-width="2" stroke-dasharray="3"/>
+
+            <!-- Altura del triángulo base (cara interna) -->
+            <line x1="50" y1="85" x2="60" y2="60" stroke="#0000FF" stroke-width="2" stroke-dasharray="3"/>
+     
+
+            <!-- Etiquetas -->
+            <text x="50" y="10" font-size="12" text-anchor="middle" fill="#FF0000">H</text>
+            <text x="60" y="78" font-size="12" text-anchor="start" fill="#0000FF">h</text>
+            <text x="40" y="95" font-size="12" text-anchor="middle">b</text>
+          </svg>
+        </div>
+         <div class="inputs-col">
+          <div class="input-row">
+            <label for="tripir-b">Base (b):</label>
+            <input type="number" id="pyr-b" value="6" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="tripir-h">height (h):</label>
+            <input type="number" id="pyr-h" value="4" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="tripir-H">Pyr Height (H):</label>
+            <input type="number" id="pyr-H" value="4" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Surface Area ≈ b × h + b²</span>
+          <span>Volume = (b² × H) / 3</span>
+        </div>
+        <div class="results-col">
+          <span id="pyr-area"></span>
+          <span id="pyr-vol"></span>
+        </div>
+      </div>
+  </div>
+  </div> 
+
+  <div class="layout-row">
+    <!-- Circle Card -->
+    <div class="card">
+      <div class="card-title">Circle</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="30" fill="white" stroke="#333" stroke-width="2" />
+            <line x1="50" y1="50" x2="80" y2="50" stroke="#333" stroke-dasharray="4" />
+            <text x="65" y="45" font-size="12">r</text>
+          </svg>
+        </div>
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="circ-r">Radius:</label>
+            <input type="number" id="circ-r" value="5" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Perimeter = 2πr</span>
+          <span>Area = πr²</span>
+        </div>
+        <div class="results-col">
+          <span id="circ-perim"></span>
+          <span id="circ-area"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sphere Card -->
+    <div class="card">
+      <div class="card-title">Sphere</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="30" fill="white" stroke="#333" stroke-width="2" />
+            <ellipse cx="50" cy="50" rx="30" ry="15" fill="none" stroke="#333" stroke-dasharray="4" />
+             <line x1="50" y1="50" x2="80" y2="50" stroke="#333" stroke-dasharray="4" />
+            <text x="65" y="48" font-size="12">r</text>
+          </svg>
+        </div>
+        <div class="formulas-col">
+          <span>Surface Area = 4πr²</span>
+          <span>Volume = (4/3)πr³</span>
+        </div>
+        <div class="results-col">
+          <span id="sph-area"></span>
+          <span id="sph-vol"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout-row">
+    <!-- Cylinder Card -->
+    <div class="card">
+      <div class="card-title">Cylinder</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <ellipse cx="50" cy="80" rx="30" ry="15" fill="white" stroke="#333" stroke-width="2"/>
+            <polygon points="20,80 80,80 80,60 20,60" fill="white"/>
+            <ellipse cx="50" cy="30" rx="30" ry="15" fill="white" stroke="#333" stroke-width="2" />
+            <line x1="20" y1="30" x2="20" y2="80" stroke="#333" stroke-width="2" />
+            <line x1="80" y1="30" x2="80" y2="80" stroke="#333" stroke-width="2" />
+            <line x1="50" y1="30" x2="80" y2="30" stroke="#333" stroke-width="2" stroke-dasharray="4"/>
+            <text x="63" y="28" font-size="12">r</text>
+            <text x="85" y="55" font-size="12">h</text>
+          </svg>
+        </div>
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="cyl-r">Radius (r):</label>
+            <input type="number" id="cyl-r" value="5" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="cyl-h">Height (h):</label>
+            <input type="number" id="cyl-h" value="10" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Surface Area = 2πr² + 2πrh</span>
+          <span>Volume = πr²h</span>
+        </div>
+        <div class="results-col">
+          <span id="cyl-area"></span>
+          <span id="cyl-vol"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cone Card -->
+    <div class="card">
+      <div class="card-title">Cone</div>
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="100" viewBox="0 0 100 100">
+            <path d="M50 20 L20 80 A30 15 0 0 0 80 80 Z" fill="white" stroke="#333" stroke-width="2" />
+            <line x1="50" y1="20" x2="50" y2="80" stroke="#333" stroke-dasharray="4" />
+            <line x1="80" y1="80" x2="50" y2="80" stroke="#333" stroke-dasharray="4" />
+            <text x="63" y="77" font-size="12">r</text>
+            <text x="55" y="55" font-size="12">h</text>
+          </svg>
+        </div>
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="cone-r">Radius (r):</label>
+            <input type="number" id="cone-r" value="5" min="0" step="any" />
+          </div>
+          <div class="input-row">
+            <label for="cone-h">Height (h):</label>
+            <input type="number" id="cone-h" value="10" min="0" step="any" />
+          </div>
+        </div>
+        <div class="formulas-col">
+          <span>Surface Area ≈ πr(r + √(r² + h²))</span>
+          <span>Volume = (1/3)πr²h</span>
+        </div>
+        <div class="results-col">
+          <span id="cone-area"></span>
+          <span id="cone-vol"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- (content stays the same until script block) -->
+<script>
+function round(n) {
+  return isNaN(n) ? '' : Number(n).toFixed(2);
+}
+
+function updateSquareAndCube() {
+  const a = parseFloat(document.getElementById('square-a').value);
+  const aa = parseFloat(document.getElementById('cube-a').value);
+  if (!isNaN(a)) {
+    document.getElementById('square-perim').textContent = `Perimeter = ${round(4 * a)} units`;
+    document.getElementById('square-area').textContent = `Area = ${round(a * a)} units²`;
+    document.getElementById('area-cube').textContent = `Cube Area = ${round(6 * aa * aa)} units²`;
+    document.getElementById('vol-cube').textContent = `Cube Volume = ${round(aa * aa * aa)} units³`;
+  } else {
+    document.getElementById('square-perim').textContent = '';
+    document.getElementById('square-area').textContent = '';
+    document.getElementById('area-cube').textContent = '';
+    document.getElementById('vol-cube').textContent = '';
+  }
+}
+
+function updateRectangleAndPrism() {
+  const l = parseFloat(document.getElementById('rect-l').value);
+  const w = parseFloat(document.getElementById('rect-w').value);
+  const pl = parseFloat(document.getElementById('prism-l').value);
+  const pw = parseFloat(document.getElementById('prism-w').value);
+  const ph = parseFloat(document.getElementById('prism-h').value);
+
+  if (!isNaN(l) && !isNaN(w)) {
+    document.getElementById('rect-perim').textContent = `Perimeter = ${round(2 * (l + w))} units`;
+    document.getElementById('rect-area').textContent = `Area = ${round(l * w)} units²`;
+  } else {
+    document.getElementById('rect-perim').textContent = '';
+    document.getElementById('rect-area').textContent = '';
+  }
+
+  if (!isNaN(pl) && !isNaN(pw) && !isNaN(ph)) {
+    document.getElementById('prism-area').textContent = `Surface Area = ${round(2 * (pl * pw + pl * ph + pw * ph))} units²`;
+    document.getElementById('prism-vol').textContent = `Volume = ${round(pl * pw * ph)} units³`;
+  } else {
+    document.getElementById('prism-area').textContent = '';
+    document.getElementById('prism-vol').textContent = '';
+  }
+}
+
+function updateTriangleAndPyramid() {
+  const b = parseFloat(document.getElementById('tri-b').value);
+  const h = parseFloat(document.getElementById('tri-h').value);
+  const pb = parseFloat(document.getElementById('pyr-b').value);
+  const ph = parseFloat(document.getElementById('pyr-h').value);
+  const pH = parseFloat(document.getElementById('pyr-H').value);
+
+  if (!isNaN(b) && !isNaN(h)) {
+    document.getElementById('tri-perim').textContent = `Perimeter ≈ ${round(2 * b)} units`;
+    document.getElementById('tri-area').textContent = `Area = ${round((b * h) / 2)} units²`;
+  } else {
+    document.getElementById('tri-perim').textContent = '';
+    document.getElementById('tri-area').textContent = '';
+  }
+
+  if (!isNaN(pb) && !isNaN(ph) && !isNaN(pH)) {
+    document.getElementById('pyr-area').textContent = `Surface Area ≈ ${round(pb * ph + pb * pb)} units²`;
+    document.getElementById('pyr-vol').textContent = `Volume = ${round((pb * pb * pH) / 3)} units³`;
+  } else {
+    document.getElementById('pyr-area').textContent = '';
+    document.getElementById('pyr-vol').textContent = '';
+  }
+}
+
+function updateCircleAndSphere() {
+    const r = parseFloat(document.getElementById('circ-r').value);
+    if (!isNaN(r)) {
+    const pi = Math.PI;
+    document.getElementById('circ-perim').textContent = `Perimeter = ${round(2 * pi * r)} units`;
+    document.getElementById('circ-area').textContent = `Area = ${round(pi * r * r)} units²`;
+    document.getElementById('sph-area').textContent = `Sphere Area = ${round(4 * pi * r * r)} units²`;
+    document.getElementById('sph-vol').textContent = `Sphere Volume = ${round((4 / 3) * pi * r * r * r)} units³`;
+    } else {
+    document.getElementById('circ-perim').textContent = '';
+    document.getElementById('circ-area').textContent = '';
+    document.getElementById('sph-area').textContent = '';
+    document.getElementById('sph-vol').textContent = '';
+    }
+}
+    function updateCylinderAndCone() {
+      const rCyl = parseFloat(document.getElementById('cyl-r').value);
+      const hCyl = parseFloat(document.getElementById('cyl-h').value);
+      const rCone = parseFloat(document.getElementById('cone-r').value);
+      const hCone = parseFloat(document.getElementById('cone-h').value);
+      const pi = Math.PI;
+
+      if (!isNaN(rCyl) && !isNaN(hCyl)) {
+        document.getElementById('cyl-area').textContent = `Surface Area = ${round(2 * pi * rCyl * rCyl + 2 * pi * rCyl * hCyl)} units²`;
+        document.getElementById('cyl-vol').textContent = `Volume = ${round(pi * rCyl * rCyl * hCyl)} units³`;
+      } else {
+        document.getElementById('cyl-area').textContent = '';
+        document.getElementById('cyl-vol').textContent = '';
+      }
+
+      if (!isNaN(rCone) && !isNaN(hCone)) {
+        const slant = Math.sqrt(rCone * rCone + hCone * hCone);
+        document.getElementById('cone-area').textContent = `Surface Area ≈ ${round(pi * rCone * (rCone + slant))} units²`;
+        document.getElementById('cone-vol').textContent = `Volume = ${round((1 / 3) * pi * rCone * rCone * hCone)} units³`;
+      } else {
+        document.getElementById('cone-area').textContent = '';
+        document.getElementById('cone-vol').textContent = '';
+      }
+    }
+
+document.querySelectorAll('input[type="number"]').forEach(e => {
+    e.addEventListener('input', () => {
+    updateSquareAndCube?.();
+    updateRectangleAndPrism?.();
+    updateTriangleAndPyramid?.();
+    updateCircleAndSphere?.();
+    updateCylinderAndCone?.();
+    });
+});
+
+updateSquareAndCube?.();
+updateRectangleAndPrism?.();
+updateTriangleAndPyramid?.();
+updateCircleAndSphere?.();
+updateCylinderAndCone();
+     </script>
+
+<script>
+function loadLang(lang) {
+  fetch('lang.json')
+    .then(res => res.json())
+    .then(dict => {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[lang] && dict[lang][key]) {
+          el.textContent = dict[lang][key];
+        }
+      });
+    });
+}
+</script>
+
 </body>
 </html>
