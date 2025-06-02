@@ -7,10 +7,10 @@ function updateSquareAndCube(dict, lang) {
   const a = parseFloat(document.getElementById('square-a').value);
   const aa = parseFloat(document.getElementById('cube-a').value);
   if (!isNaN(a)) {
-    document.getElementById('square-perim').textContent = `${dict[lang]["square-perimeter"].split("=")[0]} = ${round(4 * a)} units`;
-    document.getElementById('square-area').textContent = `${dict[lang]["square-area"].split("=")[0]} = ${round(a * a)} units²`;
-    document.getElementById('area-cube').textContent = `${dict[lang]["cube-area"].split("=")[0]} = ${round(6 * aa * aa)} units²`;
-    document.getElementById('vol-cube').textContent = `${dict[lang]["cube-volume"].split("=")[0]} = ${round(aa * aa * aa)} units³`;
+    document.getElementById('square-perim').textContent = `${dict[lang]["perimeter"]} = ${round(4 * a)} units`;
+    document.getElementById('square-area').textContent = dict[lang]["area"] + " = " + round(a * a) + " " + dict[lang]["units"] + "²";
+    document.getElementById('area-cube').textContent = dict[lang]["area"] + " = " + round(6 * aa * aa) + " " + dict[lang]["units"] + "²";
+    document.getElementById('vol-cube').textContent = dict[lang]["volume"] + " = " + round(aa * aa * aa) + " "+ dict[lang]["units"] + "³";
   } else {
     document.getElementById('square-perim').textContent = '';
     document.getElementById('square-area').textContent = '';
@@ -27,16 +27,16 @@ function updateRectangleAndPrism(dict, lang) {
   const ph = parseFloat(document.getElementById('prism-h').value);
 
   if (!isNaN(l) && !isNaN(w)) {
-    document.getElementById('rect-perim').textContent = `${dict[lang]["rect-perimeter"].split("=")[0]} = ${round(2 * (l + w))} units`;
-    document.getElementById('rect-area').textContent = `${dict[lang]["rect-area"].split("=")[0]} = ${round(l * w)} units²`;
+    document.getElementById('rect-perim').textContent = dict[lang]["perimeter"] + " = " + round(2 * (l + w)) + " " + dict[lang]["units"];
+    document.getElementById('rect-area').textContent = dict[lang]["area"] + " = " + round(l * w) + " " + dict[lang]["units"] + "²";
   } else {
     document.getElementById('rect-perim').textContent = '';
     document.getElementById('rect-area').textContent = '';
   }
 
   if (!isNaN(pl) && !isNaN(pw) && !isNaN(ph)) {
-    document.getElementById('prism-area').textContent = `${dict[lang]["prism-area"].split("=")[0]} = ${round(2 * (pl * pw + pl * ph + pw * ph))} units²`;
-    document.getElementById('prism-vol').textContent = `${dict[lang]["prism-volume"].split("=")[0]} = ${round(pl * pw * ph)} units³`;
+    document.getElementById('prism-area').textContent = dict[lang]["area"] + " = " + round(2 * (pl * pw + pl * ph + pw * ph)) + " " + dict[lang]["units"] + "²";
+    document.getElementById('prism-vol').textContent = dict[lang]["volume"] + " = " + round(pl * pw * ph) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('prism-area').textContent = '';
     document.getElementById('prism-vol').textContent = '';
@@ -51,16 +51,16 @@ function updateTriangleAndPyramid(dict, lang) {
   const pH = parseFloat(document.getElementById('pyr-H').value);
 
   if (!isNaN(b) && !isNaN(h)) {
-    document.getElementById('tri-perim').textContent = `${dict[lang]["triangle-perimeter"].split("=")[0]} ≈ ${round(2 * b)} units`;
-    document.getElementById('tri-area').textContent = `${dict[lang]["triangle-area"].split("=")[0]} = ${round((b * h) / 2)} units²`;
+    document.getElementById('tri-perim').textContent = dict[lang]["perimeter"] + " ≈ " + round(2 * b) + " " + dict[lang]["units"];
+    document.getElementById('tri-area').textContent = dict[lang]["area"] + " = " + round((b * h) / 2) + " " + dict[lang]["units"] + "²";
   } else {
     document.getElementById('tri-perim').textContent = '';
     document.getElementById('tri-area').textContent = '';
   }
 
   if (!isNaN(pb) && !isNaN(ph) && !isNaN(pH)) {
-    document.getElementById('pyr-area').textContent = `${dict[lang]["pyramid-area"].split("=")[0]} ≈ ${round(pb * ph + pb * pb)} units²`;
-    document.getElementById('pyr-vol').textContent = `${dict[lang]["pyramid-volume"].split("=")[0]} = ${round((pb * pb * pH) / 3)} units³`;
+    document.getElementById('pyr-area').textContent = dict[lang]["area"] + " ≈ " + round(pb * ph + pb * pb) + " " + dict[lang]["units"] + "²";
+    document.getElementById('pyr-vol').textContent = dict[lang]["volume"] + " = " + round((pb * pb * pH) / 3) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('pyr-area').textContent = '';
     document.getElementById('pyr-vol').textContent = '';
@@ -72,10 +72,10 @@ function updateCircleAndSphere(dict, lang) {
   const rs = parseFloat(document.getElementById('sphe-r').value);
   if (!isNaN(r)) {
     const pi = Math.PI;
-    document.getElementById('circ-perim').textContent = `${dict[lang]["circle-perimeter"].split("=")[0]} = ${round(2 * pi * r)} units`;
-    document.getElementById('circ-area').textContent = `${dict[lang]["circle-area"].split("=")[0]} = ${round(pi * r * r)} units²`;
-    document.getElementById('sph-area').textContent = `${dict[lang]["sphere-area"].split("=")[0]} = ${round(4 * pi * rs * rs)} units²`;
-    document.getElementById('sph-vol').textContent = `${dict[lang]["sphere-volume"].split("=")[0]} = ${round((4 / 3) * pi * rs * rs * rs)} units³`;
+    document.getElementById('circ-perim').textContent = dict[lang]["perimeter"] + " = " + round(2 * pi * r) + " " + dict[lang]["units"];
+    document.getElementById('circ-area').textContent = dict[lang]["area"] + " = " + round(pi * r * r) + " " + dict[lang]["units"] + "²";
+    document.getElementById('sph-area').textContent = dict[lang]["area"] + " = " + round(4 * pi * rs * rs) + " " + dict[lang]["units"] + "²";
+    document.getElementById('sph-vol').textContent =  dict[lang]["volume"] + " = " + round((4 / 3) * pi * rs * rs * rs) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('circ-perim').textContent = '';
     document.getElementById('circ-area').textContent = '';
@@ -92,8 +92,8 @@ function updateCylinderAndCone(dict, lang) {
   const pi = Math.PI;
 
   if (!isNaN(rCyl) && !isNaN(hCyl)) {
-    document.getElementById('cyl-area').textContent = `${dict[lang]["cylinder-area"].split("=")[0]} = ${round(2 * pi * rCyl * rCyl + 2 * pi * rCyl * hCyl)} units²`;
-    document.getElementById('cyl-vol').textContent = `${dict[lang]["cylinder-volume"].split("=")[0]} = ${round(pi * rCyl * rCyl * hCyl)} units³`;
+    document.getElementById('cyl-area').textContent = dict[lang]["area"] + " = " + round(2 * pi * rCyl * rCyl + 2 * pi * rCyl * hCyl) + " " + dict[lang]["units"] + "²";
+    document.getElementById('cyl-vol').textContent =  dict[lang]["volume"] + " = " + round(pi * rCyl * rCyl * hCyl) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('cyl-area').textContent = '';
     document.getElementById('cyl-vol').textContent = '';
@@ -101,8 +101,8 @@ function updateCylinderAndCone(dict, lang) {
 
   if (!isNaN(rCone) && !isNaN(hCone)) {
     const slant = Math.sqrt(rCone * rCone + hCone * hCone);
-    document.getElementById('cone-area').textContent = `${dict[lang]["cone-area"].split("=")[0]} ≈ ${round(pi * rCone * (rCone + slant))} units²`;
-    document.getElementById('cone-vol').textContent = `${dict[lang]["cone-volume"].split("=")[0]} = ${round((1 / 3) * pi * rCone * rCone * hCone)} units³`;
+    document.getElementById('cone-area').textContent = dict[lang]["area"] + " ≈ " + round(pi * rCone * (rCone + Math.sqrt(rCone * rCone + hCone * hCone))) + " " + dict[lang]["units"] + "²";
+    document.getElementById('cone-vol').textContent = dict[lang]["volume"] + " = " + round((1 / 3) * pi * rCone * rCone * hCone) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('cone-area').textContent = '';
     document.getElementById('cone-vol').textContent = '';
@@ -151,3 +151,4 @@ document.querySelectorAll('input[type="number"]').forEach(e => {
 });
 
 loadLang(initialLang);
+document.getElementById('lang-switcher').value = initialLang;
