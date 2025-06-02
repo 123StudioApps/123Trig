@@ -39,7 +39,15 @@
     "cylinder-volume": "Volume = πr²h",
     "cone-area": "Surface Area ≈ πr(r + √(r² + h²))",
     "cone-volume": "Volume = (1/3)πr²h",
-    "radius":"Radius:"
+    "radius":"Radius:",
+    "main-title": "123Trig",
+    "tagline": "Your Trigonometry Pal — learn and calculate fast with visual tools.",
+    "cube": "Cube",
+    "cube-area": "Area = 6a²",
+    "cube-volume": "Volume = a³",
+    "units": "units",
+    "units-sq": "units²",
+    "units-cube": "units³"
   },
   "es": {
     "title": "123Trig",
@@ -81,7 +89,15 @@
     "cylinder-volume": "Volumen = πr²h",
     "cone-area": "Área superficial ≈ πr(r + √(r² + h²))",
     "cone-volume": "Volumen = (1/3)πr²h",
-    "radius":"Radio:"
+    "radius":"Radio:",
+    "main-title": "123Trig",
+    "tagline": "Tu amigo en trigonometría — aprende y calcula rápido con herramientas visuales.",
+    "cube": "Cubo",
+    "cube-area": "Área = 6a²",
+    "cube-volume": "Volumen = a³",
+    "units": "unidades",
+    "units-sq": "unidades²",
+    "units-cube": "unidades³"
   },
   "fr": {
     "title": "123Trig",
@@ -123,6 +139,14 @@
     "cylinder-volume": "Volume = πr²h",
     "cone-area": "Surface ≈ πr(r + √(r² + h²))",
     "cone-volume": "Volume = (1/3)πr²h",
-    "radius":"Rayon:"
+    "radius":"Rayon:",
+    "main-title": "123Trig",
+    "tagline": "Ton pote en trigonométrie — apprends et calcule vite avec des outils visuels.",
+    "cube": "Cube",
+    "cube-area": "Surface = 6a²",
+    "cube-volume": "Volume = a³",
+    "units": "unités",
+    "units-sq": "unités²",
+    "units-cube": "unités³"
   }
 }

@@ -18,8 +18,8 @@
 
     gtag('config', 'G-7TLKLNJ9HN');
   </script>
-
-
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4301378904417353" crossorigin="anonymous"></script>  <!-- Google AdSense -->
+  
   <title>123Trig</title>
   <style>
     body {
@@ -37,6 +37,46 @@
       color: #234;
       font-weight: 800;
     }
+
+    .hero {
+      text-align: center;
+      max-width: 840px;
+      margin: 2rem auto 3rem;
+      padding: 1rem;
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #234;
+      margin: 0;
+    }
+
+    .hero-icon {
+      flex-shrink: 0;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #f57c00; /* naranja tipo material orange-600 */
+      margin-top: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .desc {
+      font-size: 1.05rem;
+      color: #345;
+      line-height: 1.6;
+    }
+    
     .card {
       background: #fff;
       border-radius: 22px;
@@ -141,10 +181,20 @@
         <option value="fr">Français</option>
     </select>  
 
-  <h1>123Trig</h1>
-  <p data-i18n="subtitle" style="text-align: center; max-width: 720px; margin: 0 auto 2rem; font-size: 1.1rem; color: #345;">
-  Learn and calculate areas, volumes, and perimeters of geometric figures in seconds. 123Trig is a free, multilingual visual tool — ideal for middle and high school students.
-  </p>
+  <div class="hero">
+    <div class="hero-header">
+      <svg class="hero-icon" width="50" height="50" viewBox="0 0 100 100">
+        <polygon points="10,90 90,90 10,10" fill="none" stroke="#234" stroke-width="5" />
+        <circle cx="75" cy="25" r="20" fill="none" stroke="#f57c00" stroke-width="4" />
+        <path d="M10 90 Q30 70 50 90" fill="none" stroke="#fbc02d" stroke-width="4" />
+      </svg>
+      <h1 data-i18n="main-title">123Trig</h1>
+    </div>
+    <p class="tagline" data-i18n="tagline">Your Trigonometry Pal</p>
+    <p class="desc" data-i18n="subtitle">
+      Learn and calculate areas, volumes, and perimeters of geometric figures in seconds. 123Trig is a free, multilingual visual tool — ideal for middle and high school students.
+    </p>
+  </div>
 
   <div class="layout-row">
 
