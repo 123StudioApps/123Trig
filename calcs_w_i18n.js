@@ -59,8 +59,8 @@ function updateTriangleAndPyramid(dict, lang) {
   }
 
   if (!isNaN(pb) && !isNaN(ph) && !isNaN(pH)) {
-    document.getElementById('pyr-area').textContent = dict[lang]["area"] + " ≈ " + round(pb * ph + pb * pb) + " " + dict[lang]["units"] + "²";
-    document.getElementById('pyr-vol').textContent = dict[lang]["volume"] + " = " + round((pb * pb * pH) / 3) + " " + dict[lang]["units"] + "³";
+    document.getElementById('pyr-area').textContent = dict[lang]["area"] + " = " +dict[lang]["not-implemented"];
+    document.getElementById('pyr-vol').textContent = dict[lang]["volume"] + " = " + round((pb * ph * pH) / 6) + " " + dict[lang]["units"] + "³";
   } else {
     document.getElementById('pyr-area').textContent = '';
     document.getElementById('pyr-vol').textContent = '';
@@ -132,7 +132,7 @@ function loadLang(lang) {
 
 // Detect initial language
 const defaultLang = navigator.language.slice(0, 2);
-const supportedLangs = ["en", "es", "fr"];
+const supportedLangs = ["en", "es", "fr", "pt", "de", "it"];
 const initialLang = supportedLangs.includes(defaultLang) ? defaultLang : "en";
 
 // Event listeners

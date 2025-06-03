@@ -253,6 +253,9 @@
           <option value="en">English</option>
           <option value="es">Español</option>
           <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
         </select>
       </div>
       <div class="suggest-right">
@@ -593,11 +596,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label for="tri-b">Base (b):</label>
+              <label data-i18n="base"></label>
               <input id="tri-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label for="tri-h">Height (h):</label>
+              <label data-i18n="height"></label>
               <input id="tri-h" min="0" step="any" type="number" value="4" />
             </div>
           </div>
@@ -714,21 +717,21 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label for="pyr-b">Base (b):</label>
+              <label data-i18n="base">Base (b):</label>
               <input id="pyr-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="pyr-height" for="pyr-H">Pyr Height (H):</label>
+              <label data-i18n="height">Height (h):</label>
               <input id="pyr-h" min="0" step="any" type="number" value="4" />
             </div>
             <div class="input-row">
-              <label for="tripir-H">Pyr Height (H):</label>
+              <label data-i18n="pyrheight">Pyr Height (H):</label>
               <input id="pyr-H" min="0" step="any" type="number" value="4" />
             </div>
           </div>
           <div class="formulas-col">
-            <span><span data-i18n="surface-area"></span> ≈ b × h + b²</span>
-            <span><span data-i18n="volume"></span> = (b² × H) / 3</span>
+            <span><span data-i18n="surface-area"></span> = <span data-i18n="not-implemented">Not available</span></span>
+            <span><span data-i18n="volume"></span> = (b × h × H) / 6</span>
           </div>
           <div class="results-col">
             <span id="pyr-area"></span>
