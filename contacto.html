@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="title">Contact</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 720px; margin: auto; color: #333; }
+    h1 { color: #234; }
+    a { color: #007bff; }
+  </style>
+</head>
+<body>
+  <h1 data-i18n="title">Contact</h1>
+  <p data-i18n="p1"></p>
+  <p><span id="email-line"></span></p>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Contact",
+        p1: "If you have any questions, feedback or suggestions, feel free to reach out to us:"
+      },
+      es: {
+        title: "Contacto",
+        p1: "Si tienes preguntas, comentarios o sugerencias, puedes escribirnos a:"
+      },
+      fr: {
+        title: "Contact",
+        p1: "Si vous avez des questions, suggestions ou remarques, contactez-nous ici :"
+      },
+      de: {
+        title: "Kontakt",
+        p1: "Bei Fragen, Anregungen oder Feedback, kontaktieren Sie uns bitte:"
+      },
+      it: {
+        title: "Contatto",
+        p1: "Per domande, suggerimenti o feedback, contattaci a:"
+      },
+      pt: {
+        title: "Contato",
+        p1: "Se você tiver dúvidas, sugestões ou comentários, entre em contato:"
+      }
+    };
+
+    const lang = (navigator.language || "en").slice(0, 2);
+    const dict = translations[lang] || translations["en"];
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+
+    // Email protection
+    const user = "123studioapps";
+    const domain = "gmail.com";
+    const emailHTML = `<a href="mailto:${user}@${domain}">${user}@${domain}</a>`;
+    document.getElementById("email-line").innerHTML = emailHTML;
+
+    document.documentElement.lang = lang;
+  </script>
+</body>
+</html>

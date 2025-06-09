@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n="title">Privacy Policy</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 720px; margin: auto; color: #333; }
+    h1 { color: #234; }
+    a { color: #007bff; }
+  </style>
+</head>
+<body>
+  <h1 data-i18n="title">Privacy Policy</h1>
+  <p data-i18n="p1"></p>
+  <p data-i18n="p2"></p>
+  <p data-i18n="p3"></p>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Privacy Policy",
+        p1: "This website does not directly collect any personal data from users.",
+        p2: 'We use Google AdSense to serve ads. Google may use cookies to personalize ads based on your interests. For more information, see Google\'s <a href="https://policies.google.com/technologies/ads" target="_blank">Advertising Privacy & Terms</a>.',
+        p3: "By using this site, you agree to this policy."
+      },
+      es: {
+        title: "Política de Privacidad",
+        p1: "Este sitio no recopila datos personales directamente de los usuarios.",
+        p2: 'Usamos Google AdSense para mostrar anuncios. Google puede usar cookies para personalizar la publicidad según tus intereses. Más información en <a href="https://policies.google.com/technologies/ads" target="_blank">Publicidad y privacidad de Google</a>.',
+        p3: "Al usar este sitio, aceptas esta política."
+      },
+      fr: {
+        title: "Politique de Confidentialité",
+        p1: "Ce site ne collecte pas directement de données personnelles des utilisateurs.",
+        p2: 'Nous utilisons Google AdSense pour afficher des annonces. Google peut utiliser des cookies pour personnaliser les publicités selon vos intérêts. Plus d\'infos sur <a href="https://policies.google.com/technologies/ads" target="_blank">la politique de confidentialité de Google</a>.',
+        p3: "En utilisant ce site, vous acceptez cette politique."
+      },
+      de: {
+        title: "Datenschutzerklärung",
+        p1: "Diese Website sammelt keine personenbezogenen Daten direkt von Benutzern.",
+        p2: 'Wir verwenden Google AdSense für Werbung. Google kann Cookies nutzen, um Anzeigen basierend auf Ihren Interessen zu personalisieren. Mehr Infos auf <a href="https://policies.google.com/technologies/ads" target="_blank">Googles Datenschutzrichtlinien</a>.',
+        p3: "Durch die Nutzung dieser Website stimmen Sie dieser Richtlinie zu."
+      },
+      it: {
+        title: "Informativa sulla Privacy",
+        p1: "Questo sito non raccoglie direttamente dati personali dagli utenti.",
+        p2: 'Utilizziamo Google AdSense per mostrare annunci. Google può usare cookie per personalizzare la pubblicità in base ai tuoi interessi. Maggiori informazioni su <a href="https://policies.google.com/technologies/ads" target="_blank">Privacy e termini di Google</a>.',
+        p3: "Utilizzando questo sito, accetti questa informativa."
+      },
+      pt: {
+        title: "Política de Privacidade",
+        p1: "Este site não coleta dados pessoais diretamente dos usuários.",
+        p2: 'Usamos o Google AdSense para exibir anúncios. O Google pode usar cookies para personalizar os anúncios com base nos seus interesses. Saiba mais em <a href="https://policies.google.com/technologies/ads" target="_blank">Política de Privacidade do Google</a>.',
+        p3: "Ao usar este site, você concorda com esta política."
+      }
+    };
+
+    const lang = (navigator.language || "en").slice(0, 2);
+    const dict = translations[lang] || translations["en"];
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) el.innerHTML = dict[key];
+    });
+
+    document.documentElement.lang = lang;
+  </script>
+</body>
+</html>
