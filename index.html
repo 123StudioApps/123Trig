@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <meta
       name="description"
       content="Visual calculator for areas, volumes and perimeters. Perfect for students. Available in English, Spanish and French."
@@ -37,17 +37,28 @@
     ></script>
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-4301378904417353" />
- 
-
 
     <title>123Trig</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
         font-family: "Segoe UI", sans-serif;
         background: #f7f8fa;
-        padding: 0rem 1 4rem 1;
-        margin: 0;
+        padding: 2rem;
+        margin: 0 auto;
+        /* max-width: 720px; */
         min-height: 100vh;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .content {
+        margin-top: 6rem; /* para que no tape el header fijo */
       }
 
       h1 {
@@ -120,7 +131,7 @@
         font-size: 1.3rem;
         font-weight: 700;
         color: #264278;
-        margin-bottom: 1.2rem;
+        margin-bottom: 0rem;
       }
 
       .layout {
@@ -246,34 +257,19 @@
         text-decoration: underline;
         font-weight: 500;
       }
+
+      .figure-description {
+        margin-top: 0rem;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: #444;
+        display: block;
+      }
     </style>
   </head>
 
   <body>
-    <div class="suggest-bar">
-      <div class="suggest-left">
-        <select onchange="loadLang(this.value)" id="lang-switcher">
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="pt">Português</option>
-          <option value="de">Deutsch</option>
-          <option value="it">Italiano</option>
-        </select>
-      </div>
-      <div class="suggest-right">
-        <span data-i18n="suggestion-banner"
-          >💡 Help me get better — got feedback?</span
-        >
-        <a
-          href="https://forms.gle/P9Chog9KJyDic3dX6"
-          target="_blank"
-          id="suggest-link"
-          data-i18n="send-here"
-          >Send it here</a
-        >
-      </div>
-    </div>
+    <div id="site-header"></div>
 
     <div class="hero">
       <div class="hero-header">
@@ -309,19 +305,136 @@
       </p>
     </div>
 
-<section style="display: flex; justify-content: center; padding: 0 2rem; margin-bottom: 2rem;">
-  <div style="background: #badffd; color: #0f172a; padding: 1rem 1.2rem; border-radius: 8px; font-size: 1.05rem; line-height: 1.5; box-shadow: 0 1px 4px rgba(0,0,0,0.05); text-align: center;">
-    <p data-i18n="landing-intro"></p>
-    </div>
-  </section>
+    <section
+      style="
+        display: flex;
+        justify-content: center;
+        padding: 0 2rem;
+        margin-bottom: 2rem;
+      "
+    >
+      <div
+        style="
+          background: #badffd;
+          color: #0f172a;
+          padding: 1rem 1.2rem;
+          border-radius: 8px;
+          font-size: 1.05rem;
+          line-height: 1.5;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+          text-align: center;
+        "
+      >
+        <p data-i18n="landing-intro"></p>
+      </div>
+    </section>
+    <!-- Hidden SEO content for Googlebot -->
+    <section
+      class="lang-hidden lang-en"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig is a simple, multilingual calculator built for students. It
+        helps you learn and compute geometric figures quickly, without
+        distractions.
+      </p>
+      <p>
+        Select a shape, input dimensions, and get instant results for perimeter,
+        area, or volume. All formulas are shown visually and translated to your
+        language.
+      </p>
+    </section>
 
+    <section
+      class="lang-hidden lang-es"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig es una calculadora visual y multilingüe pensada para
+        estudiantes. Ayuda a aprender y resolver figuras geométricas de forma
+        rápida y sin distracciones.
+      </p>
+      <p>
+        Selecciona una figura, ingresa sus dimensiones, y obtén al instante el
+        perímetro, área o volumen. Todas las fórmulas se muestran de forma
+        visual y en tu idioma.
+      </p>
+    </section>
 
+    <section
+      class="lang-hidden lang-fr"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig est une calculatrice simple et multilingue conçue pour les
+        élèves. Elle permet de comprendre et résoudre des figures géométriques
+        rapidement, sans distractions.
+      </p>
+      <p>
+        Choisissez une forme, entrez ses dimensions, et obtenez instantanément
+        le périmètre, la surface ou le volume. Toutes les formules sont
+        affichées visuellement et traduites dans votre langue.
+      </p>
+    </section>
 
+    <section
+      class="lang-hidden lang-pt"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig é uma calculadora simples e multilíngue feita para estudantes.
+        Ela ajuda a aprender e resolver figuras geométricas de forma rápida e
+        sem distrações.
+      </p>
+      <p>
+        Selecione uma forma, insira as dimensões e veja instantaneamente o
+        perímetro, área ou volume. Todas as fórmulas são mostradas visualmente
+        no seu idioma.
+      </p>
+    </section>
 
+    <section
+      class="lang-hidden lang-de"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig ist ein einfaches, mehrsprachiges Tool für Schüler. Es hilft
+        dir, geometrische Figuren schnell und ohne Ablenkung zu verstehen und zu
+        berechnen.
+      </p>
+      <p>
+        Wähle eine Form, gib die Maße ein und erhalte sofort Umfang, Fläche oder
+        Volumen. Alle Formeln werden visuell dargestellt und übersetzt.
+      </p>
+    </section>
+
+    <section
+      class="lang-hidden lang-it"
+      style="position: absolute; left: -9999px"
+    >
+      <p>
+        123Trig è una calcolatrice semplice e multilingue pensata per gli
+        studenti. Aiuta a comprendere e risolvere figure geometriche in modo
+        rapido e senza distrazioni.
+      </p>
+      <p>
+        Seleziona una figura, inserisci le dimensioni e ottieni subito
+        perimetro, area o volume. Tutte le formule sono mostrate visivamente e
+        tradotte nella tua lingua.
+      </p>
+    </section>
+    <section style="margin-top: 2rem; margin-bottom: 2rem; margin-left: 2rem;text-align: center">
+      <div class="card-title" data-i18n="definitions"></div>
+      <div data-i18n="desc-perimeter"></div>
+      <div data-i18n="desc-area"></div>
+      <div data-i18n="desc-volume"></div>
+      <div data-i18n="desc-surface-area"></div>
+    </section>
     <div class="layout-row">
       <!-- Square Card -->
       <div class="card">
         <div class="card-title" data-i18n="square">Square</div>
+        <div class="figure-description" data-i18n="desc-square"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -361,6 +474,7 @@
       <!-- Cube Card -->
       <div class="card">
         <div class="card-title" data-i18n="cube">Cube</div>
+        <div class="figure-description" data-i18n="desc-cube"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -449,6 +563,7 @@
       <!-- Rectangle Card -->
       <div class="card">
         <div class="card-title" data-i18n="rect">Rectangle</div>
+        <div class="figure-description" data-i18n="desc-rect"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 130 100">
@@ -489,6 +604,7 @@
       <!-- Rectangular Prism Card -->
       <div class="card">
         <div class="card-title" data-i18n="rect-prism">Rectangular Prism</div>
+        <div class="figure-description" data-i18n="desc-rect-prism"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 130 100">
@@ -585,6 +701,7 @@
       <!-- Triangle Card -->
       <div class="card">
         <div class="card-title" data-i18n="triangle">Triangle</div>
+        <div class="figure-description" data-i18n="desc-triangle"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 130 100">
@@ -617,7 +734,9 @@
             </div>
           </div>
           <div class="formulas-col">
-            <span><span data-i18n="perimeter"></span> ≈ 2b</span>
+            <span
+              ><span data-i18n="not-implemented"></span> not implemented</span
+            >
             <span><span data-i18n="area"></span> = (b × h) / 2</span>
           </div>
           <div class="results-col">
@@ -632,6 +751,7 @@
         <div class="card-title" data-i18n="triangle-pyramid">
           Triangular Pyramid
         </div>
+        <div class="figure-description" data-i18n="desc-triangle-pyramid"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 130 100">
@@ -742,7 +862,10 @@
             </div>
           </div>
           <div class="formulas-col">
-            <span><span data-i18n="surface-area"></span> = <span data-i18n="not-implemented">Not available</span></span>
+            <span
+              ><span data-i18n="surface-area"></span> =
+              <span data-i18n="not-implemented">Not available</span></span
+            >
             <span><span data-i18n="volume"></span> = (b × h × H) / 6</span>
           </div>
           <div class="results-col">
@@ -757,6 +880,7 @@
       <!-- Circle Card -->
       <div class="card">
         <div class="card-title" data-i18n="circle">Circle</div>
+        <div class="figure-description" data-i18n="desc-circle"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -803,6 +927,7 @@
       <!-- Sphere Card -->
       <div class="card">
         <div class="card-title" data-i18n="sphere">Sphere</div>
+        <div class="figure-description" data-i18n="desc-sphere"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -856,6 +981,7 @@
       <!-- Cylinder Card -->
       <div class="card">
         <div class="card-title" data-i18n="cylinder">Cylinder</div>
+        <div class="figure-description" data-i18n="desc-cylinder"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -931,6 +1057,7 @@
       <!-- Cone Card -->
       <div class="card">
         <div class="card-title" data-i18n="cone">Cone</div>
+        <div class="figure-description" data-i18n="desc-cone"></div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="100" viewBox="0 0 100 100">
@@ -971,7 +1098,9 @@
             </div>
           </div>
           <div class="formulas-col">
-            <span><span data-i18n="surface-area"></span> ≈ πr(r + √(r² + h²))</span>
+            <span
+              ><span data-i18n="surface-area"></span> ≈ πr(r + √(r² + h²))</span
+            >
             <span><span data-i18n="volume"></span> = (1/3)πr²h</span>
           </div>
           <div class="results-col">
@@ -981,40 +1110,64 @@
         </div>
       </div>
     </div>
-<footer style="text-align: center; margin-top: 4rem; font-size: 0.9rem; color: #555">
-  <p>
-    <a href="privacidad.html">Privacy Policy</a> |
-    <a href="contacto.html">Contact</a>
-  </p>
-  <p style="margin-top: 0.5rem;">&copy; <span id="year"></span> 123Trig. All rights reserved.</p>
-</footer>
+    <footer
+      style="
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 0.9rem;
+        color: #555;
+      "
+    >
+      <div class="bmc-button" style="text-align: center; margin-top: 2rem">
+        <a href="https://www.buymeacoffee.com/123studioapps" target="_blank">
+          <img
+            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+            alt="Buy Me a Coffee"
+            style="height: 50px; width: 180px"
+          />
+        </a>
+      </div>
 
-<script>
-  // Set current year dynamically
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-    <!-- (content stays the same until script block) -->
+      <div class="footer-links" style="margin-bottom: 0.5rem">
+        <a href="about.html" data-i18n="nav-about" style="margin: 0 0.5rem">About</a> |
+        <a href="privacidad.html" data-i18n="nav-privacy" style="margin: 0 0.5rem">Privacy</a> |
+        <a href="terms.html" data-i18n="nav-contact" style="margin: 0 0.5rem">Terms</a> |
+        <a href="contacto.html" data-i18n="nav-terms" style="margin: 0 0.5rem">Contact</a>
+      </div>
 
-    <script src="calcs_w_i18n.js"></script>
-
-    <div class="bmc-button" style="text-align: center; margin-top: 2rem">
-      <a href="https://www.buymeacoffee.com/123studioapps" target="_blank">
-        <img
-          src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-          alt="Buy Me a Coffee"
-          style="height: 50px; width: 180px"
-        />
-      </a>
-    </div>
+      <p style="margin-top: 0.5rem">
+        &copy; <span id="year"></span> 123Trig. <span data-i18n="footer-rights">All rights reserved.</span>
+      </p>
+    </footer>
 
     <script>
-      document.getElementById("suggest-link")?.addEventListener("click", () => {
-        gtag("event", "click_suggestion_link", {
-          event_category: "engagement",
-          event_label: "Banner Suggestion Link",
-          value: 1,
+      // Set current year dynamically
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <!-- (content stays the same until script block) -->
+    <script src="calcs_w_i18n.js"></script>
+
+    <script>
+      const supportedLangs = ["en", "es", "fr", "pt", "de", "it"];
+      const defaultLang = navigator.language.slice(0, 2);
+      const initialLang = supportedLangs.includes(defaultLang)
+        ? defaultLang
+        : "en";
+
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("site-header").innerHTML = html;
+
+          const langEl = document.getElementById("lang-switcher");
+          langEl.value = initialLang;
+
+          langEl.addEventListener("change", () => {
+            loadLang(langEl.value);
+          });
+
+          loadLang(initialLang);
         });
-      });
     </script>
   </body>
 </html>

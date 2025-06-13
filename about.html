@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="privacy-title">Privacy Policy</title>
+    <title data-i18n="about-title">About</title>
     <style>
       * {
         margin: 0;
@@ -20,21 +20,30 @@
         color: #333;
         line-height: 1.6;
       }
-      .content {
+      h1 {
+        color: #234;
+      }
+      .about-block {
         margin-top: 6rem;
       }
-      .content p {
+      .about-block p {
         margin-bottom: 1.2rem;
+      }
+      .footer {
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div id="site-header"></div>
 
-    <section class="content">
-      <h1 data-i18n="privacy-title">Privacy Policy</h1>
-      <p data-i18n="privacy-p1"></p>
-      <p data-i18n="privacy-p2"></p>
+    <section class="about-block">
+      <h1 data-i18n="about-title">About</h1>
+      <p data-i18n="about-p1"></p>
+      <p data-i18n="about-p2"></p>
+      <p data-i18n="about-p3"></p>
     </section>
 
     <footer
@@ -71,6 +80,7 @@
         <span data-i18n="footer-rights">All rights reserved.</span>
       </p>
     </footer>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>

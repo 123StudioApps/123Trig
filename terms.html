@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="privacy-title">Privacy Policy</title>
+    <title data-i18n="terms-title">Terms of Service</title>
     <style>
       * {
         margin: 0;
@@ -20,11 +20,20 @@
         color: #333;
         line-height: 1.6;
       }
+      h1 {
+        color: #234;
+      }
       .content {
         margin-top: 6rem;
       }
       .content p {
         margin-bottom: 1.2rem;
+      }
+      footer {
+        margin-top: 4rem;
+        font-size: 0.9rem;
+        text-align: center;
+        color: #555;
       }
     </style>
   </head>
@@ -32,9 +41,10 @@
     <div id="site-header"></div>
 
     <section class="content">
-      <h1 data-i18n="privacy-title">Privacy Policy</h1>
-      <p data-i18n="privacy-p1"></p>
-      <p data-i18n="privacy-p2"></p>
+      <h1 data-i18n="terms-title">Terms of Service</h1>
+      <p data-i18n="terms-p1"></p>
+      <p data-i18n="terms-p2"></p>
+      <p data-i18n="terms-p3"></p>
     </section>
 
     <footer
@@ -71,11 +81,11 @@
         <span data-i18n="footer-rights">All rights reserved.</span>
       </p>
     </footer>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
-    <!-- (content stays the same until script block) -->
     <script src="calcs_w_i18n.js"></script>
 
     <script>
