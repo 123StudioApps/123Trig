@@ -36,7 +36,7 @@ header_translations = {
     "nav-about": "Über",
     "nav-privacy": "Datenschutz",
     "nav-contact": "Kontakt",
-    "nav-terms": "Nutzung",
+    "nav-terms": "Bedingungen",
     "nav-feedback": "💡 Feedback",
   },
   it: {
@@ -46,5 +46,21 @@ header_translations = {
     "nav-contact": "Contatto",
     "nav-terms": "Termini",
     "nav-feedback": "💡 Suggerimenti",
+  },
+  zh: {
+    "nav-home": "首页",
+    "nav-about": "关于",
+    "nav-privacy": "隐私",
+    "nav-contact": "联系",
+    "nav-terms": "条款",
+    "nav-feedback": "💡 意见反馈",
+  },
+  ja: {
+    "nav-home": "ホーム",
+    "nav-about": "概要",
+    "nav-privacy": "プライバシー",
+    "nav-contact": "お問い合わせ",
+    "nav-terms": "利用規約",
+    "nav-feedback": "💡 フィードバック",
   },
 };

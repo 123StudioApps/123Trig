@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <meta
       name="description"
-      content="Visual calculator for areas, volumes and perimeters. Perfect for students. Available in English, Spanish and French."
+      content="Visual calculator for areas, volumes and perimeters. Perfect for students. Available in English, Spanish, French, Portuguese, Italian, German, Chineese and Japaneese."
     />
     <meta
       name="keywords"
@@ -39,232 +39,22 @@
     <meta name="google-adsense-account" content="ca-pub-4301378904417353" />
 
     <title>123Trig</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module">
+      import {
+        initConePopup,
+        showConePopup,
+        hideConePopup,
+      } from "./conePopup.js";
+      window.addEventListener("DOMContentLoaded", () => {
+        initConePopup();
+        window.showConePopup = showConePopup;
+        window.hideConePopup = hideConePopup;
+      });
+    </script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+     /* ALL STYLES IN STYLES.CSS */
 
-      body {
-        font-family: "Segoe UI", sans-serif;
-        background: #f7f8fa;
-        padding: 2rem;
-        margin: 0 auto;
-        /* max-width: 720px; */
-        min-height: 100vh;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      .content {
-        margin-top: 6rem; /* para que no tape el header fijo */
-      }
-
-      h1 {
-        text-align: center;
-        font-size: 2.2rem;
-        letter-spacing: 1px;
-        margin-bottom: 1.5rem;
-        color: #234;
-        font-weight: 800;
-      }
-
-      .hero {
-        text-align: center;
-        max-width: 840px;
-        margin: 2rem auto 3rem;
-        padding: 1rem;
-      }
-
-      .hero-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-      }
-
-      .hero h1 {
-        font-size: 2.8rem;
-        font-weight: 800;
-        color: #234;
-        margin: 0;
-      }
-
-      .hero-icon {
-        flex-shrink: 0;
-      }
-
-      .tagline {
-        font-size: 1.25rem;
-        font-weight: 500;
-        color: #f57c00;
-        /* naranja tipo material orange-600 */
-        margin-top: 0.5rem;
-        margin-bottom: 0.8rem;
-      }
-
-      .desc {
-        font-size: 1.05rem;
-        color: #345;
-        line-height: 1.6;
-      }
-
-      .card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 12px 0 rgba(32, 56, 85, 0.1),
-          0 0.5px 1.5px rgba(0, 0, 0, 0.04);
-        padding: 2.1rem 2.2rem;
-        display: flex;
-        flex-direction: column;
-        transition: box-shadow 0.2s;
-        min-height: 100px;
-      }
-
-      .card:hover {
-        box-shadow: 0 8px 36px 0 rgba(32, 56, 85, 0.16),
-          0 1.5px 3.5px rgba(0, 0, 0, 0.04);
-      }
-
-      .card-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: #264278;
-        margin-bottom: 0rem;
-      }
-
-      .layout {
-        display: flex;
-        flex-direction: row;
-        gap: 1.7rem;
-        flex-wrap: wrap;
-      }
-
-      .diagram,
-      .inputs-col,
-      .formulas-col,
-      .results-col {
-        flex: 1 1 220px;
-        min-width: 160px;
-      }
-
-      .diagram {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .inputs-col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.15em;
-      }
-
-      .input-row {
-        display: flex;
-        align-items: center;
-        gap: 0.3em;
-      }
-
-      .inputs-col label {
-        min-width: 66px;
-        font-size: 1em;
-        color: #233d4d;
-      }
-
-      .inputs-col input {
-        width: 76px;
-        border: 1.2px solid #e1e5ee;
-        background: #f7f7fa;
-        border-radius: 8px;
-        padding: 0.18em 0.45em;
-        font-size: 1em;
-        outline: none;
-        transition: border 0.2s;
-      }
-
-      .inputs-col input:focus {
-        border: 1.5px solid #2875fa;
-        background: #eef4ff;
-      }
-
-      .formulas-col,
-      .results-col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.85rem;
-      }
-
-      .formulas-col {
-        font-family: "Fira Mono", monospace;
-        color: #697a98;
-        font-size: 1.02em;
-        font-weight: 500;
-        background: #f7f7fb;
-        border-radius: 9px;
-        padding: 0.55em 0.8em;
-      }
-
-      .results-col {
-        font-weight: bold;
-        color: #234;
-        font-size: 1.16em;
-        background: #e9f7f0;
-        border-radius: 9px;
-        padding: 0.55em 0.9em;
-      }
-
-      .layout-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1.5rem;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-        padding: 0 1.5rem;
-      }
-
-      .suggest-bar {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
-        font-weight: 500;
-        background: #e0f2fe;
-        color: #0f172a;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-        z-index: 1000;
-      }
-
-      .suggest-left {
-        flex-shrink: 0;
-      }
-
-      .suggest-right {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 0.3rem;
-        flex: 1;
-        min-width: 180px;
-      }
-
-      .suggest-bar a {
-        color: #0284c7;
-        text-decoration: underline;
-        font-weight: 500;
-      }
-
-      .figure-description {
-        margin-top: 0rem;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-        color: #444;
-        display: block;
-      }
     </style>
   </head>
 
@@ -295,15 +85,25 @@
             stroke-width="4"
           />
         </svg>
-        <h1 data-i18n="main-title">123Trig</h1>
+        <h1 data-i18n="main-title" id="start">123Trig</h1>
       </div>
       <p class="tagline" data-i18n="tagline">Your Trigonometry Pal</p>
       <p class="desc" data-i18n="subtitle">
         Learn and calculate areas, volumes, and perimeters of geometric figures
-        in seconds. 123Trig is a free, multilingual visual tool — ideal for
+        in seconds.<br> 123Trig is a free, multilingual visual tool — ideal for
         middle and high school students.
       </p>
     </div>
+
+    <p style="max-width: 80vw; text-align: center;margin:0 auto; display:block;font-size: 1.5rem;" data-i18n="personal-take">
+           
+        <b>Little Intro:</b> Geometry isn’t just about shapes on paper — it’s
+        the secret behind so many everyday things! From figuring out how many
+        tiles fit in your bathroom, to how much paint fills your walls, or even
+        picking the right air conditioner for your room — it’s all geometry.
+        Once you see it, you can’t unsee it!
+      
+    </p>
 
     <section
       style="
@@ -312,21 +112,8 @@
         padding: 0 2rem;
         margin-bottom: 2rem;
       "
-    >
-      <div
-        style="
-          background: #badffd;
-          color: #0f172a;
-          padding: 1rem 1.2rem;
-          border-radius: 8px;
-          font-size: 1.05rem;
-          line-height: 1.5;
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-          text-align: center;
-        "
-      >
-        <p data-i18n="landing-intro"></p>
-      </div>
+     > 
+
     </section>
     <!-- Hidden SEO content for Googlebot -->
     <section
@@ -423,21 +210,52 @@
         tradotte nella tua lingua.
       </p>
     </section>
-    <section style="margin-top: 2rem; margin-bottom: 2rem; margin-left: 2rem;text-align: center">
+    <section
+      style="
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 2rem;
+        text-align: center;
+      "
+    >
       <div class="card-title" data-i18n="definitions"></div>
       <div data-i18n="desc-perimeter"></div>
       <div data-i18n="desc-area"></div>
       <div data-i18n="desc-volume"></div>
       <div data-i18n="desc-surface-area"></div>
     </section>
+
+      <div style="text-align: center;">
+        <div
+          style="
+            background: #badffd;
+            color: #0f172a;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            display: inline-block; 
+            text-align: center;
+          "
+          data-i18n="landing-intro">
+        </div>
+      </div>
+<section class="intro-section flatland">
+  <h2 id="flatlands" data-i18n="section-2d">🟪 The 2D Universe — or Flatland!</h2>
+  <p data-i18n="section-2d-desc">
+    Welcome to Flatland — a world with only length and width, no depth allowed!
+    It’s where geometry begins: the realm of drawings, tiles, and blueprints.
+  </p>
+</section>
     <div class="layout-row">
-      <!-- Square Card -->
-      <div class="card">
+      <!-- Square Card  Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Car-->
+      <div class="card" id="square">
         <div class="card-title" data-i18n="square">Square</div>
         <div class="figure-description" data-i18n="desc-square"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <rect
                 x="20"
                 y="20"
@@ -456,117 +274,96 @@
               <input type="number" id="square-a" value="5" min="0" step="any" />
             </div>
           </div>
+
           <div class="formulas-col">
-            <span data-i18n="square-perimeter"
-              ><span data-i18n="perimeter"></span> = 4a</span
-            >
-            <span data-i18n="square-area"
-              ><span data-i18n="area"></span> = a²</span
-            >
+            <span><span data-i18n="perimeter"></span> = 4a</span>
+            <span><span data-i18n="area"></span> = a²</span>
           </div>
+
           <div class="results-col">
             <span id="square-perim"></span>
             <span id="square-area"></span>
           </div>
         </div>
       </div>
-
-      <!-- Cube Card -->
-      <div class="card">
-        <div class="card-title" data-i18n="cube">Cube</div>
-        <div class="figure-description" data-i18n="desc-cube"></div>
+      <!-- Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card-->
+      <div class="card" id="rhombus">
+        <div class="card-title" data-i18n="rhombus">Rhombus</div>
+        <div class="figure-description" data-i18n="desc-rhombus"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
-              <!-- Cara frontal -->
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <!-- Rhombus (diamond) -->
               <polygon
-                points="25,30 65,30 65,70 25,70"
-                fill="none"
+                points="65,15 120,50 65,85 10,50"
+                fill="white"
                 stroke="#333"
                 stroke-width="2"
               />
-
-              <!-- Cara superior -->
-              <polygon
-                points="25,30 45,10 85,10 65,30"
-                fill="none"
-                stroke="#333"
-                stroke-width="2"
-              />
-
-              <!-- Cara lateral derecha -->
-              <polygon
-                points="65,30 85,10 85,50 65,70"
-                fill="none"
-                stroke="#333"
-                stroke-width="2"
-              />
-
-              <!-- Aristas ocultas punteadas -->
+              <!-- Diagonals (for A = d1*d2/2) -->
               <line
-                x1="25"
-                y1="70"
-                x2="45"
-                y2="50"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-              <line
-                x1="45"
-                y1="10"
-                x2="45"
-                y2="50"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-              <line
-                x1="45"
+                x1="10"
                 y1="50"
-                x2="85"
+                x2="120"
                 y2="50"
                 stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
+                stroke-dasharray="4"
+              />
+              <line
+                x1="65"
+                y1="15"
+                x2="65"
+                y2="85"
+                stroke="#333"
+                stroke-dasharray="4"
               />
 
-              <!-- Etiquetas de longitud centradas -->
-              <text x="20" y="52" font-size="12" text-anchor="middle">a</text>
-              <text x="45" y="80" font-size="12" text-anchor="middle">a</text>
-              <text x="83" y="65" font-size="12" text-anchor="middle">a</text>
+              <!-- Labels -->
+              <text x="80" y="45" font-size="12" text-anchor="start">d₁</text>
+              <text x="55" y="35" font-size="12" text-anchor="middle">d₂</text>
+              <text x="96" y="78" font-size="12" text-anchor="middle">a</text>
             </svg>
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="side" for="cube-a">Side:</label>
-              <input id="cube-a" min="0" step="any" type="number" value="5" />
+              <label for="rh-a" data-i18n="side">Side (a):</label>
+              <input type="number" id="rh-a" value="4" min="0" step="any" />
+            </div>
+            <div class="input-row">
+              <label for="rh-d1" data-i18n="diagonal-1">Diagonal 1 (d1):</label>
+              <input type="number" id="rh-d1" value="3" min="0" step="any" />
+            </div>
+            <div class="input-row">
+              <label for="rh-d2" data-i18n="diagonal-2">Diagonal 2 (d2):</label>
+              <input type="number" id="rh-d2" value="5" min="0" step="any" />
             </div>
           </div>
           <div class="formulas-col">
-            <span data-i18n="cube-area"
-              ><span data-i18n="surface-area"></span> = 6a²</span
+            <span data-i18n="rh-perim"
+              ><span data-i18n="perimeter"></span> = 4 x a</span
             >
-            <span data-i18n="cube-volume"
-              ><span data-i18n="volume"></span> = a³</span
+            <span data-i18n="rh-area"
+              ><span data-i18n="area"></span> = b x h</span
             >
           </div>
           <div class="results-col">
-            <span id="area-cube"></span>
-            <span id="vol-cube"></span>
+            <span id="rh-perim"></span>
+            <span id="rh-area"></span>
           </div>
+          
         </div>
+        <div class="figure-hint" data-i18n="hint-rhombus"></div>
       </div>
     </div>
 
     <div class="layout-row">
       <!-- Rectangle Card -->
-      <div class="card">
+      <div class="card" id="rectangle">
         <div class="card-title" data-i18n="rect">Rectangle</div>
         <div class="figure-description" data-i18n="desc-rect"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 130 100">
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <rect
                 x="20"
                 y="30"
@@ -600,127 +397,88 @@
           </div>
         </div>
       </div>
-
-      <!-- Rectangular Prism Card -->
-      <div class="card">
-        <div class="card-title" data-i18n="rect-prism">Rectangular Prism</div>
-        <div class="figure-description" data-i18n="desc-rect-prism"></div>
+      <!-- Paralelogram card  Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card-->
+      <div class="card" id="parallelogram">
+        <div class="card-title" data-i18n="parallelogram">Parellelogram</div>
+        <div class="figure-description" data-i18n="desc-parallelogram"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 130 100">
-              <!-- Cara frontal (40x60) -->
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <!-- Parallelogram -->
               <polygon
-                points="20,30 80,30 80,70 20,70"
-                fill="none"
+                points="30,20 10,80 100,80 120,20"
+                fill="white"
                 stroke="#333"
                 stroke-width="2"
               />
-
-              <!-- Cara superior -->
-              <polygon
-                points="20,30 30,20 90,20 80,30"
-                fill="none"
-                stroke="#333"
-                stroke-width="2"
-              />
-
-              <!-- Cara lateral derecha (profundidad 20) -->
-              <polygon
-                points="80,30 90,20 90,60 80,70"
-                fill="none"
-                stroke="#333"
-                stroke-width="2"
-              />
-
-              <!-- Aristas ocultas punteadas -->
+              <!-- Height line -->
               <line
-                x1="20"
-                y1="70"
-                x2="30"
-                y2="60"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
+                x1="40"
+                y1="80"
+                x2="40"
+                y2="20"
+                stroke="#0000FF"
+                stroke-dasharray="4"
               />
-              <line
-                x1="30"
-                y1="20"
-                x2="30"
-                y2="60"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-              <line
-                x1="30"
-                y1="60"
-                x2="90"
-                y2="60"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-
-              <!-- Etiquetas de longitud centradas -->
-              <text x="50" y="85" font-size="12" text-anchor="middle">l</text>
-              <text x="10" y="50" font-size="12" text-anchor="middle">w</text>
-              <text x="93" y="80" font-size="12" text-anchor="middle">H</text>
+              <!-- Labels -->
+              <text x="65" y="95" font-size="12" text-anchor="middle">b</text>
+              <text x="120" y="55" font-size="12" text-anchor="middle">s</text>
+              <text x="45" y="55" font-size="12" fill="#0000FF">h</text>
             </svg>
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="length" for="prism-l">Length (l):</label>
-              <input id="prism-l" min="0" step="any" type="number" value="4" />
+              <label for="pllg-b" data-i18n="base">Base:</label>
+              <input type="number" id="pllg-b" value="5" min="0" step="any" />
             </div>
             <div class="input-row">
-              <label data-i18n="width" for="prism-w">Width (w):</label>
-              <input id="prism-w" min="0" step="any" type="number" value="2" />
+              <label for="pllg-s" data-i18n="side">Side (a):</label>
+              <input type="number" id="pllg-s" value="4" min="0" step="any" />
             </div>
             <div class="input-row">
-              <label data-i18n="height" for="prism-h">Height (h):</label>
-              <input id="prism-h" min="0" step="any" type="number" value="3" />
+              <label for="pllg-h" data-i18n="height">Height:</label>
+              <input type="number" id="pllg-h" value="3" min="0" step="any" />
             </div>
           </div>
           <div class="formulas-col">
-            <span
-              ><span data-i18n="surface-area"></span> = 2(l*w + l*h + w*h)</span
+            <span data-i18n="pllg-perim"
+              ><span data-i18n="perimeter"></span> = 2 x (b + a)</span
             >
-            <span data-i18n="prism-volume"
-              ><span data-i18n="volume"></span> = l × w × h</span
+            <span data-i18n="pllg-area"
+              ><span data-i18n="area"></span> = b x h</span
             >
           </div>
           <div class="results-col">
-            <span id="prism-area"></span>
-            <span id="prism-vol"></span>
+            <span id="pllg-perim"></span>
+            <span id="pllg-area"></span>
           </div>
         </div>
       </div>
     </div>
-
     <div class="layout-row">
-      <!-- Triangle Card -->
-      <div class="card">
+      <!-- Triangle Card  Triangle Card  Triangle Card  Triangle Card  Triangle Card -->
+      <div class="card" id="triangle">
         <div class="card-title" data-i18n="triangle">Triangle</div>
         <div class="figure-description" data-i18n="desc-triangle"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 130 100">
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <polygon
-                points="20,80 110,80 65,20"
+                points="20,85 120,85 45,20"
                 fill="white"
                 stroke="#333"
                 stroke-width="2"
               />
               <line
-                x1="65"
+                x1="45"
                 y1="20"
-                x2="65"
-                y2="80"
+                x2="45"
+                y2="85"
                 stroke="#0000FF"
                 stroke-dasharray="4"
               />
-              <text x="50" y="95" font-size="12" text-anchor="middle">b</text>
-              <text x="70" y="55" font-size="12">h</text>
+              <text x="70" y="100" font-size="12" text-anchor="middle">b</text>
+              <text x="50" y="60" font-size="12">h</text>
             </svg>
           </div>
           <div class="inputs-col">
@@ -745,145 +503,424 @@
           </div>
         </div>
       </div>
-
-      <!-- Pyramid Card -->
-      <div class="card">
-        <div class="card-title" data-i18n="triangle-pyramid">
-          Triangular Pyramid
-        </div>
-        <div class="figure-description" data-i18n="desc-triangle-pyramid"></div>
+      <!-- RIGHT Triangle -->
+      <div class="card" id="rtriangle">
+        <div class="card-title" data-i18n="triangle-right">Right Triangle</div>
+        <div class="figure-description" data-i18n="desc-triangle-right"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 130 100">
-              <!-- Base triangular inclinada (50x50) -->
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <polygon
-                points="20,80 90,90 60,60"
-                fill="#fde5c3"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-
-              <!-- Aristas VISIBLE del triángulo base -->
-              <line
-                x1="20"
-                y1="80"
-                x2="90"
-                y2="90"
+                points="25,80 110,80 25,25"
+                fill="white"
                 stroke="#333"
                 stroke-width="2"
               />
-
-              <!-- Aristas visibles -->
-              <line
-                x1="50"
-                y1="15"
-                x2="20"
-                y2="80"
+              <rect
+                x="25"
+                y="75"
+                width="5"
+                height="5"
+                fill="none"
                 stroke="#333"
-                stroke-width="2"
+                stroke-width="1.5"
               />
-              <line
-                x1="50"
-                y1="15"
-                x2="90"
-                y2="90"
-                stroke="#333"
-                stroke-width="2"
-              />
-
-              <!-- Aristas de atras -->
-              <line
-                x1="60"
-                y1="60"
-                x2="50"
-                y2="15"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-
-              <!-- Altura total desde vértice a base ALTURA DE LA PIRAMIDE-->
-              <line
-                x1="50"
-                y1="15"
-                x2="50"
-                y2="73"
-                stroke="#ff0000"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-
-              <!-- Altura del triángulo base (cara interna) -->
-              <line
-                x1="50"
-                y1="85"
-                x2="60"
-                y2="60"
-                stroke="#0000FF"
-                stroke-width="2"
-                stroke-dasharray="3"
-              />
-
-              <!-- Etiquetas -->
-              <text
-                x="50"
-                y="10"
-                font-size="12"
-                text-anchor="middle"
-                fill="#FF0000"
-              >
-                H
-              </text>
-              <text
-                x="60"
-                y="78"
-                font-size="12"
-                text-anchor="start"
-                fill="#0000FF"
-              >
-                h
-              </text>
-              <text x="40" y="95" font-size="12" text-anchor="middle">b</text>
+              <text x="65" y="95" font-size="12" text-anchor="middle">b</text>
+              <text x="0" y="55" font-size="12">a=h</text>
+              <text x="75" y="50" font-size="12">c</text>
             </svg>
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="base">Base (b):</label>
-              <input id="pyr-b" min="0" step="any" type="number" value="6" />
+              <label data-i18n="base"></label>
+              <input id="triR-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="height">Height (h):</label>
-              <input id="pyr-h" min="0" step="any" type="number" value="4" />
+              <label data-i18n="height"></label>
+              <input id="triR-h" min="0" step="any" type="number" value="4" />
             </div>
             <div class="input-row">
-              <label data-i18n="pyrheight">Pyr Height (H):</label>
-              <input id="pyr-H" min="0" step="any" type="number" value="4" />
+              <span><span data-i18n="hypothenuse"></span> => </span>
+              <span id="triR-c" style="font-weight: bold; color: #234"></span>
             </div>
           </div>
           <div class="formulas-col">
-            <span
-              ><span data-i18n="surface-area"></span> =
-              <span data-i18n="not-implemented">Not available</span></span
+            <span><span data-i18n="area"></span> = (b × h) / 2</span>
+            <span><span data-i18n="perimeter"></span> = a + b + c</span>
+            <span style="font-size: 0.8rem"
+              ><i>Pythagoras: c² = a² + b²</i></span
             >
-            <span><span data-i18n="volume"></span> = (b × h × H) / 6</span>
+            <span><i>->: c = √(a² + b²)</i></span>
           </div>
           <div class="results-col">
-            <span id="pyr-area"></span>
-            <span id="pyr-vol"></span>
+            <span id="triR-perim"></span>
+            <span id="triR-area"></span>
           </div>
+          
         </div>
+        <div class="figure-hint" data-i18n="hint-triR"></div>
       </div>
     </div>
-
     <div class="layout-row">
-      <!-- Circle Card -->
-      <div class="card">
+      <!--  Isosceles Triangle Isosceles Triangle Isosceles Triangle Isosceles Triangle-->
+      <div class="card" id="itriangle">
+        <div class="card-title" data-i18n="triangle-iso">
+          Isosceles Triangle
+        </div>
+        <div class="figure-description" data-i18n="desc-triangle-iso"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <polygon
+                points="30,88 100,88 65,5"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <rect
+                x="65"
+                y="83"
+                width="5"
+                height="5"
+                fill="none"
+                stroke="#333"
+                stroke-width="1.5"
+              />
+              <line
+                x1="65"
+                y1="5"
+                x2="65"
+                y2="88"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+              />
+              <text x="50" y="100" font-size="12" text-anchor="middle">b</text>
+              <text x="70" y="55" font-size="12">h</text>
+              <text x="35" y="50" font-size="12" text-anchor="middle">a</text>
+              <text x="95" y="50" font-size="12" text-anchor="middle">a</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="base"></label>
+              <input id="triIso-b" min="0" step="any" type="number" value="6" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="height"></label>
+              <input id="triIso-h" min="0" step="any" type="number" value="4" />
+            </div>
+            <div class="input-row">
+              <span><span data-i18n="side"></span> => </span>
+              <span
+                id="triIso-side"
+                style="font-weight: bold; color: #234"
+              ></span>
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="perimeter"></span> = b + 2(a)</span>
+            <span><i>a = √((b/2)² + h²)</i></span>
+            <span style="font-size: 0.8rem"
+              ><i>(Pythagoras: h² + (b/2)²=a²)</i></span
+            >
+            <span><span data-i18n="area"></span> = (b × h) / 2</span>
+          </div>
+          <div class="results-col">
+            <span id="triIso-perim"></span>
+            <span id="triIso-area"></span>
+          </div>
+          
+        </div>
+        <div class="figure-hint" data-i18n="hint-triiso"></div>
+      </div>
+      <!-- Equilateral Triangle Equilateral Triangle Equilateral Triangle Equilateral Triangle -->
+      <div class="card" id="etriangle">
+        <div class="card-title" data-i18n="triangle-equi">
+          Equilateral Triangle
+        </div>
+        <div class="figure-description" data-i18n="desc-triangle-equi"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <!-- Equilateral triangle -->
+              <polygon
+                points="25,95 105,95 65,25.718"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <!-- Height -->
+              <line
+                x1="65"
+                y1="25"
+                x2="65"
+                y2="95"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+              />
+              <!-- Labels -->
+              <text x="65" y="110" font-size="12" text-anchor="middle">a</text>
+              <text x="35" y="60" font-size="12" text-anchor="middle">a</text>
+              <text x="95" y="60" font-size="12" text-anchor="middle">a</text>
+              <text x="70" y="60" font-size="12">h</text>
+            </svg>
+          </div>
+
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="side"></label>
+              <input id="triEq-a" min="0" step="any" type="number" value="6" />
+            </div>
+            <div class="input-row">
+              <span><span data-i18n="height"></span> =&gt; </span>
+              <span id="triEq-h" style="font-weight: bold; color: #234"></span>
+            </div>
+          </div>
+
+          <div class="formulas-col">
+            <span><span data-i18n="perimeter"></span> = 3a</span>
+            <span><i>h = (√3 / 2) × a</i></span>
+            <span style="font-size: 0.8rem"
+              ><i>Pythagoras: h² + (a/2)²=a²</i></span
+            >
+            <span><span data-i18n="area"></span> = (√3 / 4) × a²</span>
+          </div>
+
+          <div class="results-col">
+            <span id="triEq-perim"></span>
+            <span id="triEq-area"></span>
+          </div>
+          
+        </div>
+        <div class="figure-hint" data-i18n="hint-trieq"></div>
+      </div>
+    </div>
+    <div class="layout-row">
+      <!-- pentagon -->
+      <div class="card" id="penta">
+        <div class="card-title" data-i18n="pentagon">Pentagon</div>
+        <div class="figure-description" data-i18n="desc-pentagon"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <polygon
+                points="65,10 110,45 90,100 40,100 20,45"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <!-- Center -->
+              <circle cx="65" cy="65" r="2" fill="#333" />
+              <!-- apothe -->
+              <line
+                x1="65"
+                y1="65"
+                x2="65"
+                y2="100"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+              />
+              <text x="65" y="115" font-size="11" text-anchor="middle">a</text>
+              <text x="75" y="90" font-size="11" text-anchor="middle">ap</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="side"></label>
+              <input id="penta-a" min="0" step="any" type="number" value="6" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="apothem"></label>
+              <input id="penta-ap" min="0" step="any" type="number" value="4" />
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="perimeter"></span> = 5a</span>
+            <span><span data-i18n="area"></span> = (Perimeter × ap)/2</span>
+          </div>
+          <div class="results-col">
+            <span id="penta-perim"></span>
+            <span id="penta-area"></span>
+          </div>
+          
+        </div>
+        <div class="figure-hint" data-i18n="hint-pentagon"></div>
+      </div>
+      <!-- Hexagon -->
+      <div class="card" id="hexa">
+        <div class="card-title" data-i18n="hexagon">Hexagon</div>
+        <div class="figure-description" data-i18n="desc-hexagon"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <polygon
+                points="40,15 90,15 115,57 90,100 40,100 15,57"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <!-- Center -->
+              <circle cx="65" cy="57.5" r="2" fill="#333" />
+              <line
+                x1="65"
+                y1="57.5"
+                x2="65"
+                y2="100"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+                stroke-width="2"
+              />
+              <text x="65" y="112" font-size="11" text-anchor="middle">a</text>
+              <text x="68" y="80" font-size="11" fill="#0000FF">ap</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="side"></label>
+              <input id="hexa-a" min="0" step="any" type="number" value="6" />
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="perimeter"></span> = 6a</span>
+            <span><span data-i18n="area"></span> = ((3√3) / 2) × a²</span>
+            <span style="font-size: 0.7rem"
+              >or <span data-i18n="area"></span> = (Perimeter × ap)/2</span
+            >
+          </div>
+          <div class="results-col">
+            <span id="hexa-perim"></span>
+            <span id="hexa-area"></span>
+          </div>
+          
+        </div>
+        <div class="figure-hint" data-i18n="hint-hexagon"></div>
+      </div>
+    </div>
+    <div class="layout-row">
+      <!-- n-Gon -->
+      <div class="card" id="ngon">
+        <div class="card-title" data-i18n="ngon">Regular n-gon</div>
+        <div class="figure-description" data-i18n="desc-ngon"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <!-- Octagon -->
+              <polygon
+                points="
+        110.81337428812077,81.04758878007993
+        81.04758878007993,110.81337428812077
+        38.952411219920066,110.81337428812077
+        9.18662571187923,81.04758878007995
+        9.186625711879223,38.952411219920066
+        38.95241121992003,9.186625711879245
+        81.04758878007995,9.186625711879238
+        110.81337428812076,38.95241121992002
+      "
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+
+              <!-- Center -->
+              <circle cx="60" cy="60" r="2" fill="#333" />
+
+              <!-- Radii (red dashed) -->
+              <g stroke="#FF0000" stroke-dasharray="3">
+                <line x1="60" y1="60" x2="110.81" y2="81.05" />
+                <line x1="60" y1="60" x2="81.05" y2="110.81" />
+                <line x1="60" y1="60" x2="38.95" y2="110.81" />
+                <line x1="60" y1="60" x2="9.19" y2="81.05" />
+                <line x1="60" y1="60" x2="9.19" y2="38.95" />
+                <line x1="60" y1="60" x2="38.95" y2="9.19" />
+                <line x1="60" y1="60" x2="81.05" y2="9.19" />
+                <line x1="60" y1="60" x2="110.81" y2="38.95" />
+              </g>
+
+              <!-- Apothem (blue dashed, to bottom side midpoint) -->
+              <line
+                x1="60"
+                y1="60"
+                x2="60"
+                y2="110.81"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+                stroke-width="2"
+              />
+              <text x="63" y="88" font-size="11" fill="#0000FF">ap</text>
+
+              <!-- Base highlight (orange) -->
+              <line
+                x1="38.95"
+                y1="110.81"
+                x2="81.05"
+                y2="110.81"
+                stroke="#FF8800"
+                stroke-width="2"
+              />
+              <text
+                x="60"
+                y="122"
+                font-size="11"
+                fill="#FF8800"
+                text-anchor="middle"
+              >
+                a
+              </text>
+              <text
+                x="45"
+                y="85"
+                font-size="11"
+                fill="#FF8800"
+                text-anchor="middle"
+              >
+                r
+              </text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label>n</label>
+              <input id="ngon-n" min="3" step="1" type="number" value="8" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="side"></label>
+              <input id="ngon-a" min="0" step="any" type="number" value="5" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="apothem"></label>
+              <input id="ngon-ap" min="0" step="any" type="number" value="4" />
+            </div>
+            <div class="input-row">
+              <span id="ngon-r"></span>
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="perimeter"></span> = n × a</span>
+            <span><span data-i18n="area"></span> = n x ( a x ap ) /2 </span>
+            <span style="font-size: 0.7rem"
+              >or <span data-i18n="area"></span> = (Perimeter × ap)/2</span
+            >
+            <span style="font-size: 0.7rem"
+              ><i>Pythagoras: r² = (a/2)² + ap² -> ap² = r² - (a/2)² </i></span
+            >
+          </div>
+          <div class="results-col">
+            <span id="ngon-perim"></span>
+            <span id="ngon-area"></span>
+          </div>
+          
+        </div>
+        <div class="figure-hint" data-i18n="hint-ngon"></div>
+      </div>
+    </div>
+    <div class="layout-row">
+      <!-- Circle Card  Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card-->
+      <div class="card" id="circle">
         <div class="card-title" data-i18n="circle">Circle</div>
         <div class="figure-description" data-i18n="desc-circle"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <circle
                 cx="50"
                 cy="50"
@@ -900,6 +937,8 @@
                 stroke="#333"
                 stroke-dasharray="4"
               />
+                            <!-- Center -->
+              <circle cx="50" cy="50" r="2" fill="#333" />
               <text x="65" y="45" font-size="12">r</text>
             </svg>
           </div>
@@ -910,27 +949,888 @@
             </div>
           </div>
           <div class="formulas-col">
-            <span data-i18n="circle-perimeter"
-              ><span data-i18n="perimeter"></span> = 2πr</span
-            >
-            <span data-i18n="circle-area"
-              ><span data-i18n="area"></span> = πr²</span
-            >
+            <span><span data-i18n="perimeter"></span> = 2πr</span>
+            <span><span data-i18n="area"></span> = πr²</span>
           </div>
           <div class="results-col">
             <span id="circ-perim"></span>
             <span id="circ-area"></span>
+          </div><div class="figure-hint" data-i18n="hint-circle"></div>
+        </div>
+        
+      </div>
+      <!-- Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card -->
+      <div class="card" id="ellipse">
+        <div class="card-title" data-i18n="ellipse">Ellipse</div>
+        <div class="figure-description" data-i18n="desc-ellipse"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              <ellipse
+                cx="65"
+                cy="55"
+                rx="45"
+                ry="30"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <line
+                x1="20"
+                y1="55"
+                x2="65"
+                y2="55"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+              />
+              <line
+                x1="65"
+                y1="55"
+                x2="65"
+                y2="85"
+                stroke="#0000FF"
+                stroke-dasharray="4"
+              />
+              <!-- Center -->
+              <circle cx="65" cy="55" r="2" fill="#333" />
+
+              <line
+                x1="65"
+                y1="55"
+                x2="110"
+                y2="55"
+                stroke="#FF8800"
+                stroke-dasharray="4"
+              />
+              <line
+                x1="65"
+                y1="25"
+                x2="65"
+                y2="55"
+                stroke="#FF8800"
+                stroke-dasharray="4"
+              />
+              <text x="95" y="50" font-size="11">a</text>
+              <text x="70" y="40" font-size="11">b</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="major-axis"></label>
+              <input id="ell-a" min="0" step="any" type="number" value="5" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="minor-axis"></label>
+              <input id="ell-b" min="0" step="any" type="number" value="3" />
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="area"></span> = π x a x b</span>
+            <span style="font-size: 0.7rem"><i><span data-i18n="perimeter"></span> = approximation out of scope</i></span></span>
+          </div>
+          <div class="results-col">
+            <span id="ell-area"></span>
+            <span id="ell-perim"></span>
+          </div>
+          <div class="figure-hint" data-i18n="hint-ellipse"></div>
+        </div>
+        
+      </div>
+    </div>
+<section class="intro-section space" >
+  <h2 id="space" data-i18n="section-3d">🌐 The 3D Universe — Space Awaits!</h2>
+  <p data-i18n="section-3d-desc">
+    Step into the world of depth, height, and width — where geometry comes alive!
+    Explore cubes, prisms, cylinders, cones, and spheres.
+  </p>
+</section>
+    <div class="layout-row">
+        <!-- Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card-->
+          <div class="card" id="cube">
+            <div class="card-title" data-i18n="cube">Cube</div>
+            <div class="figure-description" data-i18n="desc-cube"></div>
+            <div class="layout">
+              <div class="diagram">
+                <svg width="130" height="130" viewBox="0 0 130 130">
+                  <!-- Cara frontal -->
+                  <polygon
+                    points="25,30 65,30 65,70 25,70"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Cara superior -->
+                  <polygon
+                    points="25,30 45,10 85,10 65,30"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Cara lateral derecha -->
+                  <polygon
+                    points="65,30 85,10 85,50 65,70"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Aristas ocultas punteadas -->
+                  <line
+                    x1="25"
+                    y1="70"
+                    x2="45"
+                    y2="50"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+                  <line
+                    x1="45"
+                    y1="10"
+                    x2="45"
+                    y2="50"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+                  <line
+                    x1="45"
+                    y1="50"
+                    x2="85"
+                    y2="50"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Etiquetas de longitud centradas -->
+                  <text x="20" y="52" font-size="12" text-anchor="middle">a</text>
+                  <text x="45" y="80" font-size="12" text-anchor="middle">a</text>
+                  <text x="83" y="65" font-size="12" text-anchor="middle">a</text>
+                </svg>
+              </div>
+              <div class="inputs-col">
+                <div class="input-row">
+                  <label data-i18n="side" for="cube-a">Side:</label>
+                  <input id="cube-a" min="0" step="any" type="number" value="5" />
+                </div>
+              </div>
+              <div class="formulas-col">
+                <span data-i18n="cube-area"
+                  ><span data-i18n="surface-area"></span> = 6a²</span
+                >
+                <span data-i18n="cube-volume"
+                  ><span data-i18n="volume"></span> = a³</span
+                >
+              </div>
+              <div class="results-col">
+                <span id="area-cube"></span>
+                <span id="vol-cube"></span>
+              </div>
+            </div>
+          </div>
+            <!-- Rectangular Prism Card  Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card-->
+          <div class="card" id="rpism">
+            <div class="card-title" data-i18n="rect-prism">Rectangular Prism</div>
+            <div class="figure-description" data-i18n="desc-rect-prism"></div>
+            <div class="layout">
+              <div class="diagram">
+                <svg width="130" height="130" viewBox="0 0 130 130">
+                  <!-- Cara frontal (40x60) -->
+                  <polygon
+                    points="20,30 80,30 80,70 20,70"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Cara superior -->
+                  <polygon
+                    points="20,30 30,20 90,20 80,30"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Cara lateral derecha (profundidad 20) -->
+                  <polygon
+                    points="80,30 90,20 90,60 80,70"
+                    fill="none"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Aristas ocultas punteadas -->
+                  <line
+                    x1="20"
+                    y1="70"
+                    x2="30"
+                    y2="60"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+                  <line
+                    x1="30"
+                    y1="20"
+                    x2="30"
+                    y2="60"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+                  <line
+                    x1="30"
+                    y1="60"
+                    x2="90"
+                    y2="60"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Etiquetas de longitud centradas -->
+                  <text x="50" y="85" font-size="12" text-anchor="middle">l</text>
+                  <text x="10" y="50" font-size="12" text-anchor="middle">H</text>
+                  <text x="93" y="80" font-size="12" text-anchor="middle">w</text>
+                </svg>
+              </div>
+              <div class="inputs-col">
+                <div class="input-row">
+                  <label data-i18n="length" for="prism-l">Length (l):</label>
+                  <input id="prism-l" min="0" step="any" type="number" value="4" />
+                </div>
+                <div class="input-row">
+                  <label data-i18n="width" for="prism-w">Width (w):</label>
+                  <input id="prism-w" min="0" step="any" type="number" value="2" />
+                </div>
+                <div class="input-row">
+                  <label data-i18n="3dheight" for="prism-h">Height (H):</label>
+                  <input id="prism-h" min="0" step="any" type="number" value="3" />
+                </div>
+              </div>
+              <div class="formulas-col">
+                <span
+                  ><span data-i18n="surface-area"></span> = 2(l*w + l*H + w*H)</span
+                >
+                <span data-i18n="prism-volume"
+                  ><span data-i18n="volume"></span> = l × w × H</span
+                >
+              </div>
+              <div class="results-col">
+                <span id="prism-area"></span>
+                <span id="prism-vol"></span>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="layout-row">
+        <!-- Generic Prism Card Generic Prism Card Generic Prism Card Generic Prism Card Generic Prism Card Generic Prism Card Generic Prism Card -->
+        <div class="card" id="gprism">
+          <div class="card-title" data-i18n="generic-prism">Generic Straight Prism</div>
+          <div class="figure-description" data-i18n="desc-generic-prism">
+            A straigh prism with any polygonal base — straight means "super regular" here.
+          </div>
+
+          <div class="layout">
+            <div class="diagram">
+
+
+                <svg width="130" height="130" viewBox="0 0 130 130">
+                <!-- Top face -->
+                <polygon
+                  points="
+                    65,40
+                    75,55
+                    108,55
+                    80,62
+                    88,78
+                    65,70
+                    42,78
+                    50,62
+                    22,55
+                    55,55
+                  "
+                  fill="none"
+                  stroke="#333"
+                  stroke-width="2"
+                />
+
+
+                  <line x1="22" y1="55" x2="22"y2="80" stroke="#333"stroke-width="2"/>
+                  <line x1="108" y1="55" x2="108"y2="80" stroke="#333"stroke-width="2"/>
+                  <line x1="42" y1="78" x2="42"y2="103" stroke="#333"stroke-width="2"/>
+                  <line x1="88" y1="78" x2="88"y2="103" stroke="#333"stroke-width="2"/>
+                  <line x1="65" y1="70" x2="65"y2="95" stroke="#333"stroke-width="2"/>
+                  <line x1="42" y1="103" x2="65"y2="95" stroke="#333"stroke-width="2"/>
+                  <line x1="88" y1="103" x2="65"y2="95" stroke="#333"stroke-width="2"/>
+                  <line x1="42" y1="103" x2="65"y2="95" stroke="#333"stroke-width="2"/>
+                  <line x1="88" y1="103" x2="65"y2="95" stroke="#333"stroke-width="2"/>
+                  <line x1="42" y1="85" x2="22"y2="80" stroke="#333"stroke-width="2"/>
+                  <line x1="88" y1="85" x2="108"y2="80" stroke="#333"stroke-width="2"/>
+
+                <!-- Height indicator -->
+                <line x1="115" y1="80" x2="115" y2="55"
+                      stroke="#ff0000" stroke-width="2" stroke-dasharray="3" />
+                <text x="118" y="70" font-size="12" fill="#ff0000">H</text>
+              </svg>
+            </div>
+
+            <div class="inputs-col">
+              <div class="input-row">
+                <label for="gpris-A" data-i18n="base-area">Base area A:</label>
+                <input id="gpris-A" type="number" min="0" step="any" value="10" />
+              </div>
+              <div class="input-row">
+                <label for="gpris-P" data-i18n="base-perimeter">Base perimeter P:</label>
+                <input id="gpris-P" type="number" min="0" step="any" value="20"/>
+              </div>
+              <div class="input-row">
+                <label for="gpris-h" data-i18n="3dheight">Height (H):</label>
+                <input id="gpris-h" type="number" min="0" step="any" value="5"/>
+              </div>
+            </div>
+
+            <div class="formulas-col">
+              <span>V = A × H</span>
+              <span>S = 2A + P × H</span>
+            </div>
+
+            <div class="results-col">
+              <span id="gpris-vol"></span>
+              <span id="gpris-area"></span>
+            </div>
+          </div>
+          <div class="figure-hint" data-i18n="hint-gprism"></div>
+        </div>
+       <!-- Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism -->
+        <div class="card" id="goprism">
+          <div class="card-title" data-i18n="oblique-prism">Oblique Prism</div>
+          <div class="figure-description" data-i18n="desc-oblique-prism">
+            A prism where the sides are tilted. The base is the same, but the height is measured vertically.
+          </div>
+
+          <div class="layout">
+            <div class="diagram">
+              <svg width="130" height="130" viewBox="0 0 130 130">
+          <!-- Top face (same as your right prism) -->
+          <polygon
+            points="
+              65,40
+              75,55
+              108,55
+              80,62
+              88,78
+              65,70
+              42,78
+              50,62
+              22,55
+              55,55
+            "
+            fill="none"
+            stroke="#333"
+            stroke-width="2"
+          />
+
+          <!-- Bottom face (shifted forward/right to create tilt) -->
+          <!-- Visible base edges -->
+          <line x1="29" y1="80" x2="45" y2="85" stroke="#333" stroke-width="2" /> 
+          <line x1="50" y1="105" x2="73" y2="97" stroke="#333" stroke-width="2" />
+          <line x1="73" y1="97" x2="95" y2="105" stroke="#333" stroke-width="2" />
+          <line x1="90" y1="86" x2="115" y2="80" stroke="#333" stroke-width="2" />
+          
+
+
+
+          <!-- Vertical/slanted connecting edges -->
+          <!-- front visible edges -->
+          <line x1="22" y1="55" x2="29" y2="80" stroke="#333" stroke-width="2" />
+          <line x1="42" y1="78" x2="49" y2="105" stroke="#333" stroke-width="2" />
+          <line x1="65" y1="70" x2="72" y2="97" stroke="#333" stroke-width="2" />
+          <line x1="88" y1="78" x2="95" y2="105" stroke="#333" stroke-width="2" />
+          <line x1="108" y1="55" x2="115" y2="80" stroke="#333" stroke-width="2" />
+
+
+
+
+
+          <!-- Height indicator -->
+          <line x1="120" y1="80" x2="120" y2="55"
+                stroke="#ff0000" stroke-width="1" stroke-dasharray="3" />
+            <!-- <line x1="25" y1="80" x2="18" y2="55"
+                stroke="#0000ff" stroke-width="1" stroke-dasharray="3" /> -->
+          <text x="123" y="70" font-size="11" fill="#ff0000">H</text>
+          <!-- <text x="10" y="70" font-size="11" fill="#0000ff">l</text> -->
+        </svg>
+
+            </div>
+
+            <div class="inputs-col">
+              <div class="input-row">
+                <label for="slpr-A" data-i18n="base-area">Base area A:</label>
+                <input id="slpr-A" type="number" min="0" step="any" value="10"/>
+              </div>
+              <!-- <div class="input-row">
+                <label for="slpr-P" data-i18n="base-perimeter">Base perimeter P:</label>
+                <input id="slpr-P" type="number" min="0" step="any" value="20"/>
+              </div> -->
+              <div class="input-row">
+                <label for="slpr-h" data-i18n="3dheight">Height (H):</label>
+                <input id="slpr-h" type="number" min="0" step="any" value="5"/>
+              </div>
+              <!-- <div class="input-row">
+                <label for="slpr-l" data-i18n="slant-length">Slant length l:</label>
+                <input id="slpr-l" type="number" min="0" step="any" value="7" />
+              </div> -->
+            </div>
+
+            <div class="formulas-col">
+              <span>S = 2A + Area of Sides</span>
+              <span>V = A × H</span>
+              
+            </div>
+
+            <div class="results-col">
+              <span id="slpr-vol"></span>
+              <span id="slpr-area"></span>
+            </div>
+          </div>
+          <div class="figure-hint" data-i18n="hint-goprism"></div>
+
+        </div>
+    </div>
+    <div class="layout-row">
+          
+          <!-- Pyramid Card aka Tetrahedron-->
+          <div class="card" id="tpyramid">
+            <div class="card-title" data-i18n="triangle-pyramid">
+              Triangular Pyramid
+            </div>
+            <div class="figure-description" data-i18n="desc-triangle-pyramid"></div>
+            <div class="layout">
+              <div class="diagram">
+                <svg width="130" height="130" viewBox="0 0 130 130">
+                  <!-- Base triangular inclinada (50x50) -->
+                  <polygon
+                    points="20,80 90,90 60,60"
+                    fill="#fde5c3"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Aristas VISIBLE del triángulo base -->
+                  <line
+                    x1="20"
+                    y1="80"
+                    x2="90"
+                    y2="90"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Aristas visibles -->
+                  <line
+                    x1="50"
+                    y1="15"
+                    x2="20"
+                    y2="80"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="50"
+                    y1="15"
+                    x2="90"
+                    y2="90"
+                    stroke="#333"
+                    stroke-width="2"
+                  />
+
+                  <!-- Aristas de atras -->
+                  <line
+                    x1="60"
+                    y1="60"
+                    x2="50"
+                    y2="15"
+                    stroke="#333"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Altura total desde vértice a base ALTURA DE LA PIRAMIDE-->
+                  <line
+                    x1="50"
+                    y1="15"
+                    x2="50"
+                    y2="73"
+                    stroke="#ff0000"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Altura del triángulo base (cara interna) -->
+                  <line
+                    x1="50"
+                    y1="85"
+                    x2="60"
+                    y2="60"
+                    stroke="#0000FF"
+                    stroke-width="2"
+                    stroke-dasharray="3"
+                  />
+
+                  <!-- Etiquetas -->
+                  <text
+                    x="50"
+                    y="10"
+                    font-size="12"
+                    text-anchor="middle"
+                    fill="#FF0000"
+                  >
+                    H
+                  </text>
+                  <text
+                    x="60"
+                    y="78"
+                    font-size="12"
+                    text-anchor="start"
+                    fill="#0000FF"
+                  >
+                    h
+                  </text>
+                  <text x="40" y="95" font-size="12" text-anchor="middle">b</text>
+                </svg>
+              </div>
+              <div class="inputs-col">
+                <div class="input-row">
+                  <label data-i18n="base">Base (b):</label>
+                  <input id="pyr-b" min="0" step="any" type="number" value="6" />
+                </div>
+                <div class="input-row">
+                  <label data-i18n="height">Height (h):</label>
+                  <input id="pyr-h" min="0" step="any" type="number" value="4" />
+                </div>
+                <div class="input-row">
+                  <label data-i18n="3dheight">Height (H):</label>
+                  <input id="pyr-H" min="0" step="any" type="number" value="4" />
+                </div>
+              </div>
+              <div class="formulas-col">
+                <span
+                  ><span data-i18n="surface-area"></span> =
+                  <span data-i18n="not-implemented">Not available</span></span
+                >
+                <span
+                  ><span data-i18n="volume"></span> = (((b x h)/2) x H)/3 = (b × h ×
+                  H) / 6</span
+                >
+              </div>
+              <div class="results-col">
+                <span id="pyr-area"></span>
+                <span id="pyr-vol"></span>
+              </div>
+            </div>
+            <div class="figure-hint" data-i18n="hint-triangle-pyramid"></div>
+          </div>
+          <!-- GENERIC PYRAMID  GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID-->
+          <div class="card" id="gpyramid">
+            <div class="card-title" data-i18n="generic-pyramid">Generic Pyramid</div>
+            <div class="figure-description" data-i18n="desc-generic-pyramid">
+              A pyramid built from any polygonal base. Just enter the base area and the height.
+            </div>
+
+            <div class="layout">
+              <div class="diagram">
+                <svg width="130" height="120" viewBox="0 0 130 120">
+                  <!-- Base polygon -->
+                  <polygon points="30,90 70,90 90,70 50,70"
+                    fill="#fde5c3" stroke="#333" stroke-width="2" stroke-dasharray="3"/>
+                  <line x1="70" y1="90" x2="30" y2="90"
+                    stroke="#333" stroke-width="2" />
+                  <line x1="70" y1="90" x2="90" y2="70"
+                    stroke="#333" stroke-width="2" />
+
+
+                  <!-- Side faces -->
+                  <line x1="30" y1="90" x2="60" y2="20"
+                    stroke="#333" stroke-width="2" />
+                  <line x1="70" y1="90" x2="60" y2="20"
+                    stroke="#333" stroke-width="2" />
+                  <line x1="90" y1="70" x2="60" y2="20"
+                    stroke="#333" stroke-width="2" />
+                  <line x1="50" y1="70" x2="60" y2="20"
+                    stroke="#333" stroke-width="2" stroke-dasharray="3"/>
+                  <!-- Height indicator -->
+                  <line x1="60" y1="80" x2="60" y2="20"
+                    stroke="#ff0000" stroke-width="2" stroke-dasharray="3" />
+                  <text x="103" y="70" font-size="12" fill="#ff0000">H</text>
+                </svg>
+              </div>
+
+              <div class="inputs-col">
+                <div class="input-row">
+                  <label for="gpyr-A" data-i18n="base-area">Base area A:</label>
+                  <input id="gpyr-A" type="number" min="0" step="any" value="10"/>
+                </div>
+                <div class="input-row">
+                  <label for="gpyr-h" data-i18n="3dheight">Height H:</label>
+                  <input id="gpyr-h" type="number" min="0" step="any" value="5" />
+                </div>
+              </div>
+
+              <div class="formulas-col">
+                <span>V = (A × H) / 3</span>
+              </div>
+
+              <div class="results-col">
+                <span id="gpyr-vol"></span>
+              </div>
+            </div>
+            <div class="figure-hint" data-i18n="hint-gpyramid"></div>
+
+        </div>
+
+    </div>
+
+    <div class="layout-row">
+      <!-- GENERIC OBLIQUE PYRAMID GENERIC OBLIQUE PYRAMID GENERIC OBLIQUE PYRAMID GENERIC OBLIQUE PYRAMID GENERIC OBLIQUE PYRAMID GENERIC OBLIQUE PYRAMID -->
+      <div class="card" id="gopyramid">
+      <div class="card-title" data-i18n="oblique-pyramid">Generic Oblique Pyramid</div>
+      <div class="figure-description" data-i18n="desc-oblique-pyramid">
+        A pyramid whose apex is offset from the base’s center — here with a flattened star base.
+      </div>
+
+      <div class="layout">
+        <div class="diagram">
+          <svg width="130" height="130" viewBox="0 0 130 130">
+      <!-- Base: flattened star (only visible edges) -->
+      <line x1="35" y1="83" x2="55" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="55" y1="83" x2="65" y2="95" stroke="#333" stroke-width="2"/>
+      <line x1="80" y1="83" x2="97" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="80" y1="83" x2="65" y2="95" stroke="#333" stroke-width="2"/>
+      <line x1="42" y1="65" x2="48" y2="73" stroke="#333" stroke-width="2"/>
+      
+
+
+      <!-- Apex (slanted far to the right) -->
+      <circle cx="110" cy="15" r="2" fill="#333"/>
+
+      <!-- Visible pyramid edges -->
+      <line x1="110" y1="15" x2="55" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="110" y1="15" x2="80" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="110" y1="15" x2="97" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="110" y1="15" x2="35" y2="83" stroke="#333" stroke-width="2"/>
+      <line x1="110" y1="15" x2="65" y2="95" stroke="#333" stroke-width="2"/>
+      <line x1="110" y1="15" x2="42" y2="65" stroke="#333" stroke-width="2"/>
+
+      <!-- Height (blue) -->
+      <line x1="110" y1="15" x2="110" y2="83" stroke="#0000ff" stroke-width="1" stroke-dasharray="3"/>
+      <text x="115" y="62" font-size="12" fill="#0000ff">H</text>
+
+
+
+    </svg>
+
+        </div>
+
+        <div class="inputs-col">
+          <div class="input-row">
+            <label for="slpyr-A" data-i18n="base-area">Base area A:</label>
+            <input id="slpyr-A" type="number" min="0" step="any" value="10"/>
+          </div>
+          <!-- <div class="input-row">
+            <label for="slpyr-P" data-i18n="base-perimeter">Base perimeter P:</label>
+            <input id="slpyr-P" type="number" min="0" step="any" />
+          </div> -->
+          <div class="input-row">
+            <label for="slpyr-h" data-i18n="3dheight">Height h:</label>
+            <input id="slpyr-h" type="number" min="0" step="any" value="5" />
+          </div>
+          <!-- <div class="input-row">
+            <label for="slpyr-l" data-i18n="slant-height">Slant height l:</label>
+            <input id="slpyr-l" type="number" min="0" step="any" />
+          </div> -->
+        </div>
+
+        <div class="formulas-col">
+          <span>S = A + Area of all sides</span>
+          <span>V = (A × H) / 3</span>
+        </div>
+
+        <div class="results-col">
+          <span id="slpyr-vol"></span>
+          <!-- <span id="slpyr-area"></span> -->
+        </div>
+      </div>
+      <div class="figure-hint" data-i18n="hint-gopyramid"></div>
+    </div>
+
+      
+    </div>
+
+    <div class="layout-row">
+      <!-- Cylinder Card -->
+      <div class="card" id="cylinder">
+        <div class="card-title" data-i18n="cylinder">Cylinder</div>
+        <div class="figure-description" data-i18n="desc-cylinder"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              
+              <ellipse
+                cx="50"
+                cy="80"
+                rx="30"
+                ry="15"
+                fill="#fde5c3"
+                stroke="#333"
+                stroke-width="2"
+                stroke-dasharray="4"
+              />
+              <path
+                d="M 20 80 A 30 15 0 0 0 80 80"
+                fill="none"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <polygon points="20,80 80,80 80,60 20,60" fill="none" />
+              <ellipse
+                cx="50"
+                cy="30"
+                rx="30"
+                ry="15"
+                fill="white"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <line
+                x1="20"
+                y1="30"
+                x2="20"
+                y2="80"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <line
+                x1="80"
+                y1="30"
+                x2="80"
+                y2="80"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <line
+                x1="50"
+                y1="30"
+                x2="80"
+                y2="30"
+                stroke="#333"
+                stroke-width="2"
+                stroke-dasharray="4"
+              />
+              <text x="63" y="28" font-size="12">r</text>
+              <text x="85" y="55" font-size="12">H</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="radius" for="cyl-r">Radius (r):</label>
+              <input id="cyl-r" min="0" step="any" type="number" value="5" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="3dheight" for="cyl-h">Height (h):</label>
+              <input id="cyl-h" min="0" step="any" type="number" value="10" />
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span><span data-i18n="surface-area"></span> = 2πr² + 2πrH</span>
+            <span><span data-i18n="volume"></span> = πr²H</span>
+          </div>
+          <div class="results-col">
+            <span id="cyl-area"></span>
+            <span id="cyl-vol"></span>
           </div>
         </div>
       </div>
+        <!-- Cone Card  Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card-->
+      <div class="card" id="cone">
+        <div class="card-title" data-i18n="cone">Cone</div>
+        <div class="figure-description" data-i18n="desc-cone"></div>
+        <div class="layout">
+          <div class="diagram">
+            <svg width="130" height="130" viewBox="0 0 130 130">
+              
+              <ellipse
+                cx="50"
+                cy="80"
+                rx="30"
+                ry="15"
+                fill="#fde5c3"
+                stroke="#333"
+                stroke-width="2"
+                stroke-dasharray="4"
+              />
+              <path
+                d="M50 20 L20 80 A30 15 0 0 0 80 80 Z"
+                fill="none"
+                stroke="#333"
+                stroke-width="2"
+              />
+              <line
+                x1="50"
+                y1="20"
+                x2="50"
+                y2="80"
+                stroke="#333"
+                stroke-dasharray="4"
+              />
+              <line
+                x1="80"
+                y1="80"
+                x2="50"
+                y2="80"
+                stroke="#333"
+                stroke-dasharray="4"
+              />
+              <text x="63" y="77" font-size="12">r</text>
+              <text x="55" y="55" font-size="12">h</text>
+            </svg>
+          </div>
+          <div class="inputs-col">
+            <div class="input-row">
+              <label data-i18n="radius" for="cone-r">Radius (r):</label>
+              <input id="cone-r" min="0" step="any" type="number" value="5" />
+            </div>
+            <div class="input-row">
+              <label data-i18n="3height" for="cone-h">Height (H):</label>
+              <input id="cone-h" min="0" step="any" type="number" value="10" />
+            </div>
+          </div>
+          <div class="formulas-col">
+            <span
+              ><span data-i18n="surface-area"></span> = πr² + πr√(r² + H²)</span
+            >
+            <span><span data-i18n="volume"></span> = (1/3)πr²H</span>
+          </div>
+          <div class="results-col">
+            <span id="cone-area"></span>
+            <span id="cone-vol"></span>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="layout-row">
       <!-- Sphere Card -->
-      <div class="card">
+      <div class="card" id="sphere">
         <div class="card-title" data-i18n="sphere">Sphere</div>
         <div class="figure-description" data-i18n="desc-sphere"></div>
         <div class="layout">
           <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
+            <svg width="130" height="130" viewBox="0 0 130 130">
               <circle
                 cx="50"
                 cy="50"
@@ -975,141 +1875,24 @@
           </div>
         </div>
       </div>
+
+
+      <!-- Frustum Card -->
+
     </div>
 
-    <div class="layout-row">
-      <!-- Cylinder Card -->
-      <div class="card">
-        <div class="card-title" data-i18n="cylinder">Cylinder</div>
-        <div class="figure-description" data-i18n="desc-cylinder"></div>
-        <div class="layout">
-          <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
-              <ellipse
-                cx="50"
-                cy="80"
-                rx="30"
-                ry="15"
-                fill="white"
-                stroke="#333"
-                stroke-width="2"
-              />
-              <polygon points="20,80 80,80 80,60 20,60" fill="white" />
-              <ellipse
-                cx="50"
-                cy="30"
-                rx="30"
-                ry="15"
-                fill="white"
-                stroke="#333"
-                stroke-width="2"
-              />
-              <line
-                x1="20"
-                y1="30"
-                x2="20"
-                y2="80"
-                stroke="#333"
-                stroke-width="2"
-              />
-              <line
-                x1="80"
-                y1="30"
-                x2="80"
-                y2="80"
-                stroke="#333"
-                stroke-width="2"
-              />
-              <line
-                x1="50"
-                y1="30"
-                x2="80"
-                y2="30"
-                stroke="#333"
-                stroke-width="2"
-                stroke-dasharray="4"
-              />
-              <text x="63" y="28" font-size="12">r</text>
-              <text x="85" y="55" font-size="12">h</text>
-            </svg>
-          </div>
-          <div class="inputs-col">
-            <div class="input-row">
-              <label data-i18n="radius" for="cyl-r">Radius (r):</label>
-              <input id="cyl-r" min="0" step="any" type="number" value="5" />
-            </div>
-            <div class="input-row">
-              <label data-i18n="height" for="cyl-h">Height (h):</label>
-              <input id="cyl-h" min="0" step="any" type="number" value="10" />
-            </div>
-          </div>
-          <div class="formulas-col">
-            <span><span data-i18n="surface-area"></span> = 2πr² + 2πrh</span>
-            <span><span data-i18n="volume"></span> = πr²h</span>
-          </div>
-          <div class="results-col">
-            <span id="cyl-area"></span>
-            <span id="cyl-vol"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cone Card -->
-      <div class="card">
-        <div class="card-title" data-i18n="cone">Cone</div>
-        <div class="figure-description" data-i18n="desc-cone"></div>
-        <div class="layout">
-          <div class="diagram">
-            <svg width="130" height="100" viewBox="0 0 100 100">
-              <path
-                d="M50 20 L20 80 A30 15 0 0 0 80 80 Z"
-                fill="white"
-                stroke="#333"
-                stroke-width="2"
-              />
-              <line
-                x1="50"
-                y1="20"
-                x2="50"
-                y2="80"
-                stroke="#333"
-                stroke-dasharray="4"
-              />
-              <line
-                x1="80"
-                y1="80"
-                x2="50"
-                y2="80"
-                stroke="#333"
-                stroke-dasharray="4"
-              />
-              <text x="63" y="77" font-size="12">r</text>
-              <text x="55" y="55" font-size="12">h</text>
-            </svg>
-          </div>
-          <div class="inputs-col">
-            <div class="input-row">
-              <label data-i18n="radius" for="cone-r">Radius (r):</label>
-              <input id="cone-r" min="0" step="any" type="number" value="5" />
-            </div>
-            <div class="input-row">
-              <label data-i18n="height" for="cone-h">Height (h):</label>
-              <input id="cone-h" min="0" step="any" type="number" value="10" />
-            </div>
-          </div>
-          <div class="formulas-col">
-            <span
-              ><span data-i18n="surface-area"></span> ≈ πr(r + √(r² + h²))</span
-            >
-            <span><span data-i18n="volume"></span> = (1/3)πr²h</span>
-          </div>
-          <div class="results-col">
-            <span id="cone-area"></span>
-            <span id="cone-vol"></span>
-          </div>
-        </div>
-      </div>
+  
+    <!-- Trigger button -->
+    <!-- Trigger button -->
+    <div style="text-align: center; margin: 2rem 0">
+      <button onclick="showConePopup()">
+        Why do all hedras become a cone?
+      </button>
     </div>
+    <!-- <button onclick="showConePopup()">Why do all hedras become a cone?</button> -->
+    <!-- Content will be injected by conePopup.js -->
+    <!-- <div id="cone-popup-container"></div> -->
+    <!-- Content will be injected by conePopup.js -->
     <footer
       style="
         text-align: center;
@@ -1129,14 +1912,29 @@
       </div>
 
       <div class="footer-links" style="margin-bottom: 0.5rem">
-        <a href="about.html" data-i18n="nav-about" style="margin: 0 0.5rem">About</a> |
-        <a href="privacidad.html" data-i18n="nav-privacy" style="margin: 0 0.5rem">Privacy</a> |
-        <a href="terms.html" data-i18n="nav-contact" style="margin: 0 0.5rem">Terms</a> |
-        <a href="contacto.html" data-i18n="nav-terms" style="margin: 0 0.5rem">Contact</a>
+        <a href="about.html" data-i18n="nav-about" style="margin: 0 0.5rem"
+          >About</a
+        >
+        |
+        <a
+          href="privacidad.html"
+          data-i18n="nav-privacy"
+          style="margin: 0 0.5rem"
+          >Privacy</a
+        >
+        |
+        <a href="terms.html" data-i18n="nav-terms" style="margin: 0 0.5rem"
+          >Terms</a
+        >
+        |
+        <a href="contacto.html" data-i18n="nav-contact" style="margin: 0 0.5rem"
+          >Contact</a
+        >
       </div>
 
       <p style="margin-top: 0.5rem">
-        &copy; <span id="year"></span> 123Trig. <span data-i18n="footer-rights">All rights reserved.</span>
+        &copy; <span id="year"></span> 123Trig.
+        <span data-i18n="footer-rights">All rights reserved.</span>
       </p>
     </footer>
 
@@ -1148,7 +1946,7 @@
     <script src="calcs_w_i18n.js"></script>
 
     <script>
-      const supportedLangs = ["en", "es", "fr", "pt", "de", "it"];
+      const supportedLangs = ["en", "es", "fr", "pt", "de", "it", "zh", "ja"];
       const defaultLang = navigator.language.slice(0, 2);
       const initialLang = supportedLangs.includes(defaultLang)
         ? defaultLang
@@ -1168,6 +1966,84 @@
 
           loadLang(initialLang);
         });
+        
     </script>
+
+<!-- Sticky TOC -->
+<nav id="toc">
+  <button id="toc-handle" data-i18n="menu-handle">MENU</button>
+  <ul>
+    <li><a href="#start" data-i18n="menu-top">Top</a></li>
+    <li><a href="#flatlands" data-i18n="menu-2d">2D Figures</a></li>
+    <ul>
+      <li><a href="#square" data-i18n="square"></a></li>
+      <li><a href="#rhombus" data-i18n="rhombus"></a></li>
+      <li><a href="#rectangle" data-i18n="rect"></a></li>
+      <li><a href="#parallelogram" data-i18n="parallelogram"></a></li>
+      <li><a href="#triangle" data-i18n="triangle"></a></li>
+      <li><a href="#rtriangle" data-i18n="triangle-right"></a></li>
+      <li><a href="#itriangle" data-i18n="triangle-iso"></a></li>
+      <li><a href="#etriangle" data-i18n="triangle-equi"></a></li>
+      <li><a href="#penta" data-i18n="pentagon"></a></li>
+      <li><a href="#hexa" data-i18n="hexagon"></a></li>
+      <li><a href="#ngon" data-i18n="ngon"></a></li>
+      <li><a href="#circle" data-i18n="circle"></a></li>
+      <li><a href="#ellipse" data-i18n="ellipse"></a></li>
+    </ul>
+    <li><a href="#space" data-i18n="menu-3d">3D Solids</a></li>
+    <ul>
+      <li><a href="#cube" data-i18n="cube"></a></li>
+      <li><a href="#rprism" data-i18n="rect-prism"></a></li>
+      <li><a href="#tpyramid" data-i18n="triangle-pyramid"></a></li>
+      <li><a href="#gprism" data-i18n="generic-prism"></a></li>
+      <li><a href="#goprism" data-i18n="oblique-prism"></a></li>
+      <li><a href="#gpyramid" data-i18n="generic-pyramid"></a></li>
+      <li><a href="#gopyramid" data-i18n="oblique-pyramid"></a></li>
+      <li><a href="#cylinder" data-i18n="cylinder"></a></li>
+      <li><a href="#cone" data-i18n="cone"></a></li>
+      <li><a href="#sphere" data-i18n="sphere"></a></li>
+    </ul>
+  </ul>
+</nav>
+
+    <script>
+              // smooth scroll
+        document.querySelectorAll('#toc a').forEach(a=>{
+          a.addEventListener('click',e=>{
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href'))
+              ?.scrollIntoView({behavior:'smooth'});
+            document.getElementById('toc').classList.remove('open');
+          });
+        });
+
+        // highlight active link
+        window.addEventListener("scroll", () => {
+          const links = [...document.querySelectorAll("#toc a")];
+          let current = null;
+
+          links.forEach(link => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
+            const offset = target.getBoundingClientRect().top;
+            if (offset <= 150 && offset > -target.offsetHeight / 2) current = link;
+          });
+
+          links.forEach(l => l.classList.remove("active"));
+          if (current) current.classList.add("active");
+        });
+
+        // mobile toggle
+        document.getElementById('toc-toggle')
+          .addEventListener('click',()=>document.getElementById('toc').classList.toggle('open'));
+
+        document.getElementById("toc-handle")
+          .addEventListener("click", () =>
+            document.getElementById("toc").classList.toggle("open")
+          );
+
+    </script>
+
+    
   </body>
 </html>
