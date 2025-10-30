@@ -45,7 +45,7 @@
         initConePopup,
         showConePopup,
         hideConePopup,
-      } from "./conePopup.js";
+      } from "./conepopup.js";
       window.addEventListener("DOMContentLoaded", () => {
         initConePopup();
         window.showConePopup = showConePopup;
@@ -95,7 +95,7 @@
       </p>
     </div>
 
-    <p style="max-width: 80vw; text-align: center;margin:0 auto; display:block;font-size: 1.5rem;" data-i18n="personal-take">
+    <p style="max-width: 80vw; text-align: center;margin:0 auto; display:block;font-size: 1.1rem;" data-i18n="personal-take">
            
         <b>Little Intro:</b> Geometry isn’t just about shapes on paper — it’s
         the secret behind so many everyday things! From figuring out how many
@@ -1820,6 +1820,7 @@
             <span id="cone-vol"></span>
           </div>
         </div>
+        <div class="figure-hint" data-i18n="hint-cone"></div>
       </div>
     </div>
 
@@ -1882,17 +1883,6 @@
     </div>
 
   
-    <!-- Trigger button -->
-    <!-- Trigger button -->
-    <div style="text-align: center; margin: 2rem 0">
-      <button onclick="showConePopup()">
-        Why do all hedras become a cone?
-      </button>
-    </div>
-    <!-- <button onclick="showConePopup()">Why do all hedras become a cone?</button> -->
-    <!-- Content will be injected by conePopup.js -->
-    <!-- <div id="cone-popup-container"></div> -->
-    <!-- Content will be injected by conePopup.js -->
     <footer
       style="
         text-align: center;
@@ -1974,75 +1964,85 @@
   <button id="toc-handle" data-i18n="menu-handle">MENU</button>
   <ul>
     <li><a href="#start" data-i18n="menu-top">Top</a></li>
-    <li><a href="#flatlands" data-i18n="menu-2d">2D Figures</a></li>
-    <ul>
-      <li><a href="#square" data-i18n="square"></a></li>
-      <li><a href="#rhombus" data-i18n="rhombus"></a></li>
-      <li><a href="#rectangle" data-i18n="rect"></a></li>
-      <li><a href="#parallelogram" data-i18n="parallelogram"></a></li>
-      <li><a href="#triangle" data-i18n="triangle"></a></li>
-      <li><a href="#rtriangle" data-i18n="triangle-right"></a></li>
-      <li><a href="#itriangle" data-i18n="triangle-iso"></a></li>
-      <li><a href="#etriangle" data-i18n="triangle-equi"></a></li>
-      <li><a href="#penta" data-i18n="pentagon"></a></li>
-      <li><a href="#hexa" data-i18n="hexagon"></a></li>
-      <li><a href="#ngon" data-i18n="ngon"></a></li>
-      <li><a href="#circle" data-i18n="circle"></a></li>
-      <li><a href="#ellipse" data-i18n="ellipse"></a></li>
-    </ul>
-    <li><a href="#space" data-i18n="menu-3d">3D Solids</a></li>
-    <ul>
-      <li><a href="#cube" data-i18n="cube"></a></li>
-      <li><a href="#rprism" data-i18n="rect-prism"></a></li>
-      <li><a href="#tpyramid" data-i18n="triangle-pyramid"></a></li>
-      <li><a href="#gprism" data-i18n="generic-prism"></a></li>
-      <li><a href="#goprism" data-i18n="oblique-prism"></a></li>
-      <li><a href="#gpyramid" data-i18n="generic-pyramid"></a></li>
-      <li><a href="#gopyramid" data-i18n="oblique-pyramid"></a></li>
-      <li><a href="#cylinder" data-i18n="cylinder"></a></li>
-      <li><a href="#cone" data-i18n="cone"></a></li>
-      <li><a href="#sphere" data-i18n="sphere"></a></li>
-    </ul>
+    <li>
+      <a href="#flatlands" data-i18n="menu-2d">2D Figures</a>
+      <ul>
+        <li><a href="#square" data-i18n="square"></a></li>
+        <li><a href="#rhombus" data-i18n="rhombus"></a></li>
+        <li><a href="#rectangle" data-i18n="rect"></a></li>
+        <li><a href="#parallelogram" data-i18n="parallelogram"></a></li>
+        <li><a href="#triangle" data-i18n="triangle"></a></li>
+        <li><a href="#rtriangle" data-i18n="triangle-right"></a></li>
+        <li><a href="#itriangle" data-i18n="triangle-iso"></a></li>
+        <li><a href="#etriangle" data-i18n="triangle-equi"></a></li>
+        <li><a href="#penta" data-i18n="pentagon"></a></li>
+        <li><a href="#hexa" data-i18n="hexagon"></a></li>
+        <li><a href="#ngon" data-i18n="ngon"></a></li>
+        <li><a href="#circle" data-i18n="circle"></a></li>
+        <li><a href="#ellipse" data-i18n="ellipse"></a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#space" data-i18n="menu-3d">3D Solids</a>
+      <ul>
+        <li><a href="#cube" data-i18n="cube"></a></li>
+        <li><a href="#rprism" data-i18n="rect-prism"></a></li>
+        <li><a href="#tpyramid" data-i18n="triangle-pyramid"></a></li>
+        <li><a href="#gprism" data-i18n="generic-prism"></a></li>
+        <li><a href="#goprism" data-i18n="oblique-prism"></a></li>
+        <li><a href="#gpyramid" data-i18n="generic-pyramid"></a></li>
+        <li><a href="#gopyramid" data-i18n="oblique-pyramid"></a></li>
+        <li><a href="#cylinder" data-i18n="cylinder"></a></li>
+        <li><a href="#cone" data-i18n="cone"></a></li>
+        <li><a href="#sphere" data-i18n="sphere"></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
     <script>
-              // smooth scroll
-        document.querySelectorAll('#toc a').forEach(a=>{
-          a.addEventListener('click',e=>{
-            e.preventDefault();
-            document.querySelector(a.getAttribute('href'))
-              ?.scrollIntoView({behavior:'smooth'});
-            document.getElementById('toc').classList.remove('open');
-          });
-        });
+document.addEventListener("DOMContentLoaded", () => {
+  const toc = document.getElementById("toc");
+  const handle = document.getElementById("toc-handle");
+  if (!toc || !handle) return;
 
-        // highlight active link
-        window.addEventListener("scroll", () => {
-          const links = [...document.querySelectorAll("#toc a")];
-          let current = null;
+  // --- Smooth scroll for all menu links
+  document.querySelectorAll("#toc a").forEach(a => {
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+      toc.classList.remove("open"); // close after click (mobile)
+    });
+  });
 
-          links.forEach(link => {
-            const target = document.querySelector(link.getAttribute("href"));
-            if (!target) return;
-            const offset = target.getBoundingClientRect().top;
-            if (offset <= 150 && offset > -target.offsetHeight / 2) current = link;
-          });
+  // --- Highlight active link on scroll
+  window.addEventListener("scroll", () => {
+    const links = [...document.querySelectorAll("#toc a")];
+    let current = null;
 
-          links.forEach(l => l.classList.remove("active"));
-          if (current) current.classList.add("active");
-        });
+    links.forEach(link => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      const offset = target.getBoundingClientRect().top;
+      if (offset <= 150 && offset > -target.offsetHeight / 2) current = link;
+    });
 
-        // mobile toggle
-        document.getElementById('toc-toggle')
-          .addEventListener('click',()=>document.getElementById('toc').classList.toggle('open'));
+    links.forEach(l => l.classList.remove("active"));
+    if (current) current.classList.add("active");
+  });
 
-        document.getElementById("toc-handle")
-          .addEventListener("click", () =>
-            document.getElementById("toc").classList.toggle("open")
-          );
+  // --- Mobile toggle (click + touchstart)
+  ["click", "touchstart"].forEach(evt =>
+    handle.addEventListener(evt, () => {
+      toc.classList.toggle("open");
+    })
+  );
 
-    </script>
+  // Mark TOC as ready for CSS animation
+  toc.classList.add("toc-ready");
+});
+</script>
 
     
   </body>
