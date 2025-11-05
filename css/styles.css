@@ -22,7 +22,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-p, span, div { white-space: normal; }
+p,
+span,
+div {
+  white-space: normal;
+}
 
 body {
   font-family: "Segoe UI", sans-serif;
@@ -44,8 +48,58 @@ h1 {
   font-weight: 800;
 }
 
-a { color: #1a8; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: #1a8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.about-block {
+  max-width: 720px;
+  margin: 4rem auto;
+  text-align: center;
+  line-height: 1.7;
+}
+.about-block p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.contact-block {
+  max-width: 720px;
+  margin: 4rem auto;
+  text-align: center;
+  line-height: 1.7;
+}
+.contact-block p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.terms-block {
+  max-width: 720px;
+  margin: 4rem auto;
+  text-align: center;
+  line-height: 1.7;
+}
+.terms-block p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.privacy-block {
+  max-width: 720px;
+  margin: 4rem auto;
+  text-align: center;
+  line-height: 1.7;
+}
+.privacy-block p {
+  margin-bottom: 1.2rem;
+  color: var(--color-text-muted);
+}
+
 
 /* =======================================================================
    🚀 HERO SECTION
@@ -96,7 +150,7 @@ a:hover { text-decoration: underline; }
   background: #f9f9fb;
   color: #222;
   border-right: 2px solid #ccc;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 0 10px 10px 0;
   z-index: 9999;
   transform: translateX(-100%);
@@ -120,7 +174,7 @@ a:hover { text-decoration: underline; }
   border-radius: 0 8px 8px 0;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   writing-mode: vertical-rl;
   text-orientation: mixed;
   letter-spacing: 1px;
@@ -131,7 +185,9 @@ a:hover { text-decoration: underline; }
   margin: 0;
   padding: 1rem 1.2rem;
 }
-#toc li { margin: 0.25rem 0; }
+#toc li {
+  margin: 0.25rem 0;
+}
 #toc a {
   color: #234;
   text-decoration: none;
@@ -151,12 +207,22 @@ a:hover { text-decoration: underline; }
 
 /* Mobile */
 @media (max-width: 900px) {
-  #toc { display: block !important; transform: translateX(-100%); }
-  #toc.toc-ready.open { transform: translateX(0); }
-  #toc > #toc-handle { display: block !important; }
+  #toc {
+    display: block !important;
+    transform: translateX(-100%);
+  }
+  #toc.toc-ready.open {
+    transform: translateX(0);
+  }
+  #toc > #toc-handle {
+    display: block !important;
+  }
 }
 @media (max-width: 750px) {
-  #toc { max-width: 240px; top: 60px; }
+  #toc {
+    max-width: 240px;
+    top: 60px;
+  }
 }
 
 /* =======================================================================
@@ -183,7 +249,8 @@ a:hover { text-decoration: underline; }
 .card {
   background: #fff;
   border-radius: var(--radius);
-  box-shadow: 0 2px 12px rgba(32,56,85,0.1), 0 0.5px 1.5px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(32, 56, 85, 0.1),
+    0 0.5px 1.5px rgba(0, 0, 0, 0.04);
   padding: 2.1rem 2.2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -191,7 +258,8 @@ a:hover { text-decoration: underline; }
   min-height: 100px;
 }
 .card:hover {
-  box-shadow: 0 8px 36px rgba(32,56,85,0.16), 0 1.5px 3.5px rgba(0,0,0,0.04);
+  box-shadow: 0 8px 36px rgba(32, 56, 85, 0.16),
+    0 1.5px 3.5px rgba(0, 0, 0, 0.04);
 }
 .card-title {
   font-size: 1.3rem;
@@ -200,32 +268,44 @@ a:hover { text-decoration: underline; }
 }
 
 /* =======================================================================
-   ✏️ INPUTS, FORMULAS, RESULTS
+   ✏️ INPUTS, FORMULAS, RESULTS — REFACTORED + KATEX INLINE FIX
    ======================================================================= */
-.diagram, .inputs-col, .formulas-col, .results-col {
+
+/* 🧩 Shared flex sizing for all columns */
+.diagram,
+.inputs-col,
+.formulas-col,
+.results-col {
   flex: 1 1 220px;
   min-width: 160px;
 }
+
+/* 🧭 Diagram container (centered SVG or image) */
 .diagram {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+/* 🧾 Input layout */
 .inputs-col {
   display: flex;
   flex-direction: column;
   gap: 0.15em;
 }
+
 .input-row {
   display: flex;
   align-items: center;
   gap: 0.3em;
 }
+
 .inputs-col label {
-  min-width: 66px;
+  min-width: 70px;
   font-size: 1em;
   color: #233d4d;
 }
+
 .inputs-col input {
   width: 76px;
   border: 1.2px solid #e1e5ee;
@@ -236,27 +316,63 @@ a:hover { text-decoration: underline; }
   outline: none;
   transition: border 0.2s;
 }
+
 .inputs-col input:focus {
   border: 1.5px solid #2875fa;
   background: #eef4ff;
 }
-.formulas-col, .results-col {
+
+/* =======================================================================
+   🧮 FORMULA + RESULT BOXES
+   ======================================================================= */
+.formulas-col,
+.results-col {
   position: relative;
   padding: 2rem 0.9em 1.1rem;
   border-radius: 9px;
   font-size: 1.1rem;
 }
+
+/* 🧮 Formulas Box */
 .formulas-col {
   font-family: "Fira Mono", monospace;
   color: #697a98;
   background: var(--color-bg-light);
 }
+
+/* ✅ Results Box */
 .results-col {
   font-weight: bold;
   color: var(--color-primary);
   background: var(--color-bg-green);
 }
-.formulas-col::before, .results-col::before {
+
+/* =======================================================================
+   💡 INLINE FORMULA FIX (no stacking / perfect alignment)
+   ======================================================================= */
+
+/* each formula line stays horizontal, but each line is stacked */
+.formulas-col > span:not([id]),
+.results-col > span:not([id]) {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+/* labels + inner spans remain inline */
+.formulas-col > span span,
+.results-col > span span {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* =======================================================================
+   🏷️ BOX LABELS (Formulas / Results)
+   ======================================================================= */
+.formulas-col::before,
+.results-col::before {
   position: absolute;
   top: 4px;
   left: 8px;
@@ -266,16 +382,20 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
   padding: 2px 6px;
 }
+
 .formulas-col::before {
   content: "Formulas";
   color: #64748b;
   background: #f7f7fb;
 }
+
 .results-col::before {
   content: "Results";
   color: var(--color-text-dark);
   background: var(--color-bg-green);
 }
+
+
 
 /* =======================================================================
    💬 DESCRIPTIONS & HINTS
@@ -308,14 +428,21 @@ a:hover { text-decoration: underline; }
   border: 1px solid #ddd6fe;
 }
 .intro-section.space {
-  background: linear-gradient(135deg, var(--color-bg-blue) 0%, var(--color-bg-space) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-blue) 0%,
+    var(--color-bg-space) 100%
+  );
   border: 1px solid #bae6fd;
 }
 
 /* =======================================================================
    🧭 CONE POPUP (Three.js Overlay)
    ======================================================================= */
-#ui, #sideCounter, #cameraInfo, #title {
+#ui,
+#sideCounter,
+#cameraInfo,
+#title {
   position: absolute;
   color: white;
   font-family: sans-serif;
@@ -325,18 +452,31 @@ a:hover { text-decoration: underline; }
   z-index: 1;
 }
 #ui {
-  top: 10px; left: 10px;
-  display: flex; gap: 8px; align-items: center;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 #sideCounter {
-  top: 50px; left: 10px;
+  top: 50px;
+  left: 10px;
 }
-#speedSlider { width: 120px; }
-#canvasContainer { width: 100%; height: 100%; flex: 1; pointer-events: auto; }
+#speedSlider {
+  width: 120px;
+}
+#canvasContainer {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  pointer-events: auto;
+}
 #popupContainer {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   display: none;
   justify-content: center;
@@ -345,16 +485,20 @@ a:hover { text-decoration: underline; }
 }
 #popupInner {
   position: relative;
-  width: 90vw; height: 90vh;
+  width: 90vw;
+  height: 90vh;
   background: #111;
   border-radius: 8px;
   overflow: hidden;
 }
-#popupInner button, #closeBtn {
+#popupInner button,
+#closeBtn {
   position: absolute;
-  top: 10px; right: 10px;
+  top: 10px;
+  right: 10px;
   background: rgba(0, 0, 0, 0.6);
-  color: white; border: none;
+  color: white;
+  border: none;
   padding: 6px 12px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -364,10 +508,208 @@ a:hover { text-decoration: underline; }
 /* =======================================================================
    ⚙️ UTILITIES
    ======================================================================= */
-.text-center { text-align: center; }
-.hidden { display: none !important; }
-.mt-2 { margin-top: 0.5rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-[id] { scroll-margin-top: 100px; }
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none !important;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+[id] {
+  scroll-margin-top: 100px;
+}
 
-html, body { overflow-x: hidden; width: 100%; }
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .bmc-button img {
+    height: 42px;
+    width: 150px;
+  }
+  .footer-links a {
+    display: inline-block;
+    margin: 0.3rem 0.4rem;
+  }
+}
+
+/* === SCOPED HEADER (no conflicts) === */
+#site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(29, 29, 31, 0.72); /* semi-transparent dark glass */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  color: #f5f5f7;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+#site-nav .nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#site-nav .logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #f5f5f7;
+  text-decoration: none;
+}
+
+#site-nav .nav-links a {
+  margin: 0 0.8rem;
+  text-decoration: none;
+  color: #d2d2d7;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+#site-nav .nav-links a:hover {
+  color: #fff;
+}
+
+#site-nav .lang-select select {
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  color: #d2d2d7;
+  outline: none;
+}
+
+#site-nav #menuToggle {
+  display: none;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: #f5f5f7;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  #site-nav .nav-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  #site-nav .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  #site-nav .nav-links a {
+    display: block;
+    margin: 0.4rem 0;
+  }
+  #site-nav #menuToggle {
+    display: block;
+  }
+  #site-nav.nav.open .nav-links {
+    display: flex;
+  }
+}
+
+.content {
+  margin-top: 56px;
+}
+
+/* === GLASS FOOTER (Apple-style mirror) === */
+#site-footer {
+  position: relative;
+  background: rgba(255, 255, 255, 0.75); /* translucent white glass */
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  color: #333;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  z-index: 10;
+}
+
+#site-footer .footer-links,
+#site-footer .bmc-button,
+#site-footer .footer-credit {
+  margin: 0.7rem 0;
+}
+
+#site-footer .footer-links a {
+  margin: 0 0.6rem;
+  text-decoration: none;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+#site-footer .footer-links a:hover {
+  color: var(--color-accent);
+}
+
+#site-footer .bmc-button img {
+  height: 50px;
+  width: 180px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#site-footer .bmc-button img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+#site-footer .footer-credit {
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+#site-footer p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 480px) {
+  #site-footer .bmc-button img {
+    height: 42px;
+    width: 150px;
+  }
+  #site-footer .footer-links a {
+    display: inline-block;
+    margin: 0.3rem 0.4rem;
+  }
+}
+
+.bmc-button {
+  text-align: center;
+}
+
+.bmc-button img {
+  height: 50px;
+  width: 180px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bmc-button img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}

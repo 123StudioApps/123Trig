@@ -4,111 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="terms-title">Terms of Service</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Segoe UI", sans-serif;
-        background: #f7f8fa;
-        padding: 2rem;
-        margin: 0 auto;
-        max-width: 720px;
-        min-height: 100vh;
-        color: #333;
-        line-height: 1.6;
-      }
-      h1 {
-        color: #234;
-      }
-      .content {
-        margin-top: 6rem;
-      }
-      .content p {
-        margin-bottom: 1.2rem;
-      }
-      footer {
-        margin-top: 4rem;
-        font-size: 0.9rem;
-        text-align: center;
-        color: #555;
-      }
-    </style>
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/common.js" defer></script>
+    <script src="/js/calcs_w_i18n.js" defer></script>
   </head>
+
   <body>
     <div id="site-header"></div>
 
-    <section class="content">
+    <section class="content terms-block">
       <h1 data-i18n="terms-title">Terms of Service</h1>
       <p data-i18n="terms-p1"></p>
       <p data-i18n="terms-p2"></p>
       <p data-i18n="terms-p3"></p>
     </section>
 
-    <footer
-      style="
-        text-align: center;
-        margin: 4rem 0 2rem;
-        font-size: 0.9rem;
-        color: #555;
-      "
-    >
-      <div class="footer-links" style="margin-bottom: 0.5rem">
-        <a href="about.html" data-i18n="nav-about" style="margin: 0 0.5rem"
-          >About</a
-        >
-        |
-        <a
-          href="privacidad.html"
-          data-i18n="nav-privacy"
-          style="margin: 0 0.5rem"
-          >Privacy</a
-        >
-        |
-        <a href="terms.html" data-i18n="nav-contact" style="margin: 0 0.5rem"
-          >Terms</a
-        >
-        |
-        <a href="contacto.html" data-i18n="nav-terms" style="margin: 0 0.5rem"
-          >Contact</a
-        >
-      </div>
-
-      <p style="margin-top: 0.5rem">
-        &copy; <span id="year"></span> 123Trig.
-        <span data-i18n="footer-rights">All rights reserved.</span>
-      </p>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-
-    <script src="calcs_w_i18n.js"></script>
-
-    <script>
-      const supportedLangs = ["en", "es", "fr", "pt", "de", "it"];
-      const defaultLang = navigator.language.slice(0, 2);
-      const initialLang = supportedLangs.includes(defaultLang)
-        ? defaultLang
-        : "en";
-
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("site-header").innerHTML = html;
-
-          const langEl = document.getElementById("lang-switcher");
-          langEl.value = initialLang;
-
-          langEl.addEventListener("change", () => {
-            loadLang(langEl.value);
-          });
-
-          loadLang(initialLang);
-        });
-    </script>
+    <div id="site-footer"></div>
   </body>
 </html>

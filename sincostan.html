@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title">Trigonometric Functions — sin θ • cos θ • tan θ | Formulas, Graphs & Identities</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="description" content="Explore trigonometric functions sinθ, cosθ, tanθ — formulas, unit circle, solver, and identities. A compact visual math reference." />
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <script src="/js/common.js" defer></script>
+    <style>
+
+      /* Hero */
+      /* .hero{ text-align:center; max-width:1000px; margin: 1rem auto 1.5rem; } */
+      /* .hero h1{ font-size:2.6rem; color:#123; font-weight:800; letter-spacing:0.5px; } */
+      .hero .math-title{ color:#0073e6; font-weight:900; font-family:'Fira Mono', ui-monospace, monospace; }
+      /* .tagline{ font-size:1.1rem; color:#f57c00; margin-top:.35rem; } */
+      /* Intro */
+      .intro { max-width:1000px; margin:1.5rem auto 2rem; background:#fff; border-radius:12px; padding:1rem 1.5rem; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+      .intro p { margin-bottom:.8rem; }
+      .intro strong { color:#123; }
+      .abbr { display:flex; flex-wrap:wrap; gap:.5rem .8rem; margin:.6rem 0 0 0; }
+      .chip { display:inline-block; background:#eef2ff; border:1px solid #dbe2ff; padding:.18rem .55rem; border-radius:999px; font-size:.9rem; }
+
+      /* .diagram{ display:flex; align-items:center; justify-content:center; } */
+      .triangle-svg text{ font-size:12px; fill:#234; }
+      /* Inputs */
+
+      .input-row{ display:flex; align-items:center; gap:.5rem; }
+
+
+      .muted{ color:#5b6474; }
+      /* Formulas */
+      /* .formulas-col{ font-family:'Fira Mono', ui-monospace, monospace; color:#334155; background:#f7f7fb; border-radius:10px; padding:.7rem .9rem; display:flex; flex-direction:column; gap:.5rem; } */
+      .mini{ font-size:.92rem; color:#475569; }
+      .badge{ display:inline-block; font-size:.8rem; border-radius:999px; padding:.08rem .5rem; background:#e0f2fe; color:#0f172a; }
+      .sep{ height:1px; background:#e5e7eb; margin:.5rem 0; }
+      /* Results */
+      /* .results-col{ font-weight:700; color:#234; background:#e9f7f0; border-radius:10px; padding:.8rem 1rem; display:flex; flex-direction:column; gap:.5rem; } */
+      .warn{ color:#b91c1c; font-weight:800; }
+      /* Unit circle */
+      .circle-diagram svg{ width:500px; height:500px; }
+      .circle-diagram text{ font-size:10px; fill:#234; }
+      .circle-dot{ fill:#0ea5e9; }
+      .circle-axis{ fill:#e9280e; }
+      /* Special angles grid */
+      .grid{ display:grid; grid-template-columns: repeat(9, minmax(80px, 1fr)); gap:.5rem; text-align:center; }
+      .grid div{ background:#f7f7fb; border-radius:10px; padding:.5rem .35rem; }
+
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+    <section class="content">
+      <div class="hero">
+        <h1><span class="math-title">sin θ • cos θ • tan θ</span><br/>Trigonometric Functions</h1>
+        <p class="tagline">Formulas • Unit Circle • Solver • Identities</p>
+      </div>
+
+      <div class="intro">
+        <p><strong>Definitions:</strong> Trigonometric functions relate the <em>angles</em> of a right triangle to the <em>ratios of its sides</em>. The three primary ones are:</p>
+        <ul style="margin-left:1.2rem;">
+          <li><strong>sin(θ)</strong> = opposite / hypotenuse</li>
+          <li><strong>cos(θ)</strong> = adjacent / hypotenuse</li>
+          <li><strong>tan(θ)</strong> = opposite / adjacent</li>
+        </ul>
+        <div class="abbr">
+          <span class="chip"><strong>sin</strong> = <em>sine</em> (ES: <em>seno</em>, FR: <em>sinus</em>)</span>
+          <span class="chip"><strong>cos</strong> = <em>cosine</em> (ES: <em>coseno</em>, FR: <em>cosinus</em>)</span>
+          <span class="chip"><strong>tan</strong> = <em>tangent</em> (ES/FR: <em>tangente</em>)</span>
+          <span class="chip mini">SOH‑CAH‑TOA → sin=opp/hyp • cos=adj/hyp • tan=opp/adj</span>
+        </div>
+        <p style="margin-top:.6rem"><strong>Intent:</strong> Fast visual reference for sin, cos, tan: solver, unit circle cues, special angles, and key identities.</p>
+      </div>
+
+      <!-- Solver + Unit Circle Row -->
+      <div class="layout-row">
+        <div class="card">
+          <div class="card-title">Right‑triangle solver</div>
+          <div class="figure-description" data-i18n="desc-cstsolver">Enter <strong>2</strong> inputs (angle+side or two sides). We'll compute the rest.</div>
+          <div class="layout">
+            <div class="diagram">
+              <!-- RIGHT TRIANGLE DIAGRAM (SVG) -->
+              <svg class="triangle-svg" width="200" height="150" viewBox="0 0 200 150" aria-label="Right triangle diagram">
+                <!-- Triangle -->
+                <polygon points="30,120 190,120 30,30" fill="none" stroke="#1f2937" stroke-width="2"/>
+                <!-- Right angle box -->
+                <rect x="30" y="110" width="10" height="10" fill="none" stroke="#1f2937" stroke-width="2"/>
+                <!-- Labels -->
+                <text x="100" y="138" text-anchor="middle">b (adjacent)</text>
+                <text x="18" y="70" text-anchor="middle" transform="rotate(-90, 18, 70)">a (opposite)</text>
+                <text x="98" y="56">c (hypotenuse)</text>
+                <text x="150" y="116">θ</text>
+                <text x="35" y="50">φ</text>
+
+              </svg>
+            </div>
+
+            <div class="inputs-col">
+              <div class="input-row"><label for="angle">Angle θ:</label><input id="angle" type="number" step="any" placeholder="30" /><select id="mode"><option value="deg" selected>deg</option><option value="rad">rad</option></select></div>
+              <div class="input-row"><label for="a">a (opp):</label><input id="a" type="number" step="any" /></div>
+              <div class="input-row"><label for="b">b (adj):</label><input id="b" type="number" step="any" /></div>
+              <div class="input-row"><label for="c">c (hyp):</label><input id="c" type="number" step="any" /></div>
+            </div>
+
+            <div class="formulas-col">
+              <div><span class="badge">SOH</span> sinθ = a / c</div>
+              <div><span class="badge">CAH</span> cosθ = b / c</div>
+              <div><span class="badge">TOA</span> tanθ = a / b</div>
+              <div class="sep"></div>
+              <div class="mini">Deg↔Rad:<br>  - rad = deg·π/180 <br>-  deg = rad·180/π</div>
+              <div class="mini">Pythagoras: c² = a² + b²</div>
+            </div>
+
+            <div class="results-col">
+              <div><span class="badge">a</span> = <span id="out_a"></span></div>
+              <div><span class="badge">b</span> = <span id="out_b"></span></div>
+              <div><span class="badge">c</span> = <span id="out_c"></span></div>
+              <div class="sep"></div>
+              <div><span class="badge">sinθ</span> = <span id="sin"></span></div>
+              <div><span class="badge">cosθ</span> = <span id="cos"></span></div>
+              <div><span class="badge">tanθ</span> = <span id="tan"></span></div>
+              <div class="sep"></div>
+              <div class="mini">θ ≈ <span id="thetaOut"></span></div>
+              <div class="mini">φ ≈ <span id="phiOut"></span> <span class="mini" style="opacity:.7">(φ = 90° − θ)</span></div>
+              <div class="mini warn" id="warn"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Radian Circle</div>
+          <div class="figure-description" data-i18n="desc-rcircle">Each position means : angle in radian / angle in degrees (ie: π/4 | 45°). COS and SIN coordinates as follow [cos,sin]. </div>
+          <div class="circle-diagram" style="display:flex; justify-content:center;">
+            <!-- UNIT CIRCLE WITH KEY ANGLES -->
+            <svg viewBox="0 0 280 280" aria-label="Unit circle with 0, 30°, 45°, 60°, 90°">
+               <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+                </marker>
+              </defs>            
+              <circle cx="130" cy="130" r="100" stroke="#334155" stroke-width="2" fill="none" />
+              <!-- axes -->
+              <line x1="10" y1="130" x2="270" y2="130" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <line x2="130" y2="00" x1="130" y1="250" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+              <!-- key radius lines -->
+              <line x1="130" y1="130" x2="230" y2="130" stroke="#f59e0b" stroke-width="2" />
+              <line x1="130" y1="130" x2="130" y2="30" stroke="#475569" stroke-width="1.5" />
+              <!-- 60°, 45°, 30° -->
+              <line x1="130" y1="130" x2="180" y2="43.4" stroke="#64748b" stroke-width="1" /> <!-- 60deg-->
+              <line x1="130" y1="130" x2="200.71" y2="59.29" stroke="#64748b" stroke-width="1" /> <!-- 45deg-->
+              <line x1="130" y1="130" x2="216.6" y2="80" stroke="#64748b" stroke-width="1" /> <!-- 30deg-->
+              <!-- labels -->
+              <text x="232" y="125">0 | 0°</text>
+              <text x="134" y="25">π/2 | 90°</text>
+              <text x="170" y="35">π/3 | 60°</text><!-- 60deg-->
+              <text x="195" y="50">π/4 | 45°</text> <!-- 45deg-->
+              <text x="215" y="70">π/6 | 30°</text> <!-- 30deg-->
+              <text x="40" y="125">π | 180°</text>
+              <text x="134" y="245">3π/2 | 270°</text>
+
+              <!-- dots at tips -->
+              <circle class="circle-dot" cx="230" cy="130" r="3" />
+              <circle class="circle-dot" cx="130" cy="30" r="3" />
+              <circle class="circle-dot" cx="180" cy="43.4" r="3" /><!-- 60deg-->
+              <circle class="circle-dot" cx="200.71" cy="59.29" r="3" /><!-- 45deg-->
+              <circle class="circle-dot" cx="216.6" cy="80" r="3" /><!-- 30deg-->  
+              <circle class="circle-dot" cx="030" cy="130" r="3" />
+              <circle class="circle-dot" cx="130" cy="230" r="3" />
+
+              <!-- axis -->
+              <text x="260" y="120" style="fill:rgb(233,40,14)">cos</text>
+              <text x="134" y="10" style="fill:rgb(233,40,14)">sin</text>
+            <!-- cos sin projections -->
+             <line x1="130" y1="43.4" x2="180" y2="43.4" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 60deg-->
+             <line x1="180" y1="130" x2="180" y2="43.4" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 60deg-->
+             <line x1="130" y1="59.29" x2="200.71" y2="59.29" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 45deg-->
+             <line x1="200.71" y1="130" x2="200.71" y2="59.29" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 45deg-->
+             <line x1="130" y1="80" x2="216.6" y2="80" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 30deg-->
+             <line x1="216.6" y1="130" x2="216.6" y2="80" stroke="#64748b" stroke-width=".5" stroke-dasharray="4"/> <!-- 30deg-->
+             <!-- dots on axis -->
+              <circle class="circle-axis" cx="130" cy="43.4" r="2"/>
+              <circle class="circle-axis" cx="180" cy="130" r="2" />
+              <circle class="circle-axis" cx="130" cy="59.29" r="2" />
+              <circle class="circle-axis" cx="200.71" cy="130" r="2" />
+              <circle class="circle-axis" cx="130" cy="80" r="2" />
+              <circle class="circle-axis" cx="216.6" cy="130" r="2" />
+              <!-- text on axis -->
+               <text x="180" y="145" text-anchor="middle" style="fill:rgb(233,40,14);font-size:10px">0.5</text>
+               <text x="200.71" y="153" text-anchor="middle" style="fill:rgb(233,40,14);font-size:10px">√2/2</text>
+               <text x="216.6" y="145" text-anchor="middle" style="fill:rgb(233,40,14);font-size:10px">√3/2</text>
+               <text x="235" y="145" text-anchor="middle" style="fill:rgb(233,40,14);font-size:10px">1</text>
+               <text x="20" y="145" text-anchor="middle" style="fill:rgb(233,40,14);font-size:10px">-1</text>
+               <text y="80" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">0.5</text>
+               <text y="59.29" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">√2/2</text>
+               <text y="43.4" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">√3/2</text>
+               <text y="25" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">1</text>
+               <text y="245" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">-1</text>
+               <text y="140" x="125" text-anchor="end" style="fill:rgb(233,40,14);font-size:10px">0</text>
+               <!-- tangeant -->
+                <line x2="230" y2="0" x1="230" y1="280" stroke="#008f39" stroke-width="0.5" marker-end="url(#arrowhead)"/>
+                <circle class="circle-axis" cx="230" cy="72.26" r="2" style="fill:#008f39"/>
+                <circle class="circle-axis" cx="230" cy="30" r="2" style="fill:#008f39"/>
+                <text y="30" x="235" text-anchor="start" style="fill:#008f39;font-size:7px">1</text>
+                <text y="80" x="235" text-anchor="start" style="fill:#008f39;font-size:7px">1/√3</text>
+                <line x1="230" y1="30" x2="200.71" y2="59.29" stroke="#008f39" stroke-width="1"stroke-dasharray="2"/> <!-- 45deg-->
+                <line x1="230" y1="72.26" x2="216.6" y2="80" stroke="#008f39" stroke-width="1" stroke-dasharray="2" /> <!-- 30deg-->
+                <text y="10" x="235" text-anchor="start" style="fill:#008f39;font-size:10px">tan</text>
+
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special Angles Table -->
+      <div class="layout-row">
+        <div class="card">
+          <div class="card-title">Special angles</div>
+          <div class="mini">Unit circle values (exact):</div>
+          <div class="grid mini">
+            <div><div class="badge"><strong>deg</strong><br/><span class="mini">rad</span></div><div><strong>sin</strong></div><div><strong>cos</strong></div><div><strong>tan</strong></div></div>
+            <div><div class="badge"><strong>0°</strong><br/><span class="mini">0</span></div><div>0</div><div>1</div><div>0</div></div>
+            <div><div class="badge"><strong>30°</strong><br/><span class="mini">π/6</span></div><div>1/2</div><div>√3/2</div><div>1/√3</div></div>
+            <div><div class="badge"><strong>45°</strong><br/><span class="mini">π/4</span></div><div>√2/2</div><div>√2/2</div><div>1</div></div>
+            <div><div class="badge"><strong>60°</strong><br/><span class="mini">π/3</span></div><div>√3/2</div><div>1/2</div><div>√3</div></div>
+            <div><div class="badge"><strong>90°</strong><br/><span class="mini">π/2</span></div><div>1</div><div>0</div><div>—</div></div>
+            <div><div class="badge"><strong>120°</strong><br/><span class="mini">2π/3</span></div><div>√3/2</div><div>−1/2</div><div>−√3</div></div>
+            <div><div class="badge"><strong>210°</strong><br/><span class="mini">7π/6</span></div><div>−1/2</div><div>−√3/2</div><div>1/√3</div></div>
+            <div><div class="badge"><strong>310°</strong><br/><span class="mini">31π/18</span></div><div>−√3/2</div><div>1/2</div><div>−√3</div></div>
+          </div>
+        </div>
+      </div>
+
+<!-- Identities -->
+      <div class="layout-row">
+        <div class="card">
+          <div class="card-title">Not‑so‑basic</div>
+          <div class="formulas-col">
+            <div class="mini"><strong>Reciprocals</strong>: 
+              <br/>csc(θ) = 1/sin(θ) = c/a — <em>cosecant</em>
+              <br/>sec(θ) = 1/cos(θ) = c/b — <em>secant</em>
+              <br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangent</em>
+            </div>
+            <div class="mini"><strong>Pythagorean</strong>: 
+                <br/>sin²(θ) + cos²(θ) = 1
+                <br/>1 + tan²(θ) = sec²(θ)
+                <br/>1 + cot²(θ) = csc²(θ)
+            </div>
+            <div class="mini"><strong>Cofunction</strong>:
+                <br/>sin(90° − x) = cos(x)
+                <br/>tan(90° − x) = cot(x)
+            </div>
+            <div class="mini"><strong>Angle addition</strong>: 
+              <br/>sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β)
+              <br/>cos(α ± β) = cos(α).cos(β) ± sin(α).sin(β)
+              <br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ± tan(α).tan(β))
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Inverse trig (right triangle)</div>
+          <div class="formulas-col">
+            <div class="mini">θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)</div>
+            <div class="mini">Domains: arcsin, arccos ∈ [−1, 1]; respect units (deg/rad).</div>
+          </div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const els = ['angle','a','b','c','mode'].map(id => $(id));
+      els.forEach(el => el && el.addEventListener('input', compute));
+
+      function round6(x){ return Number.isFinite(x) ? Math.round(x * 1e6) / 1e6 : NaN; }
+      function clamp(x,min,max){ return Math.min(Math.max(x,min),max); }
+
+      function compute(){
+        const warn = $("warn");
+        if(warn) warn.textContent = '';
+
+        const mode = $("mode").value;
+        let A_in = parseFloat($("angle").value);
+        let a_in = parseFloat($("a").value);
+        let b_in = parseFloat($("b").value);
+        let c_in = parseFloat($("c").value);
+
+        let A = Number.isFinite(A_in) ? A_in : NaN;
+        let a = Number.isFinite(a_in) ? a_in : NaN;
+        let b = Number.isFinite(b_in) ? b_in : NaN;
+        let c = Number.isFinite(c_in) ? c_in : NaN;
+
+        const given = [A,a,b,c].filter(Number.isFinite).length;
+        if(given < 2){
+          clearAll();
+          if(warn) warn.textContent = 'Give any two inputs (angle+side or two sides).';
+          return;
+        }
+        if(given > 2){
+          clearAll();
+          if(warn) warn.textContent = 'Too many inputs — setup invalid.';
+          return;
+        }
+
+        let theta = Number.isFinite(A) ? (mode==='deg' ? (A*Math.PI/180) : A) : NaN;
+        if(Number.isFinite(a) && Number.isFinite(b) && !Number.isFinite(c)) c = Math.hypot(a,b);
+        if(Number.isFinite(a) && Number.isFinite(c) && !Number.isFinite(b)) b = Math.sqrt(Math.max(c*c - a*a,0));
+        if(Number.isFinite(b) && Number.isFinite(c) && !Number.isFinite(a)) a = Math.sqrt(Math.max(c*c - b*b,0));
+
+        if(!Number.isFinite(theta)){
+          if(Number.isFinite(a) && Number.isFinite(c) && c>0) theta = Math.asin(clamp(a/c,-1,1));
+          else if(Number.isFinite(b) && Number.isFinite(c) && c>0) theta = Math.acos(clamp(b/c,-1,1));
+          else if(Number.isFinite(a) && Number.isFinite(b) && b!==0) theta = Math.atan(a/b);
+        }
+
+        if(Number.isFinite(theta)){
+          if(!Number.isFinite(a) && Number.isFinite(c)) a = c * Math.sin(theta);
+          if(!Number.isFinite(b) && Number.isFinite(c)) b = c * Math.cos(theta);
+          if(!Number.isFinite(c) && Number.isFinite(a)) c = a / Math.sin(theta);
+          if(!Number.isFinite(c) && Number.isFinite(b)) c = b / Math.cos(theta);
+          if(!Number.isFinite(a) && Number.isFinite(b)) a = b * Math.tan(theta);
+          if(!Number.isFinite(b) && Number.isFinite(a)) b = a / Math.tan(theta);
+        }
+
+        const phi = Number.isFinite(theta) ? (Math.PI/2 - theta) : NaN;
+        const s = Math.sin(theta || NaN);
+        const co = Math.cos(theta || NaN);
+        const ta = Math.tan(theta || NaN);
+        fillOutputs(s,co,ta, theta, phi, a,b,c);
+      }
+
+      function clearAll(){
+        ['sin','cos','tan','out_a','out_b','out_c','thetaOut','phiOut'].forEach(id=>{const e=$(id); if(e) e.textContent='NA';});
+      }
+
+      function fillOutputs(s,co,ta,theta,phi,a,b,c){
+        const put = (id,val)=>{const e=$(id); if(e) e.textContent=Number.isFinite(val)?round6(val):'NA';};
+        put('sin', s); put('cos', co); put('tan', ta);
+        put('out_a', a); put('out_b', b); put('out_c', c);
+        const mode = $('mode').value;
+        const thetaEl = $('thetaOut');
+        if(thetaEl) thetaEl.textContent = Number.isFinite(theta)?(mode==='deg'?round6(theta*180/Math.PI)+' deg':round6(theta)+' rad'):'NA';
+        const phiEl = $('phiOut');
+        if(phiEl) phiEl.textContent = Number.isFinite(phi)?(mode==='deg'?round6(phi*180/Math.PI)+' deg':round6(phi)+' rad'):'NA';
+      }
+
+      // Footer year + initial compute
+      (function(){
+        const y = document.getElementById('year');
+        if(y) y.textContent = new Date().getFullYear();
+        compute();
+      })();
+    </script>
+  </body>
+</html>

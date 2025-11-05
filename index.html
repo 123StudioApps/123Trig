@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://123trig.com/sitemap.xml" />
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <!-- KaTeX (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <script src="/js/common.js" defer></script>
+    <script src="/js/calcs_w_i18n.js" defer></script>
+    
     <meta
       name="description"
       content="Visual calculator for areas, volumes and perimeters. Perfect for students. Available in English, Spanish, French, Portuguese, Italian, German, Chineese and Japaneese."
@@ -47,13 +56,13 @@
     <meta name="google-adsense-account" content="ca-pub-4301378904417353" />
 
     <title>123Trig</title>
-    <link rel="stylesheet" href="styles.css" />
+
     <script type="module">
       import {
         initConePopup,
         showConePopup,
         hideConePopup,
-      } from "./conepopup.js";
+      } from "/js/conepopup.js";
       window.addEventListener("DOMContentLoaded", () => {
         initConePopup();
         window.showConePopup = showConePopup;
@@ -500,14 +509,13 @@
             </div>
           </div>
           <div class="formulas-col">
-            <span
-              ><span data-i18n="not-implemented"></span> not implemented</span
-            >
+            <span><span data-i18n="not-implemented"></span> not implemented</span>
             <span><span data-i18n="area"></span> = (b × h) / 2</span>
+
           </div>
           <div class="results-col">
-            <span id="tri-perim"></span>
-            <span id="tri-area"></span>
+            <span><span id="tri-perim"></span></span>
+            <span><span id="tri-area"></span></span>
           </div>
         </div>
       </div>
@@ -1890,82 +1898,6 @@
 
     </div>
 
-  
-    <footer
-      style="
-        text-align: center;
-        margin-top: 4rem;
-        font-size: 0.9rem;
-        color: #555;
-      "
-    >
-      <div class="bmc-button" style="text-align: center; margin-top: 2rem">
-        <a href="https://www.buymeacoffee.com/123studioapps" target="_blank">
-          <img
-            src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-            alt="Buy Me a Coffee"
-            style="height: 50px; width: 180px"
-          />
-        </a>
-      </div>
-
-      <div class="footer-links" style="margin-bottom: 0.5rem">
-        <a href="about.html" data-i18n="nav-about" style="margin: 0 0.5rem"
-          >About</a
-        >
-        |
-        <a
-          href="privacidad.html"
-          data-i18n="nav-privacy"
-          style="margin: 0 0.5rem"
-          >Privacy</a
-        >
-        |
-        <a href="terms.html" data-i18n="nav-terms" style="margin: 0 0.5rem"
-          >Terms</a
-        >
-        |
-        <a href="contacto.html" data-i18n="nav-contact" style="margin: 0 0.5rem"
-          >Contact</a
-        >
-      </div>
-
-      <p style="margin-top: 0.5rem">
-        &copy; <span id="year"></span> 123Trig.
-        <span data-i18n="footer-rights">All rights reserved.</span>
-      </p>
-    </footer>
-
-    <script>
-      // Set current year dynamically
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-    <!-- (content stays the same until script block) -->
-    <script src="calcs_w_i18n.js"></script>
-
-    <script>
-      const supportedLangs = ["en", "es", "fr", "pt", "de", "it", "zh", "ja"];
-      const defaultLang = navigator.language.slice(0, 2);
-      const initialLang = supportedLangs.includes(defaultLang)
-        ? defaultLang
-        : "en";
-
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("site-header").innerHTML = html;
-
-          const langEl = document.getElementById("lang-switcher");
-          langEl.value = initialLang;
-
-          langEl.addEventListener("change", () => {
-            loadLang(langEl.value);
-          });
-
-          loadLang(initialLang);
-        });
-        
-    </script>
 
 <!-- Sticky TOC -->
 <nav id="toc">
@@ -2008,7 +1940,7 @@
   </ul>
 </nav>
 
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const toc = document.getElementById("toc");
   const handle = document.getElementById("toc-handle");
