@@ -12,7 +12,9 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
     <script src="/js/common.js" defer></script>
-    <script src="/js/calcs_w_i18n.js" defer></script>
+    <script src="/js/i18n.js" defer></script>
+    <script src="/js/geom.js" defer></script>
+
     
     <meta
       name="description"
@@ -293,11 +295,13 @@
           </div>
 
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 4a</span>
             <span><span data-i18n="area"></span> = a²</span>
           </div>
 
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="square-perim"></span>
             <span id="square-area"></span>
           </div>
@@ -356,6 +360,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span data-i18n="rh-perim"
               ><span data-i18n="perimeter"></span> = 4 x a</span
             >
@@ -364,6 +369,7 @@
             >
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="rh-perim"></span>
             <span id="rh-area"></span>
           </div>
@@ -405,10 +411,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 2(l + w)</span>
             <span><span data-i18n="area"></span> = l × w</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="rect-perim"></span>
             <span id="rect-area"></span>
           </div>
@@ -458,6 +466,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span data-i18n="pllg-perim"
               ><span data-i18n="perimeter"></span> = 2 x (b + a)</span
             >
@@ -466,6 +475,7 @@
             >
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="pllg-perim"></span>
             <span id="pllg-area"></span>
           </div>
@@ -509,11 +519,13 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="not-implemented"></span> not implemented</span>
             <span><span data-i18n="area"></span> = (b × h) / 2</span>
 
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span><span id="tri-perim"></span></span>
             <span><span id="tri-area"></span></span>
           </div>
@@ -561,6 +573,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="area"></span> = (b × h) / 2</span>
             <span><span data-i18n="perimeter"></span> = a + b + c</span>
             <span style="font-size: 0.8rem"
@@ -569,6 +582,7 @@
             <span><i>->: c = √(a² + b²)</i></span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="triR-perim"></span>
             <span id="triR-area"></span>
           </div>
@@ -634,6 +648,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = b + 2(a)</span>
             <span><i>a = √((b/2)² + h²)</i></span>
             <span style="font-size: 0.8rem"
@@ -642,6 +657,7 @@
             <span><span data-i18n="area"></span> = (b × h) / 2</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="triIso-perim"></span>
             <span id="triIso-area"></span>
           </div>
@@ -694,6 +710,7 @@
           </div>
 
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 3a</span>
             <span><i>h = (√3 / 2) × a</i></span>
             <span style="font-size: 0.8rem"
@@ -703,6 +720,7 @@
           </div>
 
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="triEq-perim"></span>
             <span id="triEq-area"></span>
           </div>
@@ -751,10 +769,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 5a</span>
             <span><span data-i18n="area"></span> = (Perimeter × ap)/2</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="penta-perim"></span>
             <span id="penta-area"></span>
           </div>
@@ -797,6 +817,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 6a</span>
             <span><span data-i18n="area"></span> = ((3√3) / 2) × a²</span>
             <span style="font-size: 0.7rem"
@@ -804,6 +825,7 @@
             >
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="hexa-perim"></span>
             <span id="hexa-area"></span>
           </div>
@@ -911,6 +933,7 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = n × a</span>
             <span><span data-i18n="area"></span> = n x ( a x ap ) /2 </span>
             <span style="font-size: 0.7rem"
@@ -921,6 +944,7 @@
             >
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="ngon-perim"></span>
             <span id="ngon-area"></span>
           </div>
@@ -965,10 +989,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="perimeter"></span> = 2πr</span>
             <span><span data-i18n="area"></span> = πr²</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="circ-perim"></span>
             <span id="circ-area"></span>
           </div><div class="figure-hint" data-i18n="hint-circle"></div>
@@ -1041,10 +1067,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="area"></span> = π x a x b</span>
             <span style="font-size: 0.7rem"><i><span data-i18n="perimeter"></span> = approximation out of scope</i></span></span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="ell-area"></span>
             <span id="ell-perim"></span>
           </div>
@@ -1134,6 +1162,7 @@
                 </div>
               </div>
               <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
                 <span data-i18n="cube-area"
                   ><span data-i18n="surface-area"></span> = 6a²</span
                 >
@@ -1142,6 +1171,7 @@
                 >
               </div>
               <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
                 <span id="area-cube"></span>
                 <span id="vol-cube"></span>
               </div>
@@ -1228,6 +1258,7 @@
                 </div>
               </div>
               <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
                 <span
                   ><span data-i18n="surface-area"></span> = 2(l*w + l*H + w*H)</span
                 >
@@ -1236,6 +1267,7 @@
                 >
               </div>
               <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
                 <span id="prism-area"></span>
                 <span id="prism-vol"></span>
               </div>
@@ -1310,11 +1342,13 @@
             </div>
 
             <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
               <span>V = A × H</span>
               <span>S = 2A + P × H</span>
             </div>
 
             <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
               <span id="gpris-vol"></span>
               <span id="gpris-area"></span>
             </div>
@@ -1403,12 +1437,14 @@
             </div>
 
             <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
               <span>S = 2A + Area of Sides</span>
               <span>V = A × H</span>
               
             </div>
 
             <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
               <span id="slpr-vol"></span>
               <span id="slpr-area"></span>
             </div>
@@ -1535,6 +1571,7 @@
                 </div>
               </div>
               <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
                 <span
                   ><span data-i18n="surface-area"></span> =
                   <span data-i18n="not-implemented">Not available</span></span
@@ -1545,6 +1582,7 @@
                 >
               </div>
               <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
                 <span id="pyr-area"></span>
                 <span id="pyr-vol"></span>
               </div>
@@ -1598,10 +1636,12 @@
               </div>
 
               <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
                 <span>V = (A × H) / 3</span>
               </div>
 
               <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
                 <span id="gpyr-vol"></span>
               </div>
             </div>
@@ -1672,11 +1712,13 @@
         </div>
 
         <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
           <span>S = A + Area of all sides</span>
           <span>V = (A × H) / 3</span>
         </div>
 
         <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
           <span id="slpyr-vol"></span>
           <!-- <span id="slpyr-area"></span> -->
         </div>
@@ -1762,10 +1804,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="surface-area"></span> = 2πr² + 2πrH</span>
             <span><span data-i18n="volume"></span> = πr²H</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="cyl-area"></span>
             <span id="cyl-vol"></span>
           </div>
@@ -1826,12 +1870,14 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span
               ><span data-i18n="surface-area"></span> = πr² + πr√(r² + H²)</span
             >
             <span><span data-i18n="volume"></span> = (1/3)πr²H</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="cone-area"></span>
             <span id="cone-vol"></span>
           </div>
@@ -1883,10 +1929,12 @@
             </div>
           </div>
           <div class="formulas-col">
+  <div class="label" data-i18n="formulas-label">Formulas</div>
             <span><span data-i18n="surface-area"></span> = 4πr²</span>
             <span><span data-i18n="volume"></span> = (4/3)πr³</span>
           </div>
           <div class="results-col">
+<div class="label" data-i18n="results-label">Results</div>
             <span id="sph-area"></span>
             <span id="sph-vol"></span>
           </div>

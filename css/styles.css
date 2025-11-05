@@ -335,13 +335,14 @@ a:hover {
 
 /* 🧮 Formulas Box */
 .formulas-col {
-  font-family: "Fira Mono", monospace;
+  /* font-family: "Fira Mono", monospace; */
   color: #697a98;
   background: var(--color-bg-light);
 }
 
 /* ✅ Results Box */
 .results-col {
+  /* font-family: "Fira Mono", monospace; */
   font-weight: bold;
   color: var(--color-primary);
   background: var(--color-bg-green);
@@ -371,30 +372,30 @@ a:hover {
 /* =======================================================================
    🏷️ BOX LABELS (Formulas / Results)
    ======================================================================= */
-.formulas-col::before,
-.results-col::before {
+
+
+.formulas-col .label,
+.results-col .label {
   position: absolute;
-  top: 4px;
-  left: 8px;
-  font-size: 0.75em;
-  font-weight: 600;
-  border-radius: 4px;
+  top: 0rem;
+  left: 0rem;
+  font-weight: 1000;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  padding: 2px 6px;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
 }
 
-.formulas-col::before {
-  content: "Formulas";
+.formulas-col .label {
   color: #64748b;
-  background: #f7f7fb;
+  background: var(--color-bg-light);
 }
 
-.results-col::before {
-  content: "Results";
+.results-col .label {
   color: var(--color-text-dark);
   background: var(--color-bg-green);
 }
-
 
 
 /* =======================================================================

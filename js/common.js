@@ -2,17 +2,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Inject shared header
   fetch("/partials/header.html")
-    .then(r => r.text())
-    .then(html => {
-      document.body.insertAdjacentHTML("afterbegin", html);
-      initMenuToggle(); // after injection
+    .then((r) => r.text())
+    .then((html) => {
+      document.getElementById("site-header").innerHTML = html;
+
+      // 👉 Notify other scripts that header (and its elements) are ready
+      window.dispatchEvent(new Event("header-ready"));
     })
-    .catch(err => console.error("Header load failed:", err));
+    .catch((err) => console.error("Header load error:", err));
 
   // Inject shared footer (if exists)
   fetch("/partials/footer.html")
-    .then(r => r.text())
-    .then(html => document.body.insertAdjacentHTML("beforeend", html))
+    .then((r) => r.text())
+    .then((html) => document.body.insertAdjacentHTML("beforeend", html))
     .catch(() => {}); // optional
 
   // Example: language persistence (if your i18n already handles it, skip)

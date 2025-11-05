@@ -89,6 +89,7 @@
     "nav-contact": "Contact",
     "nav-feedback": "💡 Feedback",
     "nav-terms": "Terms",
+    "nav-trig": "Sin Cos Tan",
 
     "section-2d": "🟪 The 2D Universe — or Flatland!",
     "section-2d-desc": "Welcome to Flatland — a world with only length and width, no depth allowed! It’s where geometry begins: the realm of drawings, tiles, and blueprints.",
@@ -134,7 +135,35 @@
     "menu-handle": "MENU",
     "menu-top": "Top",
     "menu-2d": "2D Figures",
-    "menu-3d": "3D Solids"
+    "menu-3d": "3D Solids",
+
+    "trig-title": "Trigonometric Functions — sin θ • cos θ • tan θ",
+    "trig-intro": "Explore how sine, cosine, and tangent relate triangle sides and angles. Includes formulas, solver, and unit circle.",
+    "trig-solver": "Right Triangle Solver",
+    "trig-unitcircle": "Unit Circle",
+    "trig-special": "Special Angles",
+    "trig-advanced": "Not-so-basic",
+    "trig-inverse": "Inverse Trig (right triangle)",
+    "trig-hint": "Give any <strong>2</strong> (angle + side or two sides). We'll compute the rest.",
+
+    "trig-definitions": "<strong>Definitions:</strong> Trigonometric functions relate the <em>angles</em> of a right triangle to the <em>ratios of its sides</em>. The three primary ones are:",
+    "trig-list": "<li><strong>sin(θ)</strong> = opposite / hypotenuse</li><li><strong>cos(θ)</strong> = adjacent / hypotenuse</li><li><strong>tan(θ)</strong> = opposite / adjacent</li>",
+    "trig-abbr": "<span class='chip'><strong>sin</strong> = <em>sine</em></span><span class='chip'><strong>cos</strong> = <em>cosine</em></span><span class='chip'><strong>tan</strong> = <em>tangent</em></span><span class='chip mini'>SOH-CAH-TOA → sin=opp/hyp • cos=adj/hyp • tan=opp/adj</span>",
+    "trig-intentl": "<strong>Intent:</strong> Quick visual reference for sin, cos, and tan — solver, unit circle cues, special angles, and key identities.",
+    "trig-recip": "<strong>Reciprocals</strong>:<br/>csc(θ) = 1/sin(θ) = c/a — <em>cosecant</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>secant</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangent</em>",
+    "trig-pyth": "<strong>Pythagorean</strong>: sin²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Cofunction</strong>: sin(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Angle addition</strong>: sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sin(α).sin(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Deg↔Rad:<br/>rad = deg·π/180<br/>deg = rad·180/π",
+    "trig-pyth-short": "Pythagoras: c² = a² + b²",
+    "trig-input-hint": "Give any <strong>2</strong> inputs (angle + side or two sides).",
+    "trig-input-error": "Too many inputs — setup invalid.",
+    "trig-circle-sub": "Each position means: angle in radians / angle in degrees (e.g., π/4 | 45°). COS, SIN and TAN values are shown on their axis projection.",
+    "trig-table-sub": "Exact sine, cosine and tangent values for special angles.",
+    "formulas-label": "Formulas",
+    "results-label": "Results",
+    "trig-inverse-content": "θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)<br/>Domains: arcsin, arccos ∈ [−1, 1]; respect units (deg/rad)."
   },
   "es": {
     "main-title": "123Trig",
@@ -231,6 +260,7 @@
     "nav-contact": "Contacto",
     "nav-feedback": "💡 Sugerencias",
     "nav-terms": "Términos",
+    "nav-trig": "Sen Cos Tan",
 
     "footer-rights": "Todos los derechos reservados.",
     "contact-title": "Contacto",
@@ -275,7 +305,35 @@
     "menu-handle": "MENÚ",
     "menu-top": "Inicio",
     "menu-2d": "Figuras 2D",
-    "menu-3d": "Sólidos 3D"
+    "menu-3d": "Sólidos 3D",
+
+    "trig-title": "Funciones trigonométricas — sen θ • cos θ • tan θ",
+    "trig-intro": "Explora cómo el seno, coseno y tangente relacionan los lados y ángulos de un triángulo. Incluye fórmulas, solucionador y círculo unitario.",
+    "trig-solver": "Solucionador de triángulos rectángulos",
+    "trig-unitcircle": "Círculo unitario",
+    "trig-special": "Ángulos especiales",
+    "trig-advanced": "No tan básicas",
+    "trig-inverse": "Trigonometría inversa (triángulo rectángulo)",
+    "trig-hint": "Da cualquier 2 (ángulo + lado o dos lados). Calcularemos el resto.",
+
+    "trig-definitions": "<strong>Definiciones:</strong> Las funciones trigonométricas relacionan los <em>ángulos</em> de un triángulo rectángulo con las <em>razones de sus lados</em>. Las tres principales son:",
+    "trig-list": "<li><strong>sen(θ)</strong> = cateto opuesto / hipotenusa</li><li><strong>cos(θ)</strong> = cateto adyacente / hipotenusa</li><li><strong>tan(θ)</strong> = opuesto / adyacente</li>",
+    "trig-abbr": "<span class='chip'><strong>sen</strong> = <em>seno</em></span><span class='chip'><strong>cos</strong> = <em>coseno</em></span><span class='chip'><strong>tan</strong> = <em>tangente</em></span><span class='chip mini'>SOH-CAH-TOA → sen=op/hip • cos=ady/hip • tan=op/ady</span>",
+    "trig-intent": "<strong>Intención:</strong> Referencia visual rápida de seno, coseno y tangente — solucionador, círculo unitario, ángulos notables e identidades clave.",
+    "trig-recip": "<strong>Recíprocas</strong>:<br/>csc(θ) = 1/sen(θ) = c/a — <em>cosecante</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>secante</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangente</em>",
+    "trig-pyth": "<strong>Pitagóricas</strong>: sen²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Cofunción</strong>: sen(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Suma y diferencia</strong>: sen(α ± β) = sen(α).cos(β) ± cos(α).sen(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sen(α).sen(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Grados↔Radianes:<br/>rad = grados·π/180<br/>grados = rad·180/π",
+    "trig-pyth-short": "Pitágoras: c² = a² + b²",
+    "trig-input-hint": "Introduce <strong>2</strong> valores (ángulo + lado o dos lados).",
+    "trig-input-error": "Demasiadas entradas — configuración inválida.",
+    "trig-circle-sub": "Cada posición representa: ángulo en radianes / ángulo en grados (por ejemplo, π/4 | 45°). Los valores de COS, SIN y TAN se muestran sobre su proyección en el eje correspondiente.",
+    "trig-table-sub": "Valores exactos de seno, coseno y tangente para ángulos notables.",
+    "formulas-label": "Fórmulas",
+    "results-label": "Resultados",
+    "trig-inverse-content": "θ = arcsen(a/c) = arccos(b/c) = arctan(a/b)<br/>Dominios: arcsen, arccos ∈ [−1, 1]; respeta las unidades (grados/radianes)."
   },
 
   "fr": {
@@ -373,6 +431,7 @@
     "nav-contact": "Contact",
     "nav-feedback": "💡 Suggestions",
     "nav-terms": "Conditions",
+    "nav-trig": "Sin Cos Tan",
 
     "footer-rights": "Tous droits réservés.",
     "contact-title": "Contact",
@@ -418,7 +477,35 @@
     "menu-handle": "MENU",
     "menu-top": "Haut de page",
     "menu-2d": "Figures 2D",
-    "menu-3d": "Solides 3D"
+    "menu-3d": "Solides 3D",
+
+    "trig-title": "Fonctions trigonométriques — sin θ • cos θ • tan θ",
+    "trig-intro": "Découvrez comment le sinus, le cosinus et la tangente relient les côtés et les angles d’un triangle. Inclut formules, solveur et cercle unité.",
+    "trig-solver": "Solveur de triangle rectangle",
+    "trig-unitcircle": "Cercle unité",
+    "trig-special": "Angles spéciaux",
+    "trig-advanced": "Moins basiques",
+    "trig-inverse": "Trigonométrie inverse (triangle rectangle)",
+    "trig-hint": "Donnez 2 valeurs (angle + côté ou deux côtés). Nous calculerons le reste.",
+
+    "trig-definitions": "<strong>Définitions :</strong> Les fonctions trigonométriques relient les <em>angles</em> d’un triangle rectangle aux <em>rapports de ses côtés</em>. Les trois principales sont :",
+    "trig-list": "<li><strong>sin(θ)</strong> = côté opposé / hypothénuse</li><li><strong>cos(θ)</strong> = côté adjacent / hypothénuse</li><li><strong>tan(θ)</strong> = opposé / adjacent</li>",
+    "trig-abbr": "<span class='chip'><strong>sin</strong> = <em>sinus</em></span><span class='chip'><strong>cos</strong> = <em>cosinus</em></span><span class='chip'><strong>tan</strong> = <em>tangente</em></span><span class='chip mini'>SOH-CAH-TOA → sin=opp/hyp • cos=adj/hyp • tan=opp/adj</span>",
+    "trig-intent": "<strong>But :</strong> Référence visuelle rapide pour sinus, cosinus et tangente — solveur, cercle unité, angles remarquables et identités clés.",
+    "trig-recip": "<strong>Réciproques</strong>:<br/>csc(θ) = 1/sin(θ) = c/a — <em>cosécante</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>sécante</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangente</em>",
+    "trig-pyth": "<strong>Pythagoriciennes</strong>: sin²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Co-fonction</strong>: sin(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Addition d’angles</strong>: sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sin(α).sin(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Deg↔Rad :<br/>rad = deg·π/180<br/>deg = rad·180/π",
+    "trig-pyth-short": "Pythagore : c² = a² + b²",
+    "trig-input-hint": "Donnez <strong>2</strong> valeurs (angle + côté ou deux côtés).",
+    "trig-input-error": "Trop de valeurs — configuration invalide.",
+    "trig-circle-sub": "Chaque position indique : angle en radians / angle en degrés (ex. : π/4 | 45°). Les valeurs de COS, SIN et TAN sont représentées sur leur projection d’axe respective.",
+    "trig-table-sub": "Valeurs exactes de sinus, cosinus et tangente pour les angles remarquables.",
+    "formulas-label": "Formules",
+    "results-label": "Résultats",
+    "trig-inverse-content": "θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)<br/>Domaines : arcsin, arccos ∈ [−1, 1] ; respecter les unités (deg/rad)."
   },
   "pt": {
     "main-title": "123Trig",
@@ -560,7 +647,35 @@
     "menu-handle": "MENU",
     "menu-top": "Início",
     "menu-2d": "Figuras 2D",
-    "menu-3d": "Sólidos 3D"
+    "menu-3d": "Sólidos 3D",
+
+    "trig-title": "Funções trigonométricas — sen θ • cos θ • tan θ",
+    "trig-intro": "Explore como o seno, o cosseno e a tangente relacionam os lados e ângulos de um triângulo. Inclui fórmulas, solucionador e círculo unitário.",
+    "trig-solver": "Solucionador de triângulo retângulo",
+    "trig-unitcircle": "Círculo unitário",
+    "trig-special": "Ângulos especiais",
+    "trig-advanced": "Não tão básicas",
+    "trig-inverse": "Trigonometria inversa (triângulo retângulo)",
+    "trig-hint": "Dê quaisquer <strong>2</strong> (ângulo + lado ou dois lados). Calcularemos o resto.",
+
+    "trig-definitions": "<strong>Definições:</strong> As funções trigonométricas relacionam os <em>ângulos</em> de um triângulo retângulo com as <em>razões dos seus lados</em>. As três principais são:",
+    "trig-list": "<li><strong>sen(θ)</strong> = cateto oposto / hipotenusa</li><li><strong>cos(θ)</strong> = cateto adjacente / hipotenusa</li><li><strong>tan(θ)</strong> = oposto / adjacente</li>",
+    "trig-abbr": "<span class='chip'><strong>sen</strong> = <em>seno</em></span><span class='chip'><strong>cos</strong> = <em>cosseno</em></span><span class='chip'><strong>tan</strong> = <em>tangente</em></span><span class='chip mini'>SOH-CAH-TOA → sen=op/hip • cos=adj/hip • tan=op/adj</span>",
+    "trig-intent": "<strong>Objetivo:</strong> Referência visual rápida de seno, cosseno e tangente — solucionador, círculo unitário, ângulos notáveis e identidades fundamentais.",
+    "trig-recip": "<strong>Recíprocas</strong>:<br/>csc(θ) = 1/sen(θ) = c/a — <em>cossecante</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>secante</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangente</em>",
+    "trig-pyth": "<strong>Pitagóricas</strong>: sen²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Co-função</strong>: sen(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Soma e diferença</strong>: sen(α ± β) = sen(α).cos(β) ± cos(α).sen(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sen(α).sen(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Graus↔Radianos:<br/>rad = graus·π/180<br/>graus = rad·180/π",
+    "trig-pyth-short": "Pitágoras: c² = a² + b²",
+    "trig-input-hint": "Insira <strong>2</strong> valores (ângulo + lado ou dois lados).",
+    "trig-input-error": "Entradas em excesso — configuração inválida.",
+    "trig-circle-sub": "Cada posição indica: ângulo em radianos / ângulo em graus (ex.: π/4 | 45°). Os valores de COS, SIN e TAN são mostrados na sua projeção sobre o respectivo eixo.",
+    "trig-table-sub": "Valores exatos de seno, cosseno e tangente para ângulos notáveis.",
+    "formulas-label": "Fórmulas",
+    "results-label": "Resultados",
+    "trig-inverse-content": "θ = arcsen(a/c) = arccos(b/c) = arctan(a/b)<br/>Domínios: arcsen, arccos ∈ [−1, 1]; respeite as unidades (graus/rad)."
   },
 
   "de": {
@@ -703,7 +818,35 @@
     "menu-handle": "MENÜ",
     "menu-top": "Oben",
     "menu-2d": "2D-Figuren",
-    "menu-3d": "3D-Körper"
+    "menu-3d": "3D-Körper",
+
+    "trig-title": "Trigonometrische Funktionen — sin θ • cos θ • tan θ",
+    "trig-intro": "Erkunde, wie Sinus, Kosinus und Tangens die Seiten und Winkel eines Dreiecks miteinander verbinden. Enthält Formeln, Rechner und Einheitskreis.",
+    "trig-solver": "Rechner für rechtwinkliges Dreieck",
+    "trig-unitcircle": "Einheitskreis",
+    "trig-special": "Besondere Winkel",
+    "trig-advanced": "Etwas fortgeschrittener",
+    "trig-inverse": "Inverse Trigonometrie (rechtwinkliges Dreieck)",
+    "trig-hint": "Gib beliebige <strong>2</strong> Werte an (Winkel + Seite oder zwei Seiten). Wir berechnen den Rest.",
+
+    "trig-definitions": "<strong>Definitionen:</strong> Trigonometrische Funktionen verbinden die <em>Winkel</em> eines rechtwinkligen Dreiecks mit den <em>Verhältnissen seiner Seiten</em>. Die drei Hauptfunktionen sind:",
+    "trig-list": "<li><strong>sin(θ)</strong> = Gegenkathete / Hypotenuse</li><li><strong>cos(θ)</strong> = Ankathete / Hypotenuse</li><li><strong>tan(θ)</strong> = Gegenkathete / Ankathete</li>",
+    "trig-abbr": "<span class='chip'><strong>sin</strong> = <em>Sinus</em></span><span class='chip'><strong>cos</strong> = <em>Kosinus</em></span><span class='chip'><strong>tan</strong> = <em>Tangens</em></span><span class='chip mini'>SOH-CAH-TOA → sin=geg/hyp • cos=ank/hyp • tan=geg/ank</span>",
+    "trig-intent": "<strong>Ziel:</strong> Schnelle visuelle Referenz für Sinus, Kosinus und Tangens — Rechner, Einheitskreis, besondere Winkel und grundlegende Identitäten.",
+    "trig-recip": "<strong>Reziproke Funktionen</strong>:<br/>csc(θ) = 1/sin(θ) = c/a — <em>Kosekans</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>Sekans</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>Kotangens</em>",
+    "trig-pyth": "<strong>Pythagoreische</strong>: sin²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Kofunktion</strong>: sin(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Winkeladdition</strong>: sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sin(α).sin(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Grad↔Bogenmaß:<br/>rad = grad·π/180<br/>grad = rad·180/π",
+    "trig-pyth-short": "Pythagoras: c² = a² + b²",
+    "trig-input-hint": "Gib <strong>2</strong> Werte ein (Winkel + Seite oder zwei Seiten).",
+    "trig-input-error": "Zu viele Eingaben — ungültige Konfiguration.",
+    "trig-circle-sub": "Jede Position zeigt: Winkel im Bogenmaß / Winkel in Grad (z. B. π/4 | 45°). Die Werte von COS, SIN und TAN werden auf ihrer jeweiligen Achsenprojektion dargestellt.",
+    "trig-table-sub": "Exakte Sinus-, Kosinus- und Tangenswerte für besondere Winkel.",
+    "formulas-label": "Formeln",
+    "results-label": "Ergebnisse",
+    "trig-inverse-content": "θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)<br/>Bereiche: arcsin, arccos ∈ [−1, 1]; Einheiten beachten (Grad/Rad)."
   },
 
   "it": {
@@ -846,7 +989,35 @@
     "menu-handle": "MENU",
     "menu-top": "Inizio",
     "menu-2d": "Figure 2D",
-    "menu-3d": "Solidi 3D"
+    "menu-3d": "Solidi 3D",
+
+    "trig-title": "Funzioni trigonometriche — sen θ • cos θ • tan θ",
+    "trig-intro": "Scopri come seno, coseno e tangente collegano i lati e gli angoli di un triangolo. Include formule, calcolatore e cerchio unitario.",
+    "trig-solver": "Calcolatore di triangoli rettangoli",
+    "trig-unitcircle": "Cerchio unitario",
+    "trig-special": "Angoli speciali",
+    "trig-advanced": "Non così basilari",
+    "trig-inverse": "Trigonometria inversa (triangolo rettangolo)",
+    "trig-hint": "Inserisci <strong>2</strong> valori (angolo + lato o due lati). Calcoleremo il resto.",
+
+    "trig-definitions": "<strong>Definizioni:</strong> Le funzioni trigonometriche collegano gli <em>angoli</em> di un triangolo rettangolo ai <em>rapporti dei suoi lati</em>. Le tre principali sono:",
+    "trig-list": "<li><strong>sen(θ)</strong> = cateto opposto / ipotenusa</li><li><strong>cos(θ)</strong> = cateto adiacente / ipotenusa</li><li><strong>tan(θ)</strong> = opposto / adiacente</li>",
+    "trig-abbr": "<span class='chip'><strong>sen</strong> = <em>seno</em></span><span class='chip'><strong>cos</strong> = <em>coseno</em></span><span class='chip'><strong>tan</strong> = <em>tangente</em></span><span class='chip mini'>SOH-CAH-TOA → sen=opp/ip • cos=adi/ip • tan=opp/adi</span>",
+    "trig-intent": "<strong>Scopo:</strong> Riferimento visivo rapido per seno, coseno e tangente — calcolatore, cerchio unitario, angoli notevoli e identità principali.",
+    "trig-recip": "<strong>Reciproche</strong>:<br/>csc(θ) = 1/sen(θ) = c/a — <em>cosecante</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>secante</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>cotangente</em>",
+    "trig-pyth": "<strong>Pitagoriche</strong>: sen²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>Cofunzione</strong>: sen(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>Somma e differenza</strong>: sen(α ± β) = sen(α).cos(β) ± cos(α).sen(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sen(α).sen(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "Gradi↔Radianti:<br/>rad = gradi·π/180<br/>gradi = rad·180/π",
+    "trig-pyth-short": "Pitagora: c² = a² + b²",
+    "trig-input-hint": "Inserisci <strong>2</strong> valori (angolo + lato o due lati).",
+    "trig-input-error": "Troppe voci — configurazione non valida.",
+    "trig-circle-sub": "Ogni posizione indica: angolo in radianti / angolo in gradi (es.: π/4 | 45°). I valori di COS, SIN e TAN sono mostrati nella loro proiezione sugli assi.",
+    "trig-table-sub": "Valori esatti di seno, coseno e tangente per angoli notevoli.",
+    "formulas-label": "Formule",
+    "results-label": "Risultati",
+    "trig-inverse-content": "θ = arcsen(a/c) = arccos(b/c) = arctan(a/b)<br/>Domini: arcsen, arccos ∈ [−1, 1]; rispetta le unità (gradi/rad)."
   },
   "zh": {
     "main-title": "123Trig",
@@ -988,7 +1159,35 @@
     "menu-handle": "菜单",
     "menu-top": "顶部",
     "menu-2d": "二维图形",
-    "menu-3d": "三维立体"
+    "menu-3d": "三维立体",
+
+    "trig-title": "三角函数 — sin θ • cos θ • tan θ",
+    "trig-intro": "了解正弦、余弦和正切如何将三角形的边与角联系起来。包含公式、求解器和单位圆。",
+    "trig-solver": "直角三角形求解器",
+    "trig-unitcircle": "单位圆",
+    "trig-special": "特殊角度",
+    "trig-advanced": "进阶内容",
+    "trig-inverse": "反三角函数（直角三角形）",
+    "trig-hint": "输入任意<strong>2</strong>个（角度 + 边或两条边）。系统将计算其余部分。",
+
+    "trig-definitions": "<strong>定义：</strong> 三角函数将直角三角形的<em>角度</em>与其<em>边的比值</em>联系起来。三种主要函数是：",
+    "trig-list": "<li><strong>sin(θ)</strong> = 对边 / 斜边</li><li><strong>cos(θ)</strong> = 邻边 / 斜边</li><li><strong>tan(θ)</strong> = 对边 / 邻边</li>",
+    "trig-abbr": "<span class='chip'><strong>sin</strong> = <em>正弦</em></span><span class='chip'><strong>cos</strong> = <em>余弦</em></span><span class='chip'><strong>tan</strong> = <em>正切</em></span><span class='chip mini'>SOH-CAH-TOA → sin=对/斜 • cos=邻/斜 • tan=对/邻</span>",
+    "trig-intent": "<strong>目的：</strong> 提供正弦、余弦和正切的快速可视参考，包括求解器、单位圆、特殊角度和主要恒等式。",
+    "trig-recip": "<strong>倒数函数</strong>:<br/>csc(θ) = 1/sin(θ) = c/a — <em>余割</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>正割</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>余切</em>",
+    "trig-pyth": "<strong>勾股恒等式</strong>: sin²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>余函数关系</strong>: sin(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>和差公式</strong>: sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sin(α).sin(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "角度↔弧度:<br/>rad = deg·π/180<br/>deg = rad·180/π",
+    "trig-pyth-short": "勾股定理: c² = a² + b²",
+    "trig-input-hint": "输入任意<strong>2</strong>个值（角度 + 边或两条边）。",
+    "trig-input-error": "输入过多 — 设置无效。",
+    "trig-circle-sub": "每个位置表示：弧度角 / 度数角（例如 π/4 | 45°）。COS、SIN 和 TAN 的数值显示在各自轴线的投影上。",
+    "trig-table-sub": "特殊角的正弦、余弦和正切精确值。",
+    "formulas-label": "公式",
+    "results-label": "结果",
+    "trig-inverse-content": "θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)<br/>定义域: arcsin, arccos ∈ [−1, 1]; 注意单位 (度/弧度)。"
   },
   "ja": {
     "main-title": "123Trig",
@@ -1130,6 +1329,34 @@
     "menu-handle": "メニュー",
     "menu-top": "トップ",
     "menu-2d": "2D図形",
-    "menu-3d": "3D立体"
+    "menu-3d": "3D立体",
+
+    "trig-title": "三角関数 — sin θ • cos θ • tan θ",
+    "trig-intro": "サイン、コサイン、タンジェントが三角形の辺と角をどのように関連付けるかを学びましょう。式、計算ツール、単位円を含みます。",
+    "trig-solver": "直角三角形ソルバー",
+    "trig-unitcircle": "単位円",
+    "trig-special": "特別な角度",
+    "trig-advanced": "応用",
+    "trig-inverse": "逆三角関数（直角三角形）",
+    "trig-hint": "<strong>2</strong>つの値（角度＋辺、または2辺）を入力してください。残りを計算します。",
+
+    "trig-definitions": "<strong>定義：</strong> 三角関数は直角三角形の<em>角度</em>と<em>辺の比</em>を関連付けます。主な3つの関数は次のとおりです:",
+    "trig-list": "<li><strong>sin(θ)</strong> = 対辺 / 斜辺</li><li><strong>cos(θ)</strong> = 隣辺 / 斜辺</li><li><strong>tan(θ)</strong> = 対辺 / 隣辺</li>",
+    "trig-abbr": "<span class='chip'><strong>sin</strong> = <em>サイン</em></span><span class='chip'><strong>cos</strong> = <em>コサイン</em></span><span class='chip'><strong>tan</strong> = <em>タンジェント</em></span><span class='chip mini'>SOH-CAH-TOA → sin=対/斜 • cos=隣/斜 • tan=対/隣</span>",
+    "trig-intent": "<strong>目的：</strong> サイン、コサイン、タンジェントの視覚的な速習リファレンス。計算ツール、単位円、特別な角度、主要な恒等式を含みます。",
+    "trig-recip": "<strong>逆関数</strong>:<br/>csc(θ) = 1/sin(θ) = c/a — <em>コセカント</em><br/>sec(θ) = 1/cos(θ) = c/b — <em>セカント</em><br/>cot(θ) = 1/tan(θ) = b/a — <em>コタンジェント</em>",
+    "trig-pyth": "<strong>ピタゴラス恒等式</strong>: sin²(θ) + cos²(θ) = 1;<br/>1 + tan²(θ) = sec²(θ); 1 + cot²(θ) = csc²(θ)",
+    "trig-cofun": "<strong>余関数</strong>: sin(90° − x) = cos(x); tan(90° − x) = cot(x)",
+    "trig-addition": "<strong>加法定理</strong>: sin(α ± β) = sin(α).cos(β) ± cos(α).sin(β);<br/>cos(α ± β) = cos(α).cos(β) ∓ sin(α).sin(β);<br/>tan(α ± β) = (tan(α) ± tan(β)) / (1 ∓ tan(α).tan(β))",
+
+    "trig-degrad": "度↔ラジアン:<br/>rad = 度·π/180<br/>度 = rad·180/π",
+    "trig-pyth-short": "ピタゴラスの定理: c² = a² + b²",
+    "trig-input-hint": "<strong>2</strong>つの値（角度＋辺、または2辺）を入力してください。",
+    "trig-input-error": "入力が多すぎます — 無効な設定です。",
+    "trig-circle-sub": "各位置はラジアン/度の角度を示します（例: π/4 | 45°）。COS、SIN、TAN の値はそれぞれの軸への投影として示されています。",
+    "trig-table-sub": "特別な角度における正弦・余弦・正接の正確な値。",
+    "formulas-label": "公式",
+    "results-label": "結果",
+    "trig-inverse-content": "θ = arcsin(a/c) = arccos(b/c) = arctan(a/b)<br/>定義域: arcsin, arccos ∈ [−1, 1]; 単位（度/ラジアン）に注意。"
   }
 }

@@ -1,5 +1,3 @@
-let dict = {};
-
 function round(n) {
   return isNaN(n) ? "" : Number(n).toFixed(2);
 }
@@ -633,41 +631,3 @@ document.querySelectorAll('input[type="number"]').forEach((e) => {
       });
   });
 });
-
-// loadLang(initialLang);
-// document.getElementById('lang-switcher').value = initialLang;
-
-// const langEl = document.getElementById("lang-switcher");
-// if (langEl) {
-//   langEl.value = initialLang;
-//   langEl.addEventListener("change", () => {
-//     loadLang(langEl.value);
-//   });
-//   loadLang(initialLang);
-// }
-
-// --- Initialization ---
-document.addEventListener("DOMContentLoaded", () => {
-  // Wait briefly for header/footer to be injected
-  setTimeout(() => {
-    const supportedLangs = ["en", "es", "fr", "pt", "de", "it", "zh", "ja"];
-    const defaultLang = navigator.language.slice(0, 2);
-    const initialLang = supportedLangs.includes(defaultLang) ? defaultLang : "en";
-
-    const langEl = document.getElementById("lang-switcher");
-    if (langEl) {
-      langEl.value = initialLang;
-      langEl.addEventListener("change", () => {
-        loadLang(langEl.value);
-        localStorage.setItem("lang", langEl.value);
-      });
-    }
-
-    // load saved or initial language
-    const savedLang = localStorage.getItem("lang") || initialLang;
-    loadLang(savedLang);
-    if (langEl) langEl.value = savedLang;
-  }, 300);
-});
-
-
