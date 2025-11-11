@@ -20,16 +20,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Example: language persistence (if your i18n already handles it, skip)
   const savedLang = localStorage.getItem("lang");
   if (savedLang) document.documentElement.lang = savedLang;
+
+  window.addEventListener("header-ready", initMenuToggle);
 });
 
 function initMenuToggle() {
   const toggle = document.getElementById("menuToggle");
-  const nav = document.querySelector(".nav");
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("open");
+  const nav = document.getElementById("site-nav");
+  const links = nav?.querySelectorAll(".nav-links a");
+
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("open"); // abre/cierra
+  });
+
+  // opcional pero recomendable: cerrar al hacer click en un link
+  links?.forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
     });
-  }
+  });
+
+  // 👇 Cerrar al hacer clic fuera del header
+  document.addEventListener("click", (e) => {
+    if (nav.classList.contains("open") && !nav.contains(e.target)) {
+      nav.classList.remove("open");
+    }
+  });
 }
 
 // --- Inject Google Analytics ---
@@ -44,7 +62,9 @@ function initMenuToggle() {
 
   // configure analytics
   window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   window.gtag = gtag;
 
   gtag("js", new Date());
@@ -57,7 +77,8 @@ function initMenuToggle() {
 
   const adScript = document.createElement("script");
   adScript.async = true;
-  adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4301378904417353";
+  adScript.src =
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4301378904417353";
   adScript.crossOrigin = "anonymous";
   document.head.appendChild(adScript);
 
