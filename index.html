@@ -38,18 +38,27 @@
     
     <title>123Trig</title>
 
-    <script type="module">
-      import {
-        initConePopup,
-        showConePopup,
-        hideConePopup,
-      } from "/js/conepopup.js";
+    <script>
       window.addEventListener("DOMContentLoaded", () => {
-        initConePopup();
-        window.showConePopup = showConePopup;
-        window.hideConePopup = hideConePopup;
+        window.showConePopup = async () => {
+          if (!window.coneLoaded) {
+            const module = await import("/js/conepopup.js");
+            module.initConePopup(); // inicializa tu popup 3D
+
+            // guardar las funciones reales
+            window.showConePopup = module.showConePopup;
+            window.hideConePopup = module.hideConePopup;
+            window.coneLoaded = true;
+
+            console.log("✅ Cone popup module loaded dynamically");
+          }
+
+          // ahora llama a la función exportada real
+          window.showConePopup();
+        };
       });
     </script>
+
   </head>
 
   <body>
