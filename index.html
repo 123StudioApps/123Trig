@@ -221,11 +221,11 @@
         text-align: center;
       "
     >
-      <div class="card-title" data-i18n="definitions"></div>
-      <div data-i18n="desc-perimeter"></div>
-      <div data-i18n="desc-area"></div>
-      <div data-i18n="desc-volume"></div>
-      <div data-i18n="desc-surface-area"></div>
+      <div class="card-title" data-i18n="definitions">Definitions</div>
+      <div data-i18n="desc-perimeter"><strong>Perimeter</strong> is the total length around a shape. It’s straightforward for polygons.</div>
+      <div data-i18n="desc-area"><strong>Area</strong> is the space inside a 2D shape. Each figure has a specific formula.</div>
+      <div data-i18n="desc-volume"><strong>Volume</strong> measures how much space a 3D shape occupies, in cubic units.</div>
+      <div data-i18n="desc-surface-area"><strong>Surface area</strong> is the total area of all faces of a 3D object.</div>
     </section>
 
       <div style="text-align: center;">
@@ -241,7 +241,7 @@
             display: inline-block; 
             text-align: center;
           "
-          data-i18n="landing-intro">
+          data-i18n="landing-intro">🔎 Select a shape below and enter its dimensions to get instant results. Calculations update automatically in your language.<br>You can also navigate using the <strong>top menu</strong>.
         </div>
       </div>
 <section class="intro-section flatland">
@@ -255,7 +255,7 @@
       <!-- Square Card  Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Card Square Car-->
       <div class="card" id="square">
         <div class="card-title" data-i18n="square">Square</div>
-        <div class="figure-description" data-i18n="desc-square"></div>
+        <div class="figure-description" data-i18n="desc-square">A square has four equal sides and right angles. Use it to calculate area and perimeter easily.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -294,7 +294,7 @@
       <!-- Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card Rhombus Card-->
       <div class="card" id="rhombus">
         <div class="card-title" data-i18n="rhombus">Rhombus</div>
-        <div class="figure-description" data-i18n="desc-rhombus"></div>
+        <div class="figure-description" data-i18n="desc-rhombus">A rhombus has four equal sides but tilted angles. It often looks like a diamond in patterns and kites.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -359,7 +359,7 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-rhombus"></div>
+        <div class="figure-hint" data-i18n="hint-rhombus">💡 A rhombus is just a parallelogram with all sides equal. If you know the height, the area is a × h.</div>
       </div>
     </div>
 
@@ -367,7 +367,7 @@
       <!-- Rectangle Card -->
       <div class="card" id="rectangle">
         <div class="card-title" data-i18n="rect">Rectangle</div>
-        <div class="figure-description" data-i18n="desc-rect"></div>
+        <div class="figure-description" data-i18n="desc-rect">A rectangle has opposite sides equal. Quickly find its area and perimeter with two sides.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -409,7 +409,7 @@
       <!-- Paralelogram card  Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card Paralelogram card-->
       <div class="card" id="parallelogram">
         <div class="card-title" data-i18n="parallelogram">Parellelogram</div>
-        <div class="figure-description" data-i18n="desc-parallelogram"></div>
+        <div class="figure-description" data-i18n="desc-parallelogram">A parallelogram has opposite sides equal and parallel — like a pushed-over rectangle.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -470,7 +470,7 @@
       <!-- Triangle Card  Triangle Card  Triangle Card  Triangle Card  Triangle Card -->
       <div class="card" id="triangle">
         <div class="card-title" data-i18n="triangle">Triangle</div>
-        <div class="figure-description" data-i18n="desc-triangle"></div>
+        <div class="figure-description" data-i18n="desc-triangle">A triangle has three sides. With base and height, you can get its area fast.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -494,11 +494,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="base"></label>
+              <label data-i18n="base">Base (b):</label>
               <input id="tri-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="height"></label>
+              <label data-i18n="height">Height (h):</label>
               <input id="tri-h" min="0" step="any" type="number" value="4" />
             </div>
           </div>
@@ -518,7 +518,7 @@
       <!-- RIGHT Triangle -->
       <div class="card" id="rtriangle">
         <div class="card-title" data-i18n="triangle-right">Right Triangle</div>
-        <div class="figure-description" data-i18n="desc-triangle-right"></div>
+        <div class="figure-description" data-i18n="desc-triangle-right">A right triangle has one 90° angle. It’s the shape behind Pythagoras’ theorem and countless designs.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -544,11 +544,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="base"></label>
+              <label data-i18n="base">Base (b):</label>
               <input id="triR-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="height"></label>
+              <label data-i18n="height">Height (h):</label>
               <input id="triR-h" min="0" step="any" type="number" value="4" />
             </div>
             <div class="input-row">
@@ -572,7 +572,7 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-triR"></div>
+        <div class="figure-hint" data-i18n="hint-triR">💡 If there’s ONE thing to remember forever, it’s Pythagoras’ theorem.</div>
       </div>
     </div>
     <div class="layout-row">
@@ -581,7 +581,7 @@
         <div class="card-title" data-i18n="triangle-iso">
           Isosceles Triangle
         </div>
-        <div class="figure-description" data-i18n="desc-triangle-iso"></div>
+        <div class="figure-description" data-i18n="desc-triangle-iso">An isosceles triangle has two equal sides and a balanced look — symmetry made simple.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -616,11 +616,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="base"></label>
+              <label data-i18n="base">Base (b):</label>
               <input id="triIso-b" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="height"></label>
+              <label data-i18n="height">Height (h):</label>
               <input id="triIso-h" min="0" step="any" type="number" value="4" />
             </div>
             <div class="input-row">
@@ -647,14 +647,14 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-triiso"></div>
+        <div class="figure-hint" data-i18n="hint-triiso">💡 An isosceles triangle can be seen as two right triangles back to back.</div>
       </div>
       <!-- Equilateral Triangle Equilateral Triangle Equilateral Triangle Equilateral Triangle -->
       <div class="card" id="etriangle">
         <div class="card-title" data-i18n="triangle-equi">
           Equilateral Triangle
         </div>
-        <div class="figure-description" data-i18n="desc-triangle-equi"></div>
+        <div class="figure-description" data-i18n="desc-triangle-equi">An equilateral triangle has all sides and angles equal — pure geometric harmony.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -684,7 +684,7 @@
 
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="side"></label>
+              <label data-i18n="side">Side (a):</label>
               <input id="triEq-a" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
@@ -710,14 +710,14 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-trieq"></div>
+        <div class="figure-hint" data-i18n="hint-trieq">💡 Same spirit: an equilateral triangle relates neatly to right-triangle reasoning. Pythagoras does the heavy lifting; height isn’t even needed if you know a.</div>
       </div>
     </div>
     <div class="layout-row">
       <!-- pentagon -->
       <div class="card" id="penta">
         <div class="card-title" data-i18n="pentagon">Pentagon</div>
-        <div class="figure-description" data-i18n="desc-pentagon"></div>
+        <div class="figure-description" data-i18n="desc-pentagon">A pentagon has five equal sides and angles — a first step into regular polygons.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -744,11 +744,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="side"></label>
+              <label data-i18n="side">Side (a):</label>
               <input id="penta-a" min="0" step="any" type="number" value="6" />
             </div>
             <div class="input-row">
-              <label data-i18n="apothem"></label>
+              <label data-i18n="apothem">Apothem (ap):</label>
               <input id="penta-ap" min="0" step="any" type="number" value="4" />
             </div>
           </div>
@@ -764,12 +764,12 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-pentagon"></div>
+        <div class="figure-hint" data-i18n="hint-pentagon">💡 Everything looks like a combination of triangles if you look closely. A regular pentagon is 5 isosceles triangles. Its area is 5 times the area of one.</div>
       </div>
       <!-- Hexagon -->
       <div class="card" id="hexa">
         <div class="card-title" data-i18n="hexagon">Hexagon</div>
-        <div class="figure-description" data-i18n="desc-hexagon"></div>
+        <div class="figure-description" data-i18n="desc-hexagon">A hexagon has six equal sides — nature’s favorite shape in honeycombs and crystals.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -796,7 +796,7 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="side"></label>
+              <label data-i18n="side">Side (a):</label>
               <input id="hexa-a" min="0" step="any" type="number" value="6" />
             </div>
           </div>
@@ -815,14 +815,14 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-hexagon"></div>
+        <div class="figure-hint" data-i18n="hint-hexagon">💡 A regular hexagon is 6 equilateral triangles, so its area is 6 × the equilateral-triangle formula. You don’t need the apothem, but you can use it if you have it.</div>
       </div>
     </div>
     <div class="layout-row">
       <!-- n-Gon -->
       <div class="card" id="ngon">
         <div class="card-title" data-i18n="ngon">Regular n-gon</div>
-        <div class="figure-description" data-i18n="desc-ngon"></div>
+        <div class="figure-description" data-i18n="desc-ngon">Regular polygons with many sides start to look like circles — the more sides, the smoother.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -905,11 +905,11 @@
               <input id="ngon-n" min="3" step="1" type="number" value="8" />
             </div>
             <div class="input-row">
-              <label data-i18n="side"></label>
+              <label data-i18n="side">Side (a):</label>
               <input id="ngon-a" min="0" step="any" type="number" value="5" />
             </div>
             <div class="input-row">
-              <label data-i18n="apothem"></label>
+              <label data-i18n="apothem">Apothem (ap):</label>
               <input id="ngon-ap" min="0" step="any" type="number" value="4" />
             </div>
             <div class="input-row">
@@ -934,14 +934,14 @@
           </div>
           
         </div>
-        <div class="figure-hint" data-i18n="hint-ngon"></div>
+        <div class="figure-hint" data-i18n="hint-ngon">💡 All regular polygons are just a bunch of isosceles triangles — hence the similar formulas. As n increases and a decreases, the figure resembles a circle. The area idea aligns: perimeter × radius (apothem).</div>
       </div>
     </div>
     <div class="layout-row">
       <!-- Circle Card  Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card Circle Card-->
       <div class="card" id="circle">
         <div class="card-title" data-i18n="circle">Circle</div>
-        <div class="figure-description" data-i18n="desc-circle"></div>
+        <div class="figure-description" data-i18n="desc-circle">A circle is a 2D shape with a constant radius. Compute its area and perimeter in one step.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -981,14 +981,14 @@
 <div class="label" data-i18n="results-label">Results</div>
             <span id="circ-perim"></span>
             <span id="circ-area"></span>
-          </div><div class="figure-hint" data-i18n="hint-circle"></div>
+          </div><div class="figure-hint" data-i18n="hint-circle">💡 Here it is — the “infinigon.”</div>
         </div>
         
       </div>
       <!-- Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card Ellipse Card -->
       <div class="card" id="ellipse">
         <div class="card-title" data-i18n="ellipse">Ellipse</div>
-        <div class="figure-description" data-i18n="desc-ellipse"></div>
+        <div class="figure-description" data-i18n="desc-ellipse">A stretched circle (oval) defined by two semi-axes.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1042,11 +1042,11 @@
           </div>
           <div class="inputs-col">
             <div class="input-row">
-              <label data-i18n="major-axis"></label>
+              <label data-i18n="major-axis">Semi-major axis (a):</label>
               <input id="ell-a" min="0" step="any" type="number" value="5" />
             </div>
             <div class="input-row">
-              <label data-i18n="minor-axis"></label>
+              <label data-i18n="minor-axis">Semi-minor axis (b):</label>
               <input id="ell-b" min="0" step="any" type="number" value="3" />
             </div>
           </div>
@@ -1060,7 +1060,7 @@
             <span id="ell-area"></span>
             <span id="ell-perim"></span>
           </div>
-          <div class="figure-hint" data-i18n="hint-ellipse"></div>
+          <div class="figure-hint" data-i18n="hint-ellipse">💡 The ellipse is tricky: its perimeter has no simple closed form — we use approximations. (Yes, this still interests mathematicians!)</div>
         </div>
         
       </div>
@@ -1076,7 +1076,7 @@
         <!-- Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card Cube Card-->
           <div class="card" id="cube">
             <div class="card-title" data-i18n="cube">Cube</div>
-            <div class="figure-description" data-i18n="desc-cube"></div>
+            <div class="figure-description" data-i18n="desc-cube">A cube is a 3D shape with six equal square faces. It lets you compute volume and surface area.</div>
             <div class="layout">
               <div class="diagram">
                 <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1162,9 +1162,9 @@
             </div>
           </div>
             <!-- Rectangular Prism Card  Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card Rectangular Prism Card-->
-          <div class="card" id="rpism">
+          <div class="card" id="rprism">
             <div class="card-title" data-i18n="rect-prism">Rectangular Prism</div>
-            <div class="figure-description" data-i18n="desc-rect-prism"></div>
+            <div class="figure-description" data-i18n="desc-rect-prism">A rectangular prism is a box-shaped 3D object. Use it to find surface area and volume.</div>
             <div class="layout">
               <div class="diagram">
                 <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1337,7 +1337,7 @@
               <span id="gpris-area"></span>
             </div>
           </div>
-          <div class="figure-hint" data-i18n="hint-gprism"></div>
+          <div class="figure-hint" data-i18n="hint-gprism">💡 A prism’s <strong>volume</strong> depends only on base area and height. For <strong>surface area</strong>, add the two base areas and the lateral area (perimeter × h).<br><strong>Key rule:</strong> decomposition — slice hard shapes into easy pieces.</div>
         </div>
        <!-- Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism Oblique Prism -->
         <div class="card" id="goprism">
@@ -1433,7 +1433,7 @@
               <span id="slpr-area"></span>
             </div>
           </div>
-          <div class="figure-hint" data-i18n="hint-goprism"></div>
+          <div class="figure-hint" data-i18n="hint-goprism"> Tilt a prism and the volume formula stays the same. Surface area gets harder: the sides become parallelograms; compute each and sum with the two bases."</div>
 
         </div>
     </div>
@@ -1444,7 +1444,7 @@
             <div class="card-title" data-i18n="triangle-pyramid">
               Triangular Pyramid
             </div>
-            <div class="figure-description" data-i18n="desc-triangle-pyramid"></div>
+            <div class="figure-description" data-i18n="desc-triangle-pyramid">A triangular pyramid has a triangular base and three triangular faces. You can calculate its volume easily.</div>
             <div class="layout">
               <div class="diagram">
                 <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1571,7 +1571,7 @@
                 <span id="pyr-vol"></span>
               </div>
             </div>
-            <div class="figure-hint" data-i18n="hint-triangle-pyramid"></div>
+            <div class="figure-hint" data-i18n="hint-triangle-pyramid">💡 The volume of a triangular pyramid is the area of its base times its height, all divided by 3. Why? Because three identical pyramids can fit into a triangular prism.</div>
           </div>
           <!-- GENERIC PYRAMID  GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID GENERIC PYRAMID-->
           <div class="card" id="gpyramid">
@@ -1629,7 +1629,7 @@
                 <span id="gpyr-vol"></span>
               </div>
             </div>
-            <div class="figure-hint" data-i18n="hint-gpyramid"></div>
+            <div class="figure-hint" data-i18n="hint-gpyramid">💡 Every pyramid’s volume equals one-third of the prism with the same base and height.</div>
 
         </div>
 
@@ -1707,7 +1707,7 @@
           <!-- <span id="slpyr-area"></span> -->
         </div>
       </div>
-      <div class="figure-hint" data-i18n="hint-gopyramid"></div>
+      <div class="figure-hint" data-i18n="hint-gopyramid">💡 When the apex shifts sideways, the pyramid is oblique — the volume formula stays the same, but surface area is harder: each side is a triangle; compute each and sum with the base.</div>
     </div>
 
       
@@ -1717,7 +1717,7 @@
       <!-- Cylinder Card -->
       <div class="card" id="cylinder">
         <div class="card-title" data-i18n="cylinder">Cylinder</div>
-        <div class="figure-description" data-i18n="desc-cylinder"></div>
+        <div class="figure-description" data-i18n="desc-cylinder">A cylinder has two circular faces and a height. Get surface area and volume with simple inputs.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1802,7 +1802,7 @@
         <!-- Cone Card  Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card Cone Card-->
       <div class="card" id="cone">
         <div class="card-title" data-i18n="cone">Cone</div>
-        <div class="figure-description" data-i18n="desc-cone"></div>
+        <div class="figure-description" data-i18n="desc-cone">A cone has a circular base and tapers to a point. Compute area and volume with radius and height.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">
@@ -1866,7 +1866,7 @@
             <span id="cone-vol"></span>
           </div>
         </div>
-        <div class="figure-hint" data-i18n="hint-cone"></div>
+        <div class="figure-hint" data-i18n="hint-cone">💡 So… are cones just fancy pyramids? <button onclick='showConePopup()'>See why →</button></div>
       </div>
     </div>
 
@@ -1874,7 +1874,7 @@
       <!-- Sphere Card -->
       <div class="card" id="sphere">
         <div class="card-title" data-i18n="sphere">Sphere</div>
-        <div class="figure-description" data-i18n="desc-sphere"></div>
+        <div class="figure-description" data-i18n="desc-sphere">A sphere is a perfectly round 3D shape. Use its radius to get surface area and volume.</div>
         <div class="layout">
           <div class="diagram">
             <svg width="130" height="130" viewBox="0 0 130 130">

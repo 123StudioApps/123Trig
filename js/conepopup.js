@@ -92,6 +92,7 @@ export function showConePopup() {
     camera.updateProjectionMatrix();
     controls.update();
   });
+  
 }
 export function hideConePopup() {
   document.getElementById("popupContainer").style.display = "none";

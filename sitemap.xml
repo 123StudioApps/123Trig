@@ -21,12 +21,12 @@
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://123trig.com/privacidad.html</loc>
+    <loc>https://123trig.com/privacy.html</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://123trig.com/contacto.html</loc>
+    <loc>https://123trig.com/contact.html</loc>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
