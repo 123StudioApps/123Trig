@@ -263,7 +263,7 @@ function updateCylinderAndCone(dict, lang) {
     document.getElementById("cyl-vol").textContent =
       dict[lang]["volume"] +
       " = " +
-      round(2 * rCyl * rCyl * hCyl) +
+      round(rCyl * rCyl * hCyl) +
       "π" +
       " = " +
       round(pi * rCyl * rCyl * hCyl) +
