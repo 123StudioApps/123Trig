@@ -527,20 +527,24 @@ function updateObliquePrism(dict, lang) {
 
 function updateGenericPyramid(dict, lang) {
   const A = parseFloat(document.getElementById("gpyr-A").value);
-  // const P = parseFloat(document.getElementById("gpyr-P").value);
   const h = parseFloat(document.getElementById("gpyr-h").value);
-  // const l = parseFloat(document.getElementById("gpyr-l").value);
+  const P = parseFloat(document.getElementById("gpyr-P").value);
+  const l = parseFloat(document.getElementById("gpyr-l").value);
 
   if (!isNaN(A)  && !isNaN(h) ) {
     const V = (A * h) / 3;
-    // const S = A + (P * l) / 2;
     document.getElementById("gpyr-vol").textContent =
       dict[lang]["volume"] + " = " + V.toFixed(2) + " " + dict[lang]["units"] + "³";
-    // document.getElementById("gpyr-area").textContent =
-    //   dict[lang]["surface-area"] + " = " + S.toFixed(2) + " " + dict[lang]["units"] + "²";
   } else {
     document.getElementById("gpyr-vol").textContent = "";
-    // document.getElementById("gpyr-area").textContent = "";
+  }
+
+  if (!isNaN(A) && !isNaN(P) && !isNaN(l)) {
+    const S = A + (P * l) / 2;
+    document.getElementById("gpyr-area").textContent =
+      dict[lang]["surface-area"] + " = " + S.toFixed(2) + " " + dict[lang]["units"] + "²";
+  } else {
+    document.getElementById("gpyr-area").textContent = "";
   }
 }
 

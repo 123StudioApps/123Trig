@@ -1605,6 +1605,10 @@
                   <line x1="60" y1="80" x2="60" y2="20"
                     stroke="#ff0000" stroke-width="2" stroke-dasharray="3" />
                   <text x="103" y="70" font-size="12" fill="#ff0000">H</text>
+                  <!-- Slant height indicator -->
+                  <line x1="60" y1="20" x2="50" y2="90"
+                    stroke="#1f8a4c" stroke-width="2" stroke-dasharray="4" />
+                  <text x="48" y="55" font-size="12" fill="#1f8a4c">l</text>
                 </svg>
               </div>
 
@@ -1614,18 +1618,28 @@
                   <input id="gpyr-A" type="number" min="0" step="any" value="10"/>
                 </div>
                 <div class="input-row">
+                  <label for="gpyr-P" data-i18n="base-perimeter">Base perimeter P:</label>
+                  <input id="gpyr-P" type="number" min="0" step="any" value="14" />
+                </div>
+                <div class="input-row">
                   <label for="gpyr-h" data-i18n="3dheight">Height H:</label>
                   <input id="gpyr-h" type="number" min="0" step="any" value="5" />
+                </div>
+                <div class="input-row">
+                  <label for="gpyr-l" data-i18n="slant-height">Slant height l:</label>
+                  <input id="gpyr-l" type="number" min="0" step="any" value="6" />
                 </div>
               </div>
 
               <div class="formulas-col">
   <div class="label" data-i18n="formulas-label">Formulas</div>
                 <span>V = (A × H) / 3</span>
+                <span>S = A + (P × l) / 2</span>
               </div>
 
               <div class="results-col">
 <div class="label" data-i18n="results-label">Results</div>
+                <span id="gpyr-area"></span>
                 <span id="gpyr-vol"></span>
               </div>
             </div>
