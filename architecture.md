@@ -1,6 +1,8 @@
 /123trig
 │
-├── index.html
+├── index.html          ← landing hub with section cards
+├── geometry.html       ← full geometry calculators (moved from index)
+├── sincostan.html      ← trig basics (sin/cos/tan)
 ├── about.html
 ├── contacto.html
 ├── privacy.html

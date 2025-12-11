@@ -139,6 +139,76 @@ a:hover {
   line-height: 1.6;
 }
 
+.landing-grid {
+  max-width: 1080px;
+  margin: 2.5rem auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.section-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 220px;
+  justify-content: space-between;
+}
+
+.card-visual {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-visual svg {
+  width: 100%;
+  max-width: 210px;
+  height: 100%;
+}
+
+.card-visual img {
+  width: 80%;
+  max-width: 160px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(35, 52, 68, 0.08);
+  mix-blend-mode: multiply; /* lets white backgrounds melt into the card */
+}
+
+.section-card .card-title {
+  margin-bottom: 0.25rem;
+}
+
+.primary-button {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(35, 52, 68, 0.18);
+}
+
+.primary-button:hover {
+  background: #1c2d44;
+}
+
+.secondary-link {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.secondary-link:hover {
+  text-decoration: underline;
+}
+
 /* =======================================================================
    🧭 TOC (Collapsible Sidebar)
    ======================================================================= */
