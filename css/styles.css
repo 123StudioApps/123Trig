@@ -362,6 +362,12 @@ a:hover {
   line-height: 1.4;
 }
 
+.results-col > span {
+  display: block;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
 /* labels + inner spans remain inline */
 .formulas-col > span span,
 .results-col > span span {
