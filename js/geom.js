@@ -16,6 +16,12 @@ function updateSquareAndCube(dict, lang) {
       " " +
       dict[lang]["units"] +
       "²";
+  } else {
+    document.getElementById("square-perim").textContent = "";
+    document.getElementById("square-area").textContent = "";
+  }
+
+  if (!isNaN(aa)) {
     document.getElementById("area-cube").textContent =
       dict[lang]["area"] +
       " = " +
@@ -31,8 +37,6 @@ function updateSquareAndCube(dict, lang) {
       dict[lang]["units"] +
       "³";
   } else {
-    document.getElementById("square-perim").textContent = "";
-    document.getElementById("square-area").textContent = "";
     document.getElementById("area-cube").textContent = "";
     document.getElementById("vol-cube").textContent = "";
   }
@@ -131,7 +135,7 @@ function updateRhombus(dict, lang) {
       dict[lang]["units"];
     
   } else {
-    document.getElementById("rha-perim").textContent = "";
+    document.getElementById("rh-perim").textContent = "";
     
   }
 
@@ -139,7 +143,7 @@ function updateRhombus(dict, lang) {
     document.getElementById("rh-area").textContent =
       dict[lang]["area"] +
       " = " +
-      round(rd1 * rd2)/2 +
+      round((rd1 * rd2) / 2) +
       " " +
       dict[lang]["units"] +
       "²";
@@ -190,8 +194,8 @@ function updateTriangleAndPyramid(dict, lang) {
 function updateCircleAndSphere(dict, lang) {
   const r = parseFloat(document.getElementById("circ-r").value);
   const rs = parseFloat(document.getElementById("sphe-r").value);
+  const pi = Math.PI;
   if (!isNaN(r)) {
-    const pi = Math.PI;
     document.getElementById("circ-perim").textContent =
       dict[lang]["perimeter"] +
       " = " +
@@ -211,6 +215,12 @@ function updateCircleAndSphere(dict, lang) {
       " " +
       dict[lang]["units"] +
       "²";
+  } else {
+    document.getElementById("circ-perim").textContent = "";
+    document.getElementById("circ-area").textContent = "";
+  }
+
+  if (!isNaN(rs)) {
     document.getElementById("sph-area").textContent =
       dict[lang]["area"] +
       " = " +
@@ -235,8 +245,6 @@ function updateCircleAndSphere(dict, lang) {
       dict[lang]["units"] +
       "³";
   } else {
-    document.getElementById("circ-perim").textContent = "";
-    document.getElementById("circ-area").textContent = "";
     document.getElementById("sph-area").textContent = "";
     document.getElementById("sph-vol").textContent = "";
   }
@@ -454,7 +462,7 @@ function updateNGon(dict, lang) {
   const a  = parseFloat(document.getElementById("ngon-a").value);   // side length
   const ap = parseFloat(document.getElementById("ngon-ap").value);  // apothem
 
-  if (!isNaN(a)) {
+  if (!isNaN(n) && !isNaN(a) && !isNaN(ap)) {
   document.getElementById("ngon-r").textContent = "r = " + round(Math.sqrt((a/2)**2 +ap**2)) + dict[lang]["units"];
   document.getElementById("ngon-perim").textContent = dict[lang]["perimeter"] + " = " + round(n * a)  + dict[lang]["units"];
   document.getElementById("ngon-area").textContent = dict[lang]["area"] +" = " +round((n * a * ap )/2)+" " +dict[lang]["units"] +"²";
